@@ -1,0 +1,683 @@
+"respondent_id","treatment","refugee_thermometer","resettlement_support","school_support","benefits_support","age","gender","education","ideology","sample_weight"
+1,"Religious values + source cue",69,0.625,3,3,61,"Female","Four-year degree",4,0.723870118752717
+2,"Religious values message",75,0.5,5,2,63,"Female","Four-year degree",4,0.712381697074856
+3,"Religious values + source cue",21,0.25,3,5,71,"Male","Some college",5,0.497764362371959
+4,"Religious values message",52,0.375,4,1,73,"Female","Some college",5,0.651709809863086
+5,"Religious values + source cue",48,0.25,4,1,72,"Female","Two-year degree",5,0.651709809863086
+6,"Control",50,0.25,4,2,73,"Female","Some college",5,0.651709809863086
+7,"Religious values + source cue",58,0.75,4,4,62,"Female","Postgraduate degree",4,0.663880960811293
+8,"Control",4,0,1,1,74,"Female","Two-year degree",5,0.651709809863086
+9,"Religious values message",30,0,4,1,58,"Female","Some college",5,0.989279292219926
+10,"Religious values + source cue",,0,3,1,75,"Female","Some college",5,0.651709809863086
+11,"Religious values message",71,0.75,3,1,53,"Female","Some college",5,0.989279292219926
+12,"Religious values message",79,0.25,2,1,53,"Female","Postgraduate degree",4,0.663880960811293
+13,"Religious values + source cue",72,0.5,4,3,70,"Female","Four-year degree",4,0.690752333034607
+14,"Control",51,0.25,4,3,58,"Male","Four-year degree",5,0.507567915576225
+15,"Control",50,0.5,3,3,61,"Female","Four-year degree",4,0.723870118752717
+16,"Religious values + source cue",90,0.5,4,4,72,"Male","Some college",4,0.497764362371959
+17,"Religious values + source cue",70,0.5,4,1,84,"Male","Postgraduate degree",4,0.51055607224297
+18,"Religious values + source cue",50,0,2,1,60,"Male","Some college",4,0.976244090405611
+19,"Religious values message",59,0.5,4,3,31,"Female","Four-year degree",4,0.679698892976348
+20,"Control",50,0,2,2,80,"Male","Four-year degree",4,0.725790494855203
+21,"Religious values + source cue",50,0.375,3,3,66,"Male","Postgraduate degree",5,0.51055607224297
+22,"Religious values + source cue",47,0,3,1,55,"Male","Four-year degree",5,0.459543000284831
+23,"Religious values + source cue",99,0.5,3,3,71,"Female","Some college",5,0.651709809863086
+24,"Control",53,0.25,4,5,82,"Male","Four-year degree",4,0.725790494855203
+25,"Religious values message",9,0,1,1,72,"Male","Some college",4,0.497764362371959
+26,"Religious values message",,0.125,3,2,74,"Male","Some college",5,0.497764362371959
+27,"Religious values + source cue",50,0.5,4,2,73,"Male","Some college",4,0.497764362371959
+28,"Religious values + source cue",40,0,4,1,83,"Male","Four-year degree",5,0.725790494855203
+29,"Control",69,0.625,4,4,74,"Male","Two-year degree",4,0.497764362371959
+30,"Religious values message",,0.5,4,2,48,"Male","Some college",5,0.976244090405611
+31,"Religious values message",91,0.625,4,3,82,"Male","Postgraduate degree",5,0.51055607224297
+32,"Control",0,0,1,1,71,"Female","Four-year degree",5,0.690752333034607
+33,"Control",41,0.5,4,3,72,"Female","Two-year degree",4,0.651709809863086
+34,"Control",15,0.5,4,3,72,"Female","Four-year degree",5,0.690752333034607
+35,"Religious values message",21,0,2,1,72,"Male","Two-year degree",4,0.497764362371959
+36,"Religious values message",31,0.25,2,1,81,"Female","Four-year degree",5,0.690752333034607
+37,"Religious values + source cue",83,0.5,4,3,69,"Male","Four-year degree",4,0.725790494855203
+38,"Religious values message",2,0,1,1,63,"Female","Four-year degree",5,0.712381697074856
+39,"Religious values + source cue",72,0.25,4,2,74,"Female","Postgraduate degree",5,0.51055607224297
+40,"Control",49,0.5,3,1,74,"Male","Postgraduate degree",4,0.51055607224297
+41,"Control",21,0.75,4,5,69,"Male","Postgraduate degree",4,0.51055607224297
+42,"Control",52,0.75,4,2,76,"Male","Four-year degree",3,0.725790494855203
+43,"Religious values message",49,0.75,4,3,81,"Female","Four-year degree",4,0.690752333034607
+44,"Control",53,0.25,5,1,53,"Female","Four-year degree",5,0.699765837134414
+45,"Control",32,0,4,1,66,"Female","Four-year degree",5,0.690752333034607
+46,"Control",25,0,3,1,81,"Female","Some college",5,0.651709809863086
+47,"Religious values + source cue",50,0.5,4,2,80,"Male","Some college",5,0.497764362371959
+48,"Religious values + source cue",69,0.5,3,4,65,"Female","Four-year degree",5,0.690752333034607
+49,"Control",21,0.125,3,1,63,"Female","Four-year degree",4,0.699765837134414
+50,"Religious values message",69,0.375,4,2,72,"Male","Two-year degree",5,0.497764362371959
+51,"Religious values + source cue",52,0.375,3,1,73,"Male","Some college",4,0.497764362371959
+52,"Control",95,1,5,1,62,"Male","Postgraduate degree",5,0.418312748266299
+53,"Religious values message",9,0,1,1,46,"Female","Some college",5,1.00711469990964
+54,"Religious values message",100,0.75,5,2,52,"Male","Four-year degree",4,0.459543000284831
+55,"Control",43,0.25,3,1,87,"Male","Some college",4,0.497764362371959
+56,"Religious values + source cue",50,0.375,4,2,81,"Female","Some college",4,0.651709809863086
+57,"Religious values + source cue",53,0.375,4,3,80,"Male","Some college",4,0.497764362371959
+58,"Religious values message",12,0,1,1,64,"Male","Four-year degree",5,0.507567915576225
+59,"Religious values message",41,0.5,4,3,67,"Female","Some college",5,0.651709809863086
+60,"Religious values + source cue",70,0.125,4,5,70,"Male","Two-year degree",4,0.497764362371959
+61,"Religious values + source cue",50,0,3,1,60,"Male","Four-year degree",5,0.525051707050764
+62,"Control",48,0.375,4,2,62,"Female","Four-year degree",5,0.712381697074856
+63,"Religious values + source cue",40,0.125,3,1,69,"Male","Some college",5,0.497764362371959
+64,"Religious values message",48,0.5,4,3,55,"Female","Some college",4,1.02335621537536
+65,"Religious values + source cue",90,0.25,4,4,57,"Female","Some college",5,0.989279292219926
+66,"Control",11,0,1,1,63,"Male","Postgraduate degree",5,0.418312748266299
+67,"Religious values + source cue",79,0.625,5,4,88,"Female","Some college",4,0.651709809863086
+68,"Religious values + source cue",61,0.25,4,4,72,"Male","Some college",4,0.497764362371959
+69,"Religious values message",32,0,2,1,77,"Male","Some college",4,0.497764362371959
+70,"Control",75,0.125,1,1,69,"Male","Two-year degree",5,0.497764362371959
+71,"Religious values + source cue",51,0,2,1,60,"Male","Postgraduate degree",5,0.418312748266299
+72,"Control",70,0.75,3,3,66,"Male","Some college",5,0.497764362371959
+73,"Control",10,0,4,2,55,"Male","Four-year degree",4,0.507567915576225
+74,"Religious values message",21,0.25,3,1,77,"Male","Two-year degree",4,0.497764362371959
+75,"Religious values message",56,0.25,4,1,70,"Male","Some college",3,0.497764362371959
+76,"Religious values message",50,0.25,4,2,68,"Male","Two-year degree",4,0.497764362371959
+77,"Religious values + source cue",53,0.625,3,1,68,"Female","Some college",5,0.651709809863086
+78,"Control",50,0.375,5,1,58,"Male","Postgraduate degree",5,0.418312748266299
+79,"Religious values + source cue",1,0.125,3,1,75,"Female","Some college",4,0.651709809863086
+80,"Control",100,0.75,4,2,59,"Male","Postgraduate degree",4,0.418312748266299
+81,"Religious values + source cue",50,0.25,3,1,67,"Male","Some college",5,0.497764362371959
+82,"Control",53,0.5,4,4,63,"Male","Four-year degree",5,0.525051707050764
+83,"Religious values message",66,0.25,3,2,77,"Male","Two-year degree",5,0.497764362371959
+84,"Religious values message",52,0.5,4,1,83,"Male","Some college",5,0.497764362371959
+85,"Control",54,0.5,4,5,73,"Female","Two-year degree",5,0.651709809863086
+86,"Religious values message",0,0,1,1,77,"Male","Some college",5,0.497764362371959
+87,"Religious values message",2,0.25,3,1,71,"Male","Some college",5,0.497764362371959
+88,"Religious values message",43,0,2,1,50,"Male","Four-year degree",5,0.459543000284831
+89,"Religious values + source cue",,0,2,1,70,"Female","Two-year degree",5,0.651709809863086
+90,"Control",17,0,5,3,61,"Male","Postgraduate degree",4,0.418312748266299
+91,"Religious values message",61,0.5,4,2,59,"Male","Four-year degree",4,0.525051707050764
+92,"Religious values + source cue",1,0.375,3,1,68,"Female","Some college",5,0.651709809863086
+93,"Religious values + source cue",70,0.5,3,3,65,"Female","Two-year degree",5,0.651709809863086
+94,"Religious values message",96,0.5,3,1,61,"Female","Postgraduate degree",5,0.663880960811293
+95,"Control",49,0.5,3,2,50,"Male","Some college",5,0.854441824092489
+96,"Control",41,0.625,4,3,57,"Female","Postgraduate degree",4,0.663880960811293
+97,"Religious values message",68,0.25,4,2,56,"Male","Four-year degree",4,0.459543000284831
+98,"Religious values + source cue",,0.5,3,2,55,"Male","Some college",4,0.976244090405611
+99,"Religious values + source cue",2,0,3,1,55,"Male","Two-year degree",5,0.976244090405611
+100,"Religious values message",50,0,3,1,63,"Male","Some college",5,0.854441824092489
+101,"Control",30,0.25,3,1,62,"Female","Two-year degree",5,1.00711469990964
+102,"Religious values message",,0.5,4,2,57,"Male","Four-year degree",4,0.459543000284831
+103,"Control",62,0.5,4,1,65,"Female","Some college",3,0.651709809863086
+104,"Religious values message",68,0.25,4,2,58,"Male","Some college",4,0.854441824092489
+105,"Religious values message",53,0.5,4,2,51,"Female","Four-year degree",5,0.723870118752717
+106,"Control",53,0.125,1,1,69,"Male","Some college",5,0.497764362371959
+107,"Religious values + source cue",0,0,1,1,61,"Male","Some college",5,0.976244090405611
+108,"Control",75,0.5,5,4,59,"Male","Postgraduate degree",4,0.418312748266299
+109,"Control",,0,2,1,58,"Male","Two-year degree",4,0.976244090405611
+110,"Religious values + source cue",50,0.125,4,2,56,"Female","Some college",3,1.02335621537536
+111,"Control",80,0.5,4,2,53,"Male","Four-year degree",4,0.459543000284831
+112,"Religious values + source cue",12,0.25,2,1,77,"Female","Postgraduate degree",4,0.51055607224297
+113,"Control",7,0.125,5,1,76,"Female","Two-year degree",4,0.651709809863086
+114,"Control",77,0.5,3,1,63,"Female","Four-year degree",5,0.699765837134414
+115,"Religious values + source cue",40,0.25,3,1,51,"Female","Some college",5,0.989279292219926
+116,"Religious values message",87,0.75,4,4,64,"Male","Some college",5,0.854441824092489
+117,"Religious values + source cue",50,0.125,3,1,56,"Female","Four-year degree",5,0.712381697074856
+118,"Control",100,0.375,4,1,70,"Female","Postgraduate degree",4,0.51055607224297
+119,"Control",50,0.25,3,1,55,"Male","Postgraduate degree",5,0.418312748266299
+120,"Religious values + source cue",50,0,3,1,50,"Female","Four-year degree",5,0.712381697074856
+121,"Religious values + source cue",75,0.5,4,2,56,"Male","Two-year degree",4,0.854441824092489
+122,"Control",21,0,3,1,57,"Male","Some college",4,0.854441824092489
+123,"Religious values message",49,0.5,4,2,62,"Female","Four-year degree",5,0.712381697074856
+124,"Religious values + source cue",12,0.25,4,1,71,"Male","Two-year degree",5,0.497764362371959
+125,"Religious values message",22,0,1,1,50,"Male","Some college",4,0.854441824092489
+126,"Religious values message",98,0.5,4,2,58,"Male","Four-year degree",3,0.459543000284831
+127,"Control",24,0.25,4,1,56,"Female","Two-year degree",5,0.989279292219926
+128,"Religious values message",19,0.25,3,1,73,"Female","Some college",5,0.651709809863086
+129,"Religious values message",,0,3,1,61,"Female","Some college",5,0.989279292219926
+130,"Religious values + source cue",79,0.5,4,2,48,"Male","Some college",5,0.976244090405611
+131,"Control",79,0.25,4,1,57,"Female","Four-year degree",4,0.723870118752717
+132,"Religious values + source cue",81,0.625,4,1,60,"Male","Postgraduate degree",5,0.418312748266299
+133,"Religious values + source cue",64,0.375,4,2,36,"Male","Some college",4,1.27251708656811
+134,"Religious values message",54,0.25,3,1,65,"Male","Some college",4,0.497764362371959
+135,"Religious values message",70,0,2,1,57,"Male","Postgraduate degree",5,0.418312748266299
+136,"Control",65,0.75,4,4,70,"Female","Some college",4,0.651709809863086
+137,"Control",51,0.125,3,1,67,"Female","Two-year degree",5,0.651709809863086
+138,"Control",100,0.25,3,1,69,"Female","Some college",4,0.651709809863086
+139,"Control",61,0.5,4,2,49,"Female","Four-year degree",4,0.699765837134414
+140,"Control",30,0.25,3,2,53,"Male","Postgraduate degree",4,0.418312748266299
+141,"Control",59,0.375,2,1,56,"Male","Postgraduate degree",4,0.418312748266299
+142,"Religious values + source cue",80,0.5,4,2,61,"Male","Some college",4,0.854441824092489
+143,"Religious values message",49,0,5,1,71,"Female","Some college",5,0.651709809863086
+144,"Religious values + source cue",30,0.5,3,3,56,"Female","Two-year degree",5,1.00711469990964
+145,"Control",88,0.5,3,1,64,"Male","Postgraduate degree",3,0.418312748266299
+146,"Religious values message",50,0.125,5,2,37,"Male","Four-year degree",5,0.543960665882431
+147,"Control",48,0.25,4,2,85,"Female","Some college",5,0.651709809863086
+148,"Control",42,0.5,3,3,62,"Male","Four-year degree",5,0.507567915576225
+149,"Control",87,0.75,5,3,62,"Female","Postgraduate degree",5,0.663880960811293
+150,"Control",44,0.5,4,1,63,"Female","Some college",5,0.989279292219926
+151,"Religious values message",14,0,1,1,66,"Female","Some college",5,0.651709809863086
+152,"Religious values + source cue",80,0.5,4,3,50,"Male","Four-year degree",5,0.507567915576225
+153,"Religious values + source cue",50,0.5,4,4,51,"Female","Four-year degree",4,0.712381697074856
+154,"Religious values + source cue",75,0.5,4,3,84,"Female","Some college",4,0.651709809863086
+155,"Religious values message",69,0.5,4,3,79,"Female","Two-year degree",5,0.651709809863086
+156,"Control",31,0.5,5,4,78,"Female","Some college",4,0.651709809863086
+157,"Religious values message",51,0.125,4,1,62,"Female","Some college",5,1.00711469990964
+158,"Control",50,0.25,4,2,59,"Female","Four-year degree",5,0.699765837134414
+159,"Religious values message",74,0.5,4,3,38,"Female","Some college",5,1.42653208052024
+160,"Control",,0.25,3,3,50,"Female","Two-year degree",3,0.989279292219926
+161,"Religious values message",,0.5,3,1,61,"Male","Four-year degree",4,0.507567915576225
+162,"Religious values message",78,0.5,4,2,59,"Female","Two-year degree",5,1.02335621537536
+163,"Control",50,0.5,3,5,60,"Male","Four-year degree",4,0.507567915576225
+164,"Control",0,0,1,5,61,"Male","Four-year degree",5,0.459543000284831
+165,"Religious values + source cue",32,0.125,2,1,53,"Female","Some college",5,1.02335621537536
+166,"Control",87,0.5,3,2,63,"Female","Two-year degree",5,1.00711469990964
+167,"Control",85,0.75,5,2,57,"Female","Some college",4,1.02335621537536
+168,"Religious values + source cue",51,0.125,3,1,61,"Male","Two-year degree",5,0.854441824092489
+169,"Control",98,0.75,5,4,60,"Female","Four-year degree",5,0.723870118752717
+170,"Religious values message",84,0.75,4,2,54,"Female","Some college",4,1.02335621537536
+171,"Control",51,0.125,4,1,56,"Female","Two-year degree",4,1.02335621537536
+172,"Religious values message",60,0.5,3,2,64,"Male","Some college",5,0.854441824092489
+173,"Religious values message",50,0.5,3,3,64,"Male","Some college",4,0.976244090405611
+174,"Control",30,0,1,1,63,"Male","Two-year degree",4,0.854441824092489
+175,"Religious values message",50,0.25,2,1,55,"Female","Two-year degree",3,1.00711469990964
+176,"Religious values message",90,0.25,4,4,60,"Female","Two-year degree",4,1.00711469990964
+177,"Religious values + source cue",42,0.25,5,1,63,"Female","Two-year degree",5,1.00711469990964
+178,"Control",70,0.5,4,3,64,"Male","Some college",4,0.976244090405611
+179,"Religious values message",99,0,4,2,58,"Female","Some college",4,1.02335621537536
+180,"Religious values + source cue",79,0.5,5,3,43,"Male","Four-year degree",5,0.476092760160055
+181,"Religious values + source cue",50,0.25,1,5,57,"Male","Two-year degree",5,0.854441824092489
+182,"Religious values message",25,0.375,5,3,63,"Female","Two-year degree",4,1.02335621537536
+183,"Religious values + source cue",65,0.25,2,4,63,"Female","Some college",4,1.00711469990964
+184,"Religious values message",68,0,4,1,52,"Male","Some college",5,0.854441824092489
+185,"Control",50,0,1,1,64,"Male","Two-year degree",5,0.943735962395178
+186,"Control",80,0.625,5,2,55,"Male","Some college",4,0.854441824092489
+187,"Religious values + source cue",68,0.375,5,3,57,"Female","Two-year degree",3,1.00711469990964
+188,"Religious values + source cue",15,0,5,1,50,"Female","Some college",4,1.00711469990964
+189,"Religious values + source cue",1,0,1,1,40,"Female","Two-year degree",5,1.4495374470889
+190,"Control",50,0.5,4,2,59,"Male","Some college",4,0.854441824092489
+191,"Religious values + source cue",30,0,1,1,62,"Male","Some college",4,0.943735962395178
+192,"Religious values message",1,0,3,1,63,"Male","Some college",3,0.976244090405611
+193,"Religious values message",93,0,1,1,45,"Male","Some college",5,0.943735962395178
+194,"Religious values + source cue",71,0.125,2,1,56,"Female","Two-year degree",4,0.989279292219926
+195,"Control",60,0.75,4,3,47,"Male","Some college",3,0.854441824092489
+196,"Religious values + source cue",52,0.25,4,1,60,"Male","Two-year degree",3,0.943735962395178
+197,"Control",25,0,1,1,62,"Male","Some college",5,0.854441824092489
+198,"Control",0,0,1,1,57,"Male","Some college",4,0.854441824092489
+199,"Religious values + source cue",50,0.25,4,3,61,"Male","Some college",4,0.943735962395178
+200,"Control",70,0.375,4,2,59,"Male","Some college",5,0.854441824092489
+201,"Religious values message",56,0.5,4,3,59,"Female","Some college",4,1.00711469990964
+202,"Religious values + source cue",50,0.25,3,3,42,"Male","Four-year degree",4,0.476092760160055
+203,"Religious values message",67,0.5,3,3,42,"Female","Postgraduate degree",5,0.760202975214717
+204,"Religious values message",90,0.75,4,4,58,"Female","Some college",5,1.00711469990964
+205,"Religious values + source cue",17,0,3,1,61,"Female","Some college",4,1.00711469990964
+206,"Control",,0.25,3,1,63,"Female","Some college",5,1.00711469990964
+207,"Religious values message",80,0,3,2,54,"Female","Two-year degree",5,1.02335621537536
+208,"Religious values message",40,0.25,2,1,65,"Male","Two-year degree",4,0.497764362371959
+209,"Religious values message",70,0.5,5,1,57,"Female","Two-year degree",5,1.02335621537536
+210,"Religious values + source cue",,0.25,1,1,56,"Female","Two-year degree",5,1.00711469990964
+211,"Religious values message",99,0.25,3,1,39,"Male","Postgraduate degree",5,0.47194258778762
+212,"Control",77,1,5,3,41,"Male","Four-year degree",3,0.543960665882431
+213,"Control",2,0,1,1,50,"Female","Two-year degree",5,1.00711469990964
+214,"Religious values + source cue",62,0.625,4,3,35,"Male","Postgraduate degree",4,0.47194258778762
+215,"Religious values message",50,0.5,5,5,63,"Female","Some college",4,1.02335621537536
+216,"Control",99,0,5,1,31,"Female","Two-year degree",5,1.4495374470889
+217,"Religious values message",50,0.25,3,1,55,"Female","Some college",5,1.00711469990964
+218,"Religious values message",50,0.5,3,1,64,"Female","Some college",4,1.02335621537536
+219,"Control",81,0.75,4,4,31,"Female","Four-year degree",4,0.691952972241746
+220,"Control",90,0.5,5,3,58,"Female","Some college",5,1.00711469990964
+221,"Control",51,0.625,5,1,50,"Female","Four-year degree",5,0.712381697074856
+222,"Control",29,0.25,3,2,58,"Female","Some college",5,1.02335621537536
+223,"Religious values message",76,0.625,5,3,37,"Male","Postgraduate degree",4,0.47194258778762
+224,"Religious values message",100,0.25,4,2,30,"Male","Two-year degree",5,1.27251708656811
+225,"Control",52,0,3,1,53,"Female","Some college",4,1.02335621537536
+226,"Religious values message",100,1,5,5,45,"Male","Two-year degree",3,0.976244090405611
+227,"Religious values message",52,0.125,1,1,55,"Female","Two-year degree",3,1.00711469990964
+228,"Control",30,0.375,3,1,43,"Female","Two-year degree",5,1.4495374470889
+229,"Religious values message",40,0.125,2,2,44,"Male","Postgraduate degree",3,0.47194258778762
+230,"Control",50,0.375,2,1,63,"Female","Some college",5,1.00711469990964
+231,"Religious values + source cue",9,0.75,5,1,62,"Female","Two-year degree",5,1.00711469990964
+232,"Religious values message",36,0.375,4,2,59,"Female","Two-year degree",5,0.989279292219926
+233,"Control",,0,4,2,64,"Female","Some college",4,1.00711469990964
+234,"Religious values message",61,0.25,2,1,36,"Male","Two-year degree",5,1.45391675673382
+235,"Control",,0.5,4,3,43,"Female","Four-year degree",4,0.703111944403726
+236,"Religious values + source cue",1,0,1,5,43,"Male","Postgraduate degree",5,0.47194258778762
+237,"Religious values + source cue",47,0.25,4,1,45,"Female","Two-year degree",4,1.00711469990964
+238,"Religious values + source cue",42,0.5,3,2,31,"Female","Four-year degree",4,0.691952972241746
+239,"Control",70,0.5,4,3,31,"Male","Two-year degree",4,1.45391675673382
+240,"Religious values message",40,0.375,3,3,44,"Male","Some college",5,1.27251708656811
+241,"Religious values + source cue",50,0.75,3,3,45,"Female","Some college",4,1.00711469990964
+242,"Religious values + source cue",33,0,1,1,44,"Female","Some college",4,1.42653208052024
+243,"Religious values + source cue",50,0.5,4,2,37,"Female","Four-year degree",4,0.691952972241746
+244,"Religious values + source cue",93,0.25,5,3,43,"Female","Four-year degree",4,0.703111944403726
+245,"Religious values message",71,0.5,3,1,43,"Female","Four-year degree",5,0.691952972241746
+246,"Religious values + source cue",51,0.25,3,5,39,"Male","Four-year degree",5,0.543960665882431
+247,"Control",15,0,1,1,34,"Male","Some college",5,1.27251708656811
+248,"Religious values message",50,0,2,1,52,"Female","Some college",5,1.00711469990964
+249,"Religious values message",50,0.5,4,2,43,"Male","Two-year degree",5,1.45391675673382
+250,"Control",3,0,4,1,56,"Male","Four-year degree",3,0.525051707050764
+251,"Control",81,1,5,3,32,"Female","Four-year degree",4,0.691952972241746
+252,"Religious values message",49,0.5,4,3,39,"Female","Some college",4,1.42653208052024
+253,"Control",10,0,1,1,39,"Male","Two-year degree",5,1.27251708656811
+254,"Control",70,0.5,3,3,61,"Male","Postgraduate degree",4,0.418312748266299
+255,"Control",51,0.5,5,1,46,"Male","Four-year degree",4,0.525051707050764
+256,"Religious values + source cue",50,0.5,3,1,62,"Male","Some college",5,0.976244090405611
+257,"Control",51,0.375,3,5,59,"Male","Two-year degree",5,0.854441824092489
+258,"Control",51,0.375,2,3,47,"Male","Postgraduate degree",5,0.418312748266299
+259,"Religious values message",50,0.5,4,2,61,"Female","Some college",5,0.989279292219926
+260,"Religious values message",52,0.125,3,1,64,"Female","Some college",5,1.02335621537536
+261,"Religious values + source cue",51,0.5,4,1,72,"Male","Two-year degree",5,0.497764362371959
+262,"Religious values message",0,0,1,1,63,"Male","Some college",5,0.976244090405611
+263,"Control",9,0,1,1,63,"Male","Four-year degree",5,0.525051707050764
+264,"Control",,0.5,3,3,56,"Female","Some college",4,0.989279292219926
+265,"Religious values + source cue",90,0.125,4,1,51,"Male","Some college",4,0.854441824092489
+266,"Control",50,0.625,5,3,39,"Female","Two-year degree",4,1.42653208052024
+267,"Control",90,0.625,5,3,39,"Female","Four-year degree",3,0.691952972241746
+268,"Religious values + source cue",90,0.75,5,1,59,"Male","Some college",5,0.976244090405611
+269,"Control",15,0,1,1,49,"Female","Two-year degree",5,1.02335621537536
+270,"Religious values + source cue",9,0.5,1,5,49,"Female","Some college",5,1.02335621537536
+271,"Religious values message",49,0.125,3,1,62,"Female","Two-year degree",5,1.02335621537536
+272,"Religious values + source cue",75,0.5,3,2,61,"Female","Some college",5,1.02335621537536
+273,"Religious values message",59,0.25,3,1,64,"Male","Four-year degree",5,0.459543000284831
+274,"Religious values message",54,0.25,3,1,70,"Male","Some college",4,0.497764362371959
+275,"Religious values message",97,1,5,2,48,"Female","Postgraduate degree",3,0.663880960811293
+276,"Religious values message",70,0.5,5,3,64,"Male","Four-year degree",4,0.459543000284831
+277,"Religious values message",49,0.5,4,4,40,"Male","Four-year degree",4,0.543960665882431
+278,"Religious values message",50,0.5,4,1,64,"Male","Some college",5,0.943735962395178
+279,"Religious values + source cue",9,0,1,1,63,"Male","Some college",5,0.854441824092489
+280,"Religious values message",20,0.5,5,1,55,"Male","Two-year degree",5,0.854441824092489
+281,"Religious values + source cue",76,0.75,4,1,58,"Male","Some college",5,0.854441824092489
+282,"Control",52,0.5,4,2,43,"Female","Four-year degree",5,0.691952972241746
+283,"Control",50,0.125,2,5,52,"Male","Some college",4,0.854441824092489
+284,"Religious values + source cue",50,0.375,4,1,51,"Male","Some college",5,0.854441824092489
+285,"Religious values message",49,0,1,5,65,"Male","Two-year degree",4,0.497764362371959
+286,"Religious values + source cue",50,0.5,5,1,63,"Male","Some college",4,0.854441824092489
+287,"Religious values + source cue",95,1,5,4,31,"Male","Postgraduate degree",4,0.47194258778762
+288,"Religious values message",50,0.5,4,1,56,"Male","Some college",5,0.976244090405611
+289,"Control",5,0,1,1,25,"Male","Two-year degree",5,2.369070922647
+290,"Religious values + source cue",50,0.125,1,1,32,"Male","Postgraduate degree",4,0.47194258778762
+291,"Control",17,0.25,5,4,37,"Female","Four-year degree",4,0.679698892976348
+292,"Control",,0.25,4,2,20,"Male","Some college",3,1.66094793577707
+293,"Religious values message",79,0.5,4,3,36,"Female","Four-year degree",4,0.703111944403726
+294,"Religious values message",50,1,5,3,26,"Male","Some college",5,1.66094793577707
+295,"Control",65,0.5,3,3,27,"Female","Four-year degree",4,0.252012651330989
+296,"Religious values + source cue",73,0.75,4,2,27,"Male","Four-year degree",5,0.2093936893952
+297,"Control",54,0.25,5,2,39,"Female","Some college",5,1.4495374470889
+298,"Control",49,0.25,4,1,31,"Female","Postgraduate degree",2,0.760202975214717
+299,"Religious values + source cue",14,0.5,3,1,34,"Male","Four-year degree",5,0.525847221577945
+300,"Religious values + source cue",70,0.75,5,2,36,"Female","Postgraduate degree",3,0.760202975214717
+301,"Religious values message",54,0.25,4,2,38,"Male","Four-year degree",5,0.525847221577945
+302,"Control",42,0.625,3,3,32,"Female","Postgraduate degree",4,0.760202975214717
+303,"Control",0,0,1,1,35,"Female","Four-year degree",5,0.691952972241746
+304,"Religious values message",49,0.25,5,5,36,"Female","Four-year degree",3,0.691952972241746
+305,"Control",50,0.25,4,1,44,"Female","Two-year degree",3,1.40126903824629
+306,"Control",50,0.5,3,3,21,"Female","Some college",4,1.56446072807534
+307,"Religious values message",69,0.5,4,3,30,"Female","Some college",3,1.42653208052024
+308,"Religious values message",25,0.125,2,1,37,"Male","Some college",4,1.27251708656811
+309,"Control",22,0.25,3,1,41,"Female","Some college",4,1.42653208052024
+310,"Religious values + source cue",80,0.375,3,1,44,"Female","Some college",4,1.42653208052024
+311,"Religious values message",90,1,5,2,24,"Female","Four-year degree",4,0.252012651330989
+312,"Religious values + source cue",66,0.75,4,1,34,"Female","Two-year degree",2,1.4495374470889
+313,"Religious values + source cue",19,0.375,3,1,43,"Female","Two-year degree",5,1.4495374470889
+314,"Control",28,0.25,4,2,28,"Male","Four-year degree",5,0.2093936893952
+315,"Religious values + source cue",52,0.5,4,2,29,"Female","Postgraduate degree",3,0.206474882157084
+316,"Religious values + source cue",63,0.625,5,3,23,"Female","Four-year degree",4,0.252012651330989
+317,"Religious values message",,0.5,4,2,40,"Female","Some college",3,1.4495374470889
+318,"Control",2,0.125,4,2,40,"Male","Some college",5,1.45391675673382
+319,"Religious values message",81,0.625,3,3,40,"Male","Some college",3,1.45391675673382
+320,"Religious values + source cue",51,0.25,5,2,21,"Female","Some college",3,1.56446072807534
+321,"Control",67,0,3,3,42,"Female","Two-year degree",,1.42653208052024
+322,"Religious values message",50,0.5,2,1,43,"Female","Some college",4,1.42653208052024
+323,"Control",68,0.375,1,1,41,"Female","Two-year degree",5,1.42653208052024
+324,"Religious values message",,0.25,3,1,39,"Female","Two-year degree",4,1.4495374470889
+325,"Religious values + source cue",2,0,1,1,44,"Male","Some college",5,1.45391675673382
+326,"Control",48,0,4,1,40,"Female","Two-year degree",5,1.4495374470889
+327,"Religious values + source cue",56,0.375,3,3,30,"Female","Two-year degree",5,1.40126903824629
+328,"Religious values message",80,0.75,4,3,34,"Female","Some college",4,1.4495374470889
+329,"Religious values + source cue",56,0.375,4,3,35,"Male","Some college",5,1.27251708656811
+330,"Religious values message",76,0.25,5,2,42,"Female","Some college",5,1.42653208052024
+331,"Religious values + source cue",55,0.25,4,1,38,"Female","Two-year degree",5,1.42653208052024
+332,"Religious values message",61,0.875,4,2,36,"Female","Two-year degree",4,1.40126903824629
+333,"Control",78,0.5,4,1,31,"Male","Two-year degree",5,1.27251708656811
+334,"Control",60,0.5,5,3,35,"Male","Some college",4,1.27251708656811
+335,"Religious values + source cue",55,0.5,4,2,20,"Male","Some college",3,1.66094793577707
+336,"Religious values + source cue",51,0,3,1,39,"Female","Two-year degree",5,1.40126903824629
+337,"Control",80,0.75,5,4,29,"Female","Four-year degree",3,0.252012651330989
+338,"Control",51,0.625,2,2,20,"Male","Four-year degree",3,0.2093936893952
+339,"Religious values + source cue",50,0,1,1,44,"Male","Some college",5,1.27251708656811
+340,"Religious values message",65,0.5,5,2,26,"Female","Four-year degree",4,0.252012651330989
+341,"Control",67,0.75,4,2,22,"Male","Two-year degree",3,1.66094793577707
+342,"Control",50,0.5,3,3,20,"Male","Some college",5,1.66094793577707
+343,"Religious values message",90,0.25,4,2,43,"Male","Some college",5,1.27251708656811
+344,"Religious values + source cue",75,0.5,4,3,28,"Female","Two-year degree",5,1.56446072807534
+345,"Religious values + source cue",6,0.25,3,1,22,"Female","Two-year degree",4,1.56446072807534
+346,"Religious values + source cue",74,0.875,5,2,40,"Male","Some college",4,1.27251708656811
+347,"Control",21,0.125,3,1,20,"Male","Some college",4,2.369070922647
+348,"Religious values message",60,0.5,4,2,22,"Male","Some college",5,2.369070922647
+349,"Religious values + source cue",29,0,4,1,41,"Male","Some college",5,1.45391675673382
+350,"Religious values + source cue",50,0.5,3,3,39,"Male","Some college",5,1.27251708656811
+351,"Religious values + source cue",55,0.375,4,1,28,"Female","Some college",5,1.56446072807534
+352,"Religious values + source cue",61,0.75,5,1,24,"Male","Postgraduate degree",4,0.126137382554146
+353,"Religious values message",78,0.5,4,3,25,"Female","Four-year degree",5,0.275521950165791
+354,"Religious values + source cue",0,0,1,1,24,"Female","Four-year degree",4,0.252012651330989
+355,"Religious values message",61,0.75,4,5,30,"Male","Four-year degree",4,0.476092760160055
+356,"Control",75,0.75,4,3,30,"Male","Postgraduate degree",4,0.47194258778762
+357,"Religious values + source cue",0,0,3,1,29,"Female","Four-year degree",5,0.252012651330989
+358,"Religious values message",86,0.75,4,3,23,"Male","Some college",4,1.66094793577707
+359,"Religious values message",68,0.5,4,2,20,"Female","Some college",4,1.56446072807534
+360,"Religious values + source cue",74,0.5,4,3,23,"Female","Postgraduate degree",4,0.206474882157084
+361,"Religious values message",99,0.25,5,3,25,"Female","Four-year degree",4,0.252012651330989
+362,"Religious values message",78,0,5,1,28,"Female","Four-year degree",5,0.252012651330989
+363,"Control",100,0.75,4,2,25,"Male","Four-year degree",4,0.2093936893952
+364,"Religious values message",63,0.5,2,1,22,"Female","Four-year degree",5,0.252012651330989
+365,"Religious values + source cue",63,0.75,5,3,27,"Female","Some college",4,1.56446072807534
+366,"Control",75,1,5,1,28,"Female","Postgraduate degree",3,0.206474882157084
+367,"Control",56,0.25,4,2,29,"Female","Postgraduate degree",4,0.206474882157084
+368,"Religious values + source cue",71,0.5,4,2,28,"Female","Four-year degree",4,0.252012651330989
+369,"Religious values message",50,0.75,4,2,29,"Male","Four-year degree",4,0.298665894485042
+370,"Control",31,0.5,4,4,21,"Female","Some college",5,1.56446072807534
+371,"Religious values + source cue",51,0.5,5,2,27,"Female","Four-year degree",3,0.252012651330989
+372,"Religious values message",,0,3,2,29,"Female","Four-year degree",5,0.252012651330989
+373,"Religious values message",51,0.25,2,1,24,"Female","Four-year degree",4,0.252012651330989
+374,"Control",100,0.75,5,1,28,"Male","Four-year degree",4,0.2093936893952
+375,"Religious values message",80,0.75,5,4,24,"Female","Four-year degree",4,0.252012651330989
+376,"Religious values + source cue",100,0.75,4,4,20,"Male","Some college",3,1.66094793577707
+377,"Religious values + source cue",50,0.5,4,2,23,"Male","Some college",3,1.66094793577707
+378,"Control",85,1,5,2,29,"Female","Postgraduate degree",4,0.206474882157084
+379,"Control",50,0.5,4,2,20,"Male","Some college",5,1.66094793577707
+380,"Control",60,0.125,4,3,23,"Female","Some college",5,1.56446072807534
+381,"Religious values + source cue",25,0.375,3,1,27,"Female","Two-year degree",3,1.56446072807534
+382,"Control",47,0.625,4,3,27,"Female","Four-year degree",5,0.252012651330989
+383,"Religious values message",45,0,4,2,29,"Female","Two-year degree",3,1.56446072807534
+384,"Control",46,0.375,3,2,26,"Female","Postgraduate degree",4,0.206474882157084
+385,"Religious values message",78,1,5,3,29,"Female","Four-year degree",4,0.252012651330989
+386,"Religious values + source cue",57,0,4,2,30,"Female","Four-year degree",5,0.691952972241746
+387,"Religious values + source cue",75,0.75,4,2,20,"Female","Some college",4,1.56446072807534
+388,"Control",51,0.75,4,3,29,"Female","Four-year degree",5,0.252012651330989
+389,"Control",100,0.5,4,3,20,"Female","Some college",4,1.56446072807534
+390,"Control",12,0.625,3,3,28,"Female","Four-year degree",4,0.252012651330989
+391,"Religious values message",50,0.5,2,4,24,"Male","Four-year degree",4,0.2093936893952
+392,"Control",90,0.75,4,4,19,"Female","Some college",3,1.71040330110645
+393,"Religious values + source cue",51,0.5,5,1,30,"Female","Four-year degree",5,0.691952972241746
+394,"Religious values message",70,0.75,5,4,29,"Female","Four-year degree",3,0.252012651330989
+395,"Religious values message",53,0.625,5,4,29,"Male","Postgraduate degree",3,0.126137382554146
+396,"Religious values + source cue",85,0.75,4,1,30,"Female","Some college",4,1.40126903824629
+397,"Religious values message",80,0.25,4,3,25,"Female","Four-year degree",4,0.252012651330989
+398,"Religious values message",71,0.625,5,3,29,"Male","Postgraduate degree",4,0.126137382554146
+399,"Control",50,0.5,3,3,27,"Female","Some college",5,1.71040330110645
+400,"Religious values + source cue",99,0.75,1,1,23,"Male","Some college",5,1.66094793577707
+401,"Religious values + source cue",49,0.625,5,1,30,"Male","Four-year degree",2,0.525847221577945
+402,"Religious values + source cue",94,0.75,4,2,21,"Female","Two-year degree",4,1.56446072807534
+403,"Control",78,0.5,4,2,28,"Female","Postgraduate degree",5,0.206474882157084
+404,"Religious values + source cue",81,0.625,5,5,29,"Female","Postgraduate degree",4,0.206474882157084
+405,"Control",68,0.5,4,2,28,"Female","Some college",4,1.56446072807534
+406,"Religious values message",12,0,1,5,29,"Female","Some college",4,1.56446072807534
+407,"Religious values + source cue",91,0.75,4,3,21,"Female","Some college",4,1.56446072807534
+408,"Religious values message",49,0.5,5,3,24,"Female","Four-year degree",3,0.252012651330989
+409,"Religious values message",49,0.5,3,1,24,"Female","Some college",5,1.71040330110645
+410,"Religious values + source cue",58,0.5,3,3,22,"Female","Two-year degree",3,1.71040330110645
+411,"Religious values + source cue",53,0.625,2,1,20,"Female","Some college",5,1.56446072807534
+412,"Religious values + source cue",62,0.5,3,3,21,"Female","Two-year degree",4,1.56446072807534
+413,"Religious values + source cue",90,0.75,4,4,22,"Male","Four-year degree",3,0.2093936893952
+414,"Control",20,0.5,5,2,29,"Female","Two-year degree",5,1.56446072807534
+415,"Control",60,1,5,4,30,"Female","Four-year degree",4,0.691952972241746
+416,"Religious values + source cue",80,0.75,5,4,26,"Male","Four-year degree",3,0.2093936893952
+417,"Religious values message",100,0.5,5,4,20,"Male","Some college",3,1.66094793577707
+418,"Religious values message",5,0,2,1,81,"Male","High school graduate",5,0.97858051643754
+419,"Control",51,0.5,3,5,60,"Male","High school graduate",5,1.17368802737393
+420,"Control",40,0,3,1,70,"Male","High school graduate",5,0.97858051643754
+421,"Control",50,0.375,4,2,67,"Male","High school graduate",5,0.97858051643754
+422,"Religious values message",54,0.5,3,2,82,"Female","High school graduate",4,0.995749231027467
+423,"Religious values message",52,0.25,2,2,75,"Male","High school graduate",5,0.585679970700746
+424,"Religious values + source cue",21,0.125,2,5,59,"Male","High school graduate",3,1.17368802737393
+425,"Religious values + source cue",58,0.75,4,1,66,"Female","High school graduate",4,0.901533716208577
+426,"Religious values message",50,0,4,2,76,"Female","High school graduate",5,0.901533716208577
+427,"Control",81,0.75,4,3,29,"Female","High school graduate",4,1.77192989778443
+428,"Control",50,0,3,1,73,"Male","High school graduate",5,0.585679970700746
+429,"Religious values + source cue",98,0.5,4,3,72,"Female","High school graduate",3,0.901533716208577
+430,"Control",51,0.25,4,4,68,"Female","High school graduate",4,0.927205792095664
+431,"Religious values + source cue",50,0.125,3,4,78,"Male","High school graduate",4,0.585679970700746
+432,"Control",28,0,4,2,57,"Male","High school graduate",5,1.17368802737393
+433,"Control",31,0.5,4,3,84,"Male","High school graduate",5,0.585679970700746
+434,"Religious values + source cue",70,0.75,5,4,72,"Male","High school graduate",4,0.585679970700746
+435,"Control",57,0.125,2,5,73,"Male","High school graduate",4,0.585679970700746
+436,"Religious values + source cue",71,0.375,2,2,72,"Male","High school graduate",5,0.585679970700746
+437,"Religious values + source cue",9,0,1,1,74,"Female","No high school diploma",5,0.927205792095664
+438,"Religious values message",57,0.125,3,1,56,"Female","High school graduate",5,1.37689173211543
+439,"Control",10,0.25,3,1,84,"Male","High school graduate",4,0.97858051643754
+440,"Control",51,0,3,1,68,"Female","High school graduate",5,0.927205792095664
+441,"Control",50,0.375,4,1,82,"Male","High school graduate",5,0.97858051643754
+442,"Religious values + source cue",91,0.5,4,1,74,"Female","High school graduate",5,0.901533716208577
+443,"Control",75,0.5,4,2,87,"Male","High school graduate",5,0.97858051643754
+444,"Control",46,0.375,4,2,77,"Female","High school graduate",4,0.901533716208577
+445,"Control",8,0,2,1,83,"Female","High school graduate",4,0.927205792095664
+446,"Control",1,0,2,1,80,"Female","No high school diploma",5,0.927205792095664
+447,"Control",50,0.5,4,2,84,"Male","High school graduate",5,0.585679970700746
+448,"Control",81,0.625,4,1,89,"Female","High school graduate",4,0.995749231027467
+449,"Religious values message",57,0.25,4,1,73,"Female","High school graduate",5,0.901533716208577
+450,"Religious values message",31,0,3,1,70,"Male","High school graduate",5,0.585679970700746
+451,"Control",59,0.25,3,1,73,"Male","High school graduate",4,0.585679970700746
+452,"Religious values + source cue",59,0.25,3,1,57,"Male","No high school diploma",4,1.17368802737393
+453,"Control",12,0,2,1,77,"Male","High school graduate",4,0.97858051643754
+454,"Religious values message",51,0.25,4,2,65,"Male","High school graduate",4,0.97858051643754
+455,"Religious values message",95,0.25,4,1,85,"Female","High school graduate",5,0.927205792095664
+456,"Control",31,0.5,3,1,69,"Male","High school graduate",4,0.585679970700746
+457,"Religious values message",51,0.375,3,3,74,"Female","High school graduate",4,0.901533716208577
+458,"Control",91,0.5,4,3,88,"Female","High school graduate",4,0.995749231027467
+459,"Religious values + source cue",19,0.25,2,2,75,"Female","High school graduate",3,0.901533716208577
+460,"Religious values message",23,0,2,1,62,"Female","High school graduate",5,0.934627319051129
+461,"Religious values message",51,0.5,3,3,74,"Female","High school graduate",4,0.927205792095664
+462,"Religious values message",68,0.75,3,2,81,"Female","High school graduate",4,0.995749231027467
+463,"Religious values + source cue",41,0.25,3,1,68,"Male","High school graduate",5,0.585679970700746
+464,"Religious values + source cue",95,0,3,1,80,"Male","High school graduate",5,0.97858051643754
+465,"Control",10,0,3,1,59,"Female","High school graduate",5,1.22302692914609
+466,"Control",91,0.25,4,3,79,"Female","High school graduate",5,0.927205792095664
+467,"Religious values + source cue",59,0.375,4,1,54,"Female","High school graduate",4,1.22302692914609
+468,"Religious values message",53,0.5,1,1,57,"Male","High school graduate",5,2.56232508318584
+469,"Control",40,0,4,1,87,"Male","High school graduate",4,0.585679970700746
+470,"Religious values + source cue",2,0,2,1,72,"Male","High school graduate",4,0.585679970700746
+471,"Control",2,0,1,5,72,"Female","High school graduate",5,0.927205792095664
+472,"Religious values + source cue",88,0.5,4,2,78,"Male","High school graduate",5,0.585679970700746
+473,"Religious values message",11,0.5,4,2,71,"Male","High school graduate",4,0.585679970700746
+474,"Control",50,0.25,3,2,86,"Female","High school graduate",4,0.927205792095664
+475,"Religious values message",77,0.5,4,1,77,"Female","High school graduate",4,0.995749231027467
+476,"Religious values message",98,0,1,1,70,"Male","No high school diploma",5,0.97858051643754
+477,"Control",9,0,2,1,75,"Male","High school graduate",5,0.97858051643754
+478,"Religious values + source cue",94,0.75,5,2,69,"Female","High school graduate",5,0.927205792095664
+479,"Religious values + source cue",54,0.25,3,1,70,"Male","High school graduate",5,0.585679970700746
+480,"Religious values message",46,0.5,4,2,62,"Male","High school graduate",4,1.17368802737393
+481,"Religious values + source cue",90,0.375,5,4,78,"Female","High school graduate",4,0.901533716208577
+482,"Religious values message",70,0.5,4,2,66,"Male","High school graduate",5,0.585679970700746
+483,"Religious values message",30,0,2,1,62,"Female","High school graduate",5,0.934627319051129
+484,"Religious values message",22,0.125,2,5,76,"Male","High school graduate",5,0.585679970700746
+485,"Religious values message",84,0.5,3,1,77,"Male","High school graduate",4,0.585679970700746
+486,"Religious values + source cue",45,0.5,3,1,82,"Male","High school graduate",4,0.585679970700746
+487,"Religious values + source cue",47,0.5,3,3,56,"Male","High school graduate",5,1.17368802737393
+488,"Religious values message",25,0,1,1,77,"Male","High school graduate",4,0.97858051643754
+489,"Control",55,0.5,4,2,87,"Female","High school graduate",4,0.927205792095664
+490,"Religious values message",52,0.5,4,1,78,"Female","High school graduate",3,0.901533716208577
+491,"Religious values message",50,0.5,4,3,53,"Male","High school graduate",4,1.32134567315075
+492,"Religious values + source cue",52,0.375,2,1,70,"Male","High school graduate",5,0.585679970700746
+493,"Control",50,0.25,3,2,65,"Female","High school graduate",4,0.901533716208577
+494,"Religious values + source cue",51,0.25,4,1,67,"Female","High school graduate",4,0.901533716208577
+495,"Control",75,0.5,5,2,74,"Female","High school graduate",4,0.901533716208577
+496,"Control",40,0.75,4,4,68,"Male","High school graduate",5,0.97858051643754
+497,"Religious values message",80,0.5,4,1,68,"Female","High school graduate",5,0.927205792095664
+498,"Religious values + source cue",13,0.5,3,1,73,"Female","High school graduate",,0.901533716208577
+499,"Religious values message",67,0.5,4,2,89,"Male","High school graduate",4,0.97858051643754
+500,"Control",52,0.375,4,1,70,"Male","High school graduate",4,0.97858051643754
+501,"Religious values message",50,0.25,4,1,63,"Male","High school graduate",5,2.56232508318584
+502,"Religious values message",,0.5,3,1,75,"Female","High school graduate",4,0.901533716208577
+503,"Religious values message",40,0.25,4,1,72,"Male","High school graduate",5,0.585679970700746
+504,"Religious values + source cue",50,0.25,4,2,78,"Male","High school graduate",4,0.97858051643754
+505,"Religious values + source cue",79,0.625,4,4,65,"Female","High school graduate",4,0.901533716208577
+506,"Religious values + source cue",43,0.5,4,1,82,"Female","High school graduate",3,0.927205792095664
+507,"Religious values + source cue",84,0.5,4,2,68,"Female","High school graduate",4,0.927205792095664
+508,"Religious values message",77,0.75,4,1,84,"Female","High school graduate",4,0.995749231027467
+509,"Religious values + source cue",54,0.375,3,2,67,"Male","High school graduate",5,0.97858051643754
+510,"Control",38,0,2,2,73,"Male","High school graduate",4,0.97858051643754
+511,"Religious values + source cue",51,0.25,4,2,64,"Male","High school graduate",5,1.17368802737393
+512,"Control",80,0.5,5,1,58,"Female","High school graduate",4,1.22302692914609
+513,"Control",50,0,2,1,85,"Female","High school graduate",4,0.927205792095664
+514,"Control",31,0,2,1,82,"Female","High school graduate",4,0.927205792095664
+515,"Religious values message",70,0.5,4,3,90,"Female","High school graduate",3,0.995749231027467
+516,"Religious values message",,0.25,1,1,57,"Female","High school graduate",4,1.37689173211543
+517,"Control",26,0.125,3,1,62,"Male","High school graduate",4,2.56232508318584
+518,"Religious values + source cue",59,0.375,4,2,71,"Female","High school graduate",5,0.995749231027467
+519,"Religious values + source cue",64,0.5,3,5,90,"Female","No high school diploma",5,0.995749231027467
+520,"Religious values + source cue",60,0.5,3,3,75,"Female","High school graduate",5,0.901533716208577
+521,"Religious values message",29,0.125,2,1,68,"Female","High school graduate",5,0.927205792095664
+522,"Control",6,0,1,1,58,"Male","High school graduate",5,1.32134567315075
+523,"Control",91,0.5,4,3,56,"Female","High school graduate",5,1.22302692914609
+524,"Religious values message",72,0.375,4,1,61,"Male","High school graduate",5,1.32134567315075
+525,"Control",51,0.375,3,5,70,"Female","High school graduate",,0.927205792095664
+526,"Religious values + source cue",25,0.25,2,2,74,"Female","High school graduate",5,0.927205792095664
+527,"Control",80,0.5,4,2,64,"Female","High school graduate",4,1.22302692914609
+528,"Religious values + source cue",85,0.625,5,3,64,"Female","High school graduate",4,0.934627319051129
+529,"Religious values + source cue",4,0.25,2,1,71,"Female","High school graduate",4,0.927205792095664
+530,"Control",48,0.75,4,1,74,"Female","High school graduate",5,0.901533716208577
+531,"Control",50,0.375,4,1,55,"Male","High school graduate",5,1.17368802737393
+532,"Religious values message",52,0.5,3,3,58,"Female","High school graduate",4,1.22302692914609
+533,"Control",52,0.625,5,4,80,"Male","High school graduate",5,0.585679970700746
+534,"Religious values + source cue",75,0.5,5,3,64,"Female","High school graduate",4,1.37689173211543
+535,"Control",54,0.5,5,1,63,"Female","High school graduate",3,1.37689173211543
+536,"Religious values + source cue",28,0,1,1,64,"Male","High school graduate",3,2.56232508318584
+537,"Religious values message",10,0,1,1,65,"Female","High school graduate",5,0.995749231027467
+538,"Religious values + source cue",3,0.5,3,3,63,"Female","High school graduate",4,1.22302692914609
+539,"Religious values + source cue",11,0,3,1,58,"Female","High school graduate",5,0.934627319051129
+540,"Religious values message",56,0.625,3,1,63,"Female","High school graduate",5,0.934627319051129
+541,"Religious values + source cue",62,0.5,4,2,36,"Female","High school graduate",4,1.56030857423477
+542,"Religious values message",71,0.375,3,1,62,"Male","High school graduate",4,1.32134567315075
+543,"Religious values + source cue",49,0.125,2,1,63,"Male","High school graduate",4,1.17368802737393
+544,"Religious values + source cue",65,0.125,3,1,63,"Female","High school graduate",5,1.22302692914609
+545,"Religious values + source cue",57,0,5,1,62,"Female","High school graduate",5,1.22302692914609
+546,"Religious values message",21,0.25,3,1,49,"Male","High school graduate",4,1.17368802737393
+547,"Religious values message",19,0,2,4,46,"Female","High school graduate",4,0.934627319051129
+548,"Religious values + source cue",0,0,1,5,64,"Female","High school graduate",5,0.934627319051129
+549,"Control",25,0,3,1,63,"Male","High school graduate",4,1.32134567315075
+550,"Religious values + source cue",0,0,1,5,54,"Male","High school graduate",5,1.17368802737393
+551,"Religious values + source cue",50,0.375,4,1,38,"Female","High school graduate",5,1.56030857423477
+552,"Religious values + source cue",31,0.25,3,2,53,"Female","High school graduate",4,1.22302692914609
+553,"Religious values + source cue",100,0.625,4,1,85,"Female","High school graduate",4,0.927205792095664
+554,"Religious values + source cue",70,0.5,2,1,67,"Male","High school graduate",5,0.97858051643754
+555,"Religious values message",55,0.25,3,1,78,"Female","High school graduate",4,0.995749231027467
+556,"Religious values message",51,0.5,4,3,34,"Female","High school graduate",3,1.75660561858
+557,"Control",52,0.375,3,1,65,"Female","High school graduate",4,0.901533716208577
+558,"Religious values + source cue",74,0.5,4,2,82,"Female","High school graduate",4,0.901533716208577
+559,"Religious values message",70,0.5,3,3,53,"Male","High school graduate",5,1.32134567315075
+560,"Religious values message",50,0.5,3,4,71,"Female","High school graduate",4,0.927205792095664
+561,"Religious values + source cue",28,0.25,3,1,61,"Female","High school graduate",5,1.37689173211543
+562,"Religious values message",51,0.375,3,3,60,"Female","High school graduate",5,1.22302692914609
+563,"Religious values + source cue",1,0,2,1,72,"Male","High school graduate",4,0.97858051643754
+564,"Religious values message",97,0.25,3,1,76,"Male","High school graduate",4,0.585679970700746
+565,"Religious values + source cue",10,0.5,4,3,60,"Male","High school graduate",4,1.17368802737393
+566,"Control",26,0.5,3,4,71,"Female","High school graduate",5,0.927205792095664
+567,"Religious values message",69,0.5,5,2,90,"Female","High school graduate",5,0.995749231027467
+568,"Religious values + source cue",,0,4,1,35,"Female","High school graduate",5,1.56030857423477
+569,"Religious values message",91,0.5,3,3,79,"Female","High school graduate",4,0.927205792095664
+570,"Control",49,0.125,2,5,38,"Female","High school graduate",3,1.56030857423477
+571,"Religious values message",80,0.125,2,2,64,"Female","High school graduate",5,0.934627319051129
+572,"Religious values + source cue",97,0.625,3,2,34,"Male","High school graduate",4,6.59086983750375
+573,"Control",52,0.125,3,1,73,"Male","High school graduate",5,0.97858051643754
+574,"Control",48,0.375,3,1,77,"Male","High school graduate",5,0.585679970700746
+575,"Religious values message",60,0.5,4,1,63,"Male","High school graduate",4,1.17368802737393
+576,"Religious values message",81,0.375,3,1,64,"Male","High school graduate",4,1.32134567315075
+577,"Religious values message",41,0.25,4,2,79,"Male","High school graduate",4,0.585679970700746
+578,"Control",85,0.625,4,3,78,"Female","High school graduate",4,0.927205792095664
+579,"Control",41,0.125,3,1,69,"Female","High school graduate",5,0.927205792095664
+580,"Control",53,0.125,2,1,61,"Male","High school graduate",5,1.17368802737393
+581,"Religious values + source cue",80,0.5,3,1,58,"Male","High school graduate",5,2.56232508318584
+582,"Religious values message",30,0,1,5,45,"Female","No high school diploma",5,0.934627319051129
+583,"Religious values + source cue",90,0.625,3,2,78,"Male","High school graduate",5,0.97858051643754
+584,"Control",84,0.5,4,3,75,"Female","High school graduate",4,0.901533716208577
+585,"Religious values message",75,0.5,4,2,72,"Female","High school graduate",5,0.927205792095664
+586,"Religious values message",52,0.25,3,1,82,"Female","High school graduate",4,0.927205792095664
+587,"Religious values + source cue",48,0,2,1,70,"Female","High school graduate",4,0.901533716208577
+588,"Religious values message",50,0,3,1,73,"Male","High school graduate",5,0.97858051643754
+589,"Religious values message",100,0.75,1,5,54,"Female","High school graduate",,0.934627319051129
+590,"Religious values message",99,0.75,4,3,60,"Female","No high school diploma",5,1.22302692914609
+591,"Religious values + source cue",49,0,3,1,62,"Female","High school graduate",5,1.37689173211543
+592,"Religious values message",80,0.5,4,3,50,"Male","High school graduate",5,1.17368802737393
+593,"Control",6,0.25,3,1,67,"Male","High school graduate",5,0.585679970700746
+594,"Religious values message",52,0.125,4,1,73,"Male","High school graduate",4,0.585679970700746
+595,"Religious values + source cue",2,0.25,2,1,77,"Male","High school graduate",5,0.97858051643754
+596,"Religious values + source cue",20,0.375,3,1,55,"Male","High school graduate",5,1.17368802737393
+597,"Control",69,0,3,1,59,"Female","High school graduate",5,1.22302692914609
+598,"Control",14,0,3,5,64,"Male","High school graduate",5,1.17368802737393
+599,"Control",70,0,3,5,60,"Male","High school graduate",4,1.32134567315075
+600,"Religious values message",50,0.5,4,1,62,"Female","High school graduate",4,1.22302692914609
+601,"Religious values message",90,1,3,2,48,"Male","High school graduate",3,1.17368802737393
+602,"Religious values message",90,0.75,5,4,48,"Female","No high school diploma",4,0.934627319051129
+603,"Religious values message",40,0.5,3,3,51,"Female","High school graduate",3,1.22302692914609
+604,"Control",57,0.25,4,3,49,"Female","High school graduate",4,0.934627319051129
+605,"Religious values + source cue",1,0,3,1,56,"Male","High school graduate",4,1.17368802737393
+606,"Control",30,0.25,4,2,63,"Female","High school graduate",4,1.22302692914609
+607,"Religious values message",52,0.25,4,1,63,"Female","High school graduate",5,0.934627319051129
+608,"Religious values message",,0.5,3,3,37,"Female","High school graduate",4,1.56030857423477
+609,"Control",26,0.5,4,2,58,"Male","High school graduate",3,1.32134567315075
+610,"Religious values + source cue",92,0.75,3,2,50,"Male","High school graduate",5,1.17368802737393
+611,"Religious values message",51,0.125,3,1,63,"Female","High school graduate",4,1.22302692914609
+612,"Religious values + source cue",85,0.5,2,1,64,"Female","High school graduate",3,0.934627319051129
+613,"Religious values message",59,0.25,4,1,55,"Female","High school graduate",2,1.22302692914609
+614,"Religious values message",52,0.5,4,1,59,"Female","High school graduate",3,0.934627319051129
+615,"Religious values message",99,0.25,2,2,64,"Male","High school graduate",5,1.17368802737393
+616,"Religious values message",5,0,1,1,63,"Female","High school graduate",1,1.22302692914609
+617,"Religious values message",2,0.5,3,2,59,"Female","High school graduate",4,0.934627319051129
+618,"Religious values + source cue",50,0.25,3,1,49,"Female","High school graduate",5,1.37689173211543
+619,"Control",45,0.375,3,1,61,"Female","High school graduate",5,0.934627319051129
+620,"Religious values message",70,0.5,4,3,56,"Female","High school graduate",4,1.22302692914609
+621,"Religious values + source cue",97,0.5,3,2,33,"Female","High school graduate",5,1.19237523301937
+622,"Religious values + source cue",48,0.5,4,1,51,"Female","High school graduate",5,1.22302692914609
+623,"Religious values message",4,0,1,1,56,"Female","High school graduate",5,0.934627319051129
+624,"Religious values + source cue",81,0.375,2,1,45,"Female","High school graduate",4,1.22302692914609
+625,"Religious values + source cue",45,0.125,3,1,63,"Female","High school graduate",3,1.22302692914609
+626,"Control",28,0.25,2,1,60,"Female","High school graduate",,1.22302692914609
+627,"Religious values + source cue",53,0.375,4,3,47,"Female","High school graduate",3,1.22302692914609
+628,"Control",1,0.125,2,1,55,"Male","High school graduate",5,1.32134567315075
+629,"Religious values + source cue",16,0.5,3,3,62,"Female","High school graduate",5,1.22302692914609
+630,"Religious values + source cue",76,0.5,3,3,50,"Male","High school graduate",3,1.17368802737393
+631,"Control",22,0,2,1,53,"Female","High school graduate",5,1.22302692914609
+632,"Religious values + source cue",74,0.25,3,2,39,"Female","High school graduate",5,1.75660561858
+633,"Religious values + source cue",44,0.5,4,1,58,"Male","No high school diploma",4,1.17368802737393
+634,"Control",4,0,1,1,61,"Male","High school graduate",4,1.32134567315075
+635,"Control",62,0.5,4,3,57,"Male","No high school diploma",4,1.17368802737393
+636,"Religious values + source cue",24,0,4,1,58,"Male","High school graduate",3,1.17368802737393
+637,"Control",17,0.5,3,3,57,"Female","High school graduate",,1.22302692914609
+638,"Religious values message",70,0.5,2,1,63,"Male","High school graduate",4,1.17368802737393
+639,"Control",3,0.5,2,1,34,"Female","High school graduate",3,1.56030857423477
+640,"Religious values + source cue",47,0.125,3,1,61,"Male","High school graduate",4,1.17368802737393
+641,"Religious values message",70,0.125,4,1,54,"Male","High school graduate",5,1.32134567315075
+642,"Religious values message",69,0.75,5,4,44,"Male","High school graduate",4,6.99993400504697
+643,"Religious values message",48,0.25,3,1,50,"Male","High school graduate",5,1.17368802737393
+644,"Control",57,0.125,4,4,59,"Male","No high school diploma",4,1.17368802737393
+645,"Religious values + source cue",1,0,2,1,63,"Male","High school graduate",4,1.32134567315075
+646,"Control",31,0.5,4,1,36,"Female","High school graduate",4,1.19237523301937
+647,"Control",0,0,1,1,64,"Male","High school graduate",5,1.17368802737393
+648,"Control",49,0.25,3,1,64,"Male","High school graduate",5,1.32134567315075
+649,"Religious values message",0,0,1,1,56,"Male","High school graduate",5,1.17368802737393
+650,"Control",66,0.5,4,3,18,"Female","High school graduate",4,1.77192989778443
+651,"Control",48,0.25,2,1,56,"Male","High school graduate",5,1.32134567315075
+652,"Religious values + source cue",61,0.75,4,4,62,"Male","High school graduate",4,1.32134567315075
+653,"Control",59,0.5,4,3,28,"Male","High school graduate",5,5.62279073025755
+654,"Control",39,0.5,2,2,61,"Male","High school graduate",5,1.17368802737393
+655,"Religious values message",100,0.25,3,1,59,"Male","High school graduate",5,1.32134567315075
+656,"Control",71,0.625,4,2,20,"Male","High school graduate",4,5.62279073025755
+657,"Control",8,0.125,3,2,33,"Female","High school graduate",4,1.19237523301937
+658,"Control",50,0,1,1,45,"Male","No high school diploma",5,1.32134567315075
+659,"Religious values message",49,0.375,4,2,48,"Male","High school graduate",5,1.17368802737393
+660,"Control",2,0,2,5,29,"Female","High school graduate",5,1.77192989778443
+661,"Religious values message",54,0.125,1,1,36,"Male","High school graduate",5,6.59086983750375
+662,"Religious values message",63,0,4,1,28,"Female","High school graduate",4,1.77192989778443
+663,"Control",82,0.625,4,4,25,"Female","High school graduate",3,1.77192989778443
+664,"Religious values + source cue",100,0.5,5,1,49,"Male","No high school diploma",5,1.17368802737393
+665,"Religious values message",88,0.375,4,2,64,"Male","High school graduate",4,1.17368802737393
+666,"Religious values message",77,0.625,5,5,22,"Female","No high school diploma",5,1.77192989778443
+667,"Religious values + source cue",50,0,3,1,52,"Male","High school graduate",5,1.32134567315075
+668,"Control",20,0,3,1,51,"Male","High school graduate",5,1.17368802737393
+669,"Religious values message",54,0.25,5,3,57,"Male","High school graduate",5,1.32134567315075
+670,"Religious values + source cue",100,0.5,5,3,55,"Male","No high school diploma",4,1.32134567315075
+671,"Control",9,0.25,4,1,63,"Male","High school graduate",4,1.17368802737393
+672,"Religious values message",97,1,4,2,28,"Female","High school graduate",4,1.77192989778443
+673,"Religious values message",78,0.5,3,2,59,"Male","High school graduate",4,1.32134567315075
+674,"Religious values + source cue",55,0.25,4,2,59,"Male","High school graduate",5,1.32134567315075
+675,"Religious values + source cue",67,0.5,4,3,63,"Male","High school graduate",4,1.32134567315075
+676,"Religious values + source cue",51,0.5,5,1,40,"Male","No high school diploma",5,6.59086983750375
+677,"Religious values message",70,0.5,3,3,38,"Male","High school graduate",4,6.99993400504697
+678,"Control",,0.25,4,3,59,"Male","High school graduate",3,1.17368802737393
+679,"Control",50,0.25,3,3,20,"Female","High school graduate",,1.77192989778443
+680,"Religious values + source cue",52,0.125,4,2,21,"Male","High school graduate",5,5.62279073025755
+681,"Control",,0.5,3,3,20,"Male","High school graduate",5,5.62279073025755
+682,"Religious values + source cue",74,0.75,4,3,20,"Female","High school graduate",4,1.77192989778443
