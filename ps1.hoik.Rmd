@@ -117,7 +117,82 @@ summary(demora)
 
 ```{r}
 ## [PUT YOUR CODE HERE]
+#1  
+ dim(demora)
+ nrow(demora)   # observations
+ ncol(demora)   # variables
+#2. 
+ table(demora$treatment)
+#3. 
+ colSums(is.na(demora))
+#4.
+#age 
+ mean(demora$age, na.rm = TRUE)
+ sd(demora$age, na.rm = TRUE)
+#female 
+ mean(demora$gender == "Female", na.rm = TRUE)
+ prop.table(table(demora$gender))
+ 
+ #5.
+ outcomes <- c(
+  "refugee_thermometer",
+  "resettlement_support",
+  "school_support",
+  "benefits_support"
+)
+
+summary(demora[outcomes])
+ 
+ sapply(demora[outcomes], function(x) {
+  c(
+    Min = min(x, na.rm = TRUE),
+    Max = max(x, na.rm = TRUE),
+    Mean = mean(x, na.rm = TRUE),
+    SD = sd(x, na.rm = TRUE)
+  )
+})
+ 
+# Plot four histograms together
+par(mfrow = c(2, 2))
+
+hist(
+  demora$refugee_thermometer,
+  main = "Refugee Thermometer",
+  xlab = "Refugee Thermometer",
+  breaks = 10
+)
+
+hist(
+  demora$resettlement_support,
+  main = "Resettlement Support",
+  xlab = "Resettlement Support",
+  breaks = 10
+)
+
+hist(
+  demora$school_support,
+  main = "School Support",
+  xlab = "School Support",
+  breaks = 5
+)
+
+hist(
+  demora$benefits_support,
+  main = "Benefits Support",
+  xlab = "Benefits Support",
+  breaks = 5
+)
+
+# Return plotting window to normal
+par(mfrow = c(1, 1))
+ 
 ```
+ #5. 
+ The four outcome variables differ substantially in both their scales and distributions. refugee_thermometer ranges from 0 to 100, with a mean of 52.71 and a standard deviation of 26.15. Responses are spread across much of the scale, although they are relatively concentrated around the middle of the range. resettlement_support ranges from 0 to 1, with a mean of 0.358 and a standard deviation of 0.254. It takes discrete values and is concentrated mostly in the lower half of its range. school_support is measured on a 1–5 scale, with a mean of 3.35 and a standard deviation of 1.13; responses are concentrated around 3 and 4. benefits_support is also measured on a 1–5 scale, with a mean of 2.04 and a standard deviation of 1.19, but its distribution is strongly right-skewed, with many responses at the lower end of the scale.
+The raw numerical values of these outcomes should not be compared directly because they are measured on different scales. For example, the mean of 52.71 for refugee_thermometer is not substantively “larger” than the mean of 0.358 for resettlement_support; the difference in numerical magnitude primarily reflects their different measurement scales (0–100 versus 0–1). Likewise, a one-unit difference represents very different changes depending on the outcome. Comparisons therefore need to take each variable's range and scale into account.
+
+
+
 
 --------------------------------------------------------------------------------
 
@@ -136,9 +211,93 @@ summary(demora)
 
 ```{r}
 ## [PUT YOUR CODE HERE]
-```
+#1. 
+aggregate(
+  demora[outcomes],
+  by = list(treatment = demora$treatment),
+  FUN = mean,
+  na.rm = TRUE
+)
 
---------------------------------------------------------------------------------
+library(dplyr)
+
+demora %>%
+  group_by(treatment) %>%
+  summarise(
+    across(
+      all_of(outcomes),
+      ~ mean(.x, na.rm = TRUE)
+    )
+  )
+
+#2. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+  mean(demora[demora$treatment == "Control", y],
+       na.rm = TRUE)
+})
+
+#3. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+#4.
+# Religious-values message vs. Control
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+# Religious-values message + source cue vs. Control
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+
+#5.
+library(dplyr)
+library(ggplot2)
+
+thermo_means <- demora %>%
+  group_by(treatment) %>%
+  summarise(
+    mean_thermometer = mean(refugee_thermometer, na.rm = TRUE)
+  )
+
+ggplot(
+  thermo_means,
+  aes(x = treatment, y = mean_thermometer)
+) +
+  geom_point(size = 3) +
+  labs(
+    title = "Mean Refugee Thermometer Score by Experimental Condition",
+    x = "Experimental Condition",
+    y = "Mean Refugee Thermometer Score (0–100)"
+  ) +
+  ylim(0, 100) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+
+```
+#4.
+Relative to the control group, the religious-values message increased the mean refugee feeling thermometer score by 9.36 points on the 0–100 scale. It increased mean resettlement support by 0.0178 units on the 0–1 scale. In contrast, mean school support was 0.018 points lower on the 1–5 scale, and mean benefits support was 0.141 points lower on the 1–5 scale, relative to the control group.
+
+#5.
+Based on the point estimates, the source cue does not appear to strengthen the religious-values message for the refugee thermometer outcome. The relevant comparison is not simply each treatment condition versus the control, but rather the source-cue condition directly versus the message-only condition. The estimated effect relative to control is 9.36 points for the message-only condition and 5.32 points for the message-plus-source-cue condition. Thus, the additional effect associated with the source cue is \(5.32 - 9.36 = -4.04\) points on the 0–100 thermometer scale. In this sample, the source-cue condition therefore has a lower mean than the message-only condition. However, without an estimate of uncertainty for this direct difference, we cannot determine whether the difference is statistically distinguishable from zero.
+
+------------------------------------------------------------------------------------------
 
 ## Question 4: Randomization and Independence
 
@@ -154,10 +313,56 @@ summary(demora)
 
 ```{r}
 ## [PUT YOUR CODE HERE]
+#1. 
+str(demora[c("age", "gender", "education", "ideology")])
+
+table(demora$gender, useNA = "ifany")
+table(demora$education, useNA = "ifany")
+table(demora$ideology, useNA = "ifany")
+
+library(dplyr)
+install.packages("gtsummary")
+library(gtsummary)
+
+balance_table <- demora %>%
+  select(treatment, age, gender, education, ideology) %>%
+  tbl_summary(
+    by = treatment,
+    statistic = list(
+      age ~ "{mean} ({sd})",
+      all_categorical() ~ "{n} ({p}%)"
+    ),
+    digits = list(
+      age ~ 1,
+      all_categorical() ~ c(0, 1)
+    ),
+    missing = "ifany"
+  ) %>%
+  modify_header(
+    label ~ "**Variable**"
+  ) %>%
+  bold_labels()
+
+balance_table
+
+
+#2.
+
+ 
 ```
+#1. 
+Categorical variables (gender, education, and ideology) were summarized using the proportion of respondents in each category within each experimental condition.
+#2.
+No, the groups are not exactly identical on the observed pretreatment characteristics. Random assignment does not guarantee exact balance in a particular realized sample. Instead, it ensures that treatment assignment is independent of pretreatment characteristics in expectation, so some differences across groups can arise by chance.
+#3.
+Across repeated random assignments, treatment assignment is independent of both observed and unobserved pretreatment characteristics. Thus, treatment groups are balanced on these characteristics in expectation, although chance imbalances may occur in any particular realized sample.
+#4.
+Balance is a diagnostic check; randomization is the identification strategy.
+#5. 
+No. A single statistically significant balance difference would not by itself invalidate the experiment. When twenty pretreatment variables are tested at the 0.05 significance level, some significant differences can arise by chance even under proper random assignment. In fact, the probability of observing at least one significant result among twenty independent tests is approximately \(1-0.95^{20}\approx 0.64\). Therefore, an isolated significant imbalance is not sufficient evidence that randomization failed. The validity of the experiment should primarily be assessed based on the random assignment procedure rather than whether every observed covariate is statistically balanced.
 
---------------------------------------------------------------------------------
 
+---------------------------------------------------------------------------------------
 ## Question 5: Measurement, Assumptions, and Generalization
 
 1. The `resettlement_support` outcome combines support for resettlement in the respondent's local community and in the United States. Discuss one advantage and one disadvantage of combining the two items.
@@ -170,10 +375,12 @@ summary(demora)
 --------------------------------------------------------------------------------
 
 [PUT YOUR ANSWER HERE]
+#1. 
+One advantage of combining the two items is that it can provide a more reliable measure of general support for refugee resettlement by reducing the influence of measurement error in any single item. One disadvantage is that support for resettlement in the United States may differ substantively from support for resettlement in one's own local community. Combining them may therefore obscure meaningful differences between national-level support and willingness to accept resettlement locally.
 
 --------------------------------------------------------------------------------
 
-## Question 6: Reading the Published Results
+##Question 6: Reading the Published Results
 
 1. Compare your unweighted estimates with Table 2 of the paper. The authors use YouGov sample weights and regression, so your estimates need not be numerically identical. Explain what each approach targets.
 2. Which outcomes provide evidence that the religious-values message increased support for refugees? Which outcomes produce null results?
