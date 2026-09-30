@@ -6,7 +6,7 @@
 3. 각자 R.md 파일을 수정하면 Commit, Push, Pull 를 통해 업데이트 합니다. 
 4. 다른 사람의 것도 확인 가능합니다 (그것이 사용 주목적입니다.) 
    그러나 혼선이 생길 수 있으니, 각자 집에서 작업 중에는
-   다른 사람 것을 수정해서 commit하지만 않으면 됩니다. 
-Pull → 내 Rmd 작업 → Save → Stage → Commit → Push
+   다른 사람 것을 수정해서 commit하지만 않으면 됩니다.
+   (작업시작 전) Pull → 내 Rmd 작업 → Save → Stage → Commit → Push (작업 반영)
 
 ----
