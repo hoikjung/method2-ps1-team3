@@ -13,7 +13,7 @@ output:
 ---
 
 # Instructions
-
+* Hi
 * All answers must be typed up and submitted electronically as a PDF file, either via LaTeX or R Markdown. Submit the corresponding .Rmd or .R file as well.
 * Most problem sets should be completed within the individual assigned groups. Collaboration is not allowed for the problem sets between set groups/individuals.
 * Substitute "author" with your own names for the submission.
@@ -85,6 +85,8 @@ demora$treatment <- factor(
     "Religious values + source cue"
   )
 )
+
+summary(demora)
 ```
 
 ## Question 1: Research Design
