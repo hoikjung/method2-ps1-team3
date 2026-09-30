@@ -1,0 +1,199 @@
+---
+title: "PSIR Graduate Methods Problem Set 1"
+author: "Seo-young Silvia Kim"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+header_includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb}
+- \usepackage{amsthm}
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+# Instructions
+
+* All answers must be typed up and submitted electronically as a PDF file, either via LaTeX or R Markdown. Submit the corresponding .Rmd or .R file as well.
+* Most problem sets should be completed within the individual assigned groups. Collaboration is not allowed for the problem sets between set groups/individuals.
+* Substitute "author" with your own names for the submission.
+* Problem set 1 will be completed in groups of 4--5.
+
+\newpage
+
+# The Average Treatment Effect and the Independence Assumption: Applying it to Research
+
+This part should have every member's individual answers assembled here as subsections. I know you already submitted the abstract/intro, but let's do the following again to clarify the RQ and the estimation strategy:
+
+1. What is the *causal* research question that you want to tackle in the final paper? State the question clearly. This does not mean that you have a clean causal setup; even when checking for correlations, the underlying questions are typically causal.
+2. How would you operationalize and measure your outcome variable?
+3. How would you operationalize and measure your main explanatory variable?
+4. Consider the *average treatment effect (ATE)* under the potential outcomes framework, given binary treatment. If your explanatory variable is continuous or discrete, try creating a binary explanatory variable based on it, such as dichotomizing it. Consider the difference-in-means estimator (subscripts discarded for brevity):
+
+$$ATE = \mathop{\mathbb{E}}[Y \mid T=1] - \mathop{\mathbb{E}}[Y \mid T=0]$$
+
+In your research question, is this a valid estimator of the average treatment effect? That is to say, is the independence assumption $Y_i(1), Y_i(0) \perp T_i$ satisfied? At this point, do not consider controlling for other variables. We will return to that possibility later in the course.
+
+\newpage
+
+# The Average Treatment Effect in a Randomized Experiment
+
+White evangelical Republicans often hold two identities that point in different directions on refugee policy. Republican leaders have generally favored restrictions, while Christian teachings can emphasize care for refugees and other vulnerable strangers. DeMora et al. (2024) ask whether a message framed around religious values can increase support for refugees among self-identified white evangelical Republicans.
+
+This exercise is based on: DeMora, Stephanie L., Jennifer L. Merolla, Brian Newman, and Elizabeth J. Zechmeister. 2024. "[Jesus Was a Refugee: Religious Values Framing Can Increase Support for Refugees Among White Evangelical Republicans.](https://doi.org/10.1007/s11109-024-09912-2)" *Political Behavior* 46: 2145--2168. The authors' replication materials are available from the [Harvard Dataverse](https://doi.org/10.7910/DVN/QYZQ4Y).
+
+Read the sections titled "An Experiment to Assess the Religious Values Frame" and "Results of the Religious Values Framing Experiment" carefully. The researchers randomly assigned respondents to a control condition, a religious-values message without a source cue, or the same message accompanied by an evangelical source cue. The control group received neither the message nor its two follow-up questions.
+
+The supplied file, `data/demora_2024.csv`, is a simplified teaching version of the authors' cleaned YouGov sample. Each row describes one respondent. Higher values on every outcome indicate more favorable attitudes toward refugees. Do not use `sample_weight` unless a question specifically asks you to do so.
+
+--------------------------------------------------------------------------------
+ Name                       Description
+ -------------------------- -----------------------------------------------------
+ `respondent_id`            Anonymous row identifier
+
+ `treatment`                Control, religious-values message, or religious-values message with a source cue
+
+ `refugee_thermometer`      Feeling toward refugees, from 0 to 100
+
+ `resettlement_support`     Support for refugee resettlement, from 0 to 1
+
+ `school_support`           Support for refugee children attending public schools, from 1 to 5
+
+ `benefits_support`         Support for refugees receiving unemployment benefits, from 1 to 5
+
+ `age`                      Respondent's age in 2020
+
+ `gender`                   Respondent's gender, recorded as `Male` or `Female`
+
+ `education`                Respondent's highest level of education
+
+ `ideology`                 Ideology from 1, very liberal, to 5, very conservative
+
+ `sample_weight`            YouGov weight for the target population
+--------------------------------------------------------------------------------
+
+Load the data before beginning the exercise. Beware of the relative paths; you may put the data where it suits you and edit the file path used for `read.csv`.
+
+```{r, message=FALSE, warning=FALSE}
+demora <- read.csv("data/demora_2024.csv")
+
+demora$treatment <- factor(
+  demora$treatment,
+  levels = c(
+    "Control",
+    "Religious values message",
+    "Religious values + source cue"
+  )
+)
+```
+
+## Question 1: Research Design
+
+1. State the paper's causal research question in your own words.
+2. What are the three experimental conditions? What features distinguish them?
+3. What is the unit of random assignment? What is the unit of observation in the supplied data?
+4. Focus first on the religious-values message without a source cue versus the control condition. Define $T_i$, $Y_i(1)$, $Y_i(0)$, and the average treatment effect when `refugee_thermometer` is the outcome.
+5. Why can we never directly observe $Y_i(1)-Y_i(0)$ for any respondent?
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+--------------------------------------------------------------------------------
+
+## Question 2: Exploring the Experiment
+
+1. How many observations and variables are in the supplied data?
+2. How many respondents are in each experimental condition?
+3. Which variables contain missing values? Show how you checked.
+4. Report the mean and standard deviation of age and the proportion of respondents recorded as female.
+5. Describe the distributions and scales of the four outcome variables. Explain why their numerical values should not be compared without attending to their scales.
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+```{r}
+## [PUT YOUR CODE HERE]
+```
+
+--------------------------------------------------------------------------------
+
+## Question 3: Estimating Average Treatment Effects
+
+1. Calculate the unweighted mean of each outcome separately for the three experimental conditions.
+2. For each outcome, estimate the effect of the religious-values message relative to the control using a difference in means.
+3. For each outcome, estimate the effect of the religious-values message with a source cue relative to the control using a difference in means.
+4. Interpret every estimate in the units of its outcome. For example, distinguish points on the 0--100 feeling thermometer from changes on the 0--1 resettlement scale.
+5. Create one clearly labeled figure comparing mean `refugee_thermometer` scores across the three conditions. Preserve the experimental ordering shown in the variable table.
+6. Based on these estimates, does the source cue appear to strengthen the message? Explain what comparison answers this question.
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+```{r}
+## [PUT YOUR CODE HERE]
+```
+
+--------------------------------------------------------------------------------
+
+## Question 4: Randomization and Independence
+
+1. Compare age, gender, education, and ideology across the three conditions. Present a readable balance table. You will need to explain how you summarized categorical variables.
+2. Are the groups exactly identical on these observed pretreatment characteristics? Should random assignment make them exactly identical in this realized sample?
+3. What does random assignment imply about the relationship between treatment assignment and both observed and unobserved pretreatment characteristics across repeated assignments?
+4. Based on the research design, is $Y_i(1),Y_i(0) \perp T_i$ plausible for the religious-values-message-versus-control comparison? Explain why the design, rather than the observed balance table alone, is the basis for your answer.
+5. Suppose one balance difference is statistically significant at the 0.05 level after examining twenty pretreatment variables. Would this fact alone invalidate the experiment? Explain.
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+```{r}
+## [PUT YOUR CODE HERE]
+```
+
+--------------------------------------------------------------------------------
+
+## Question 5: Measurement, Assumptions, and Generalization
+
+1. The `resettlement_support` outcome combines support for resettlement in the respondent's local community and in the United States. Discuss one advantage and one disadvantage of combining the two items.
+2. The authors note that the treatment technically consists of a message plus two questions that ask respondents to reflect on it. What complication does this create when naming the causal treatment?
+3. About 77 percent of treated respondents reported having heard the message previously. Does prior exposure violate random assignment? How might it affect the treatment effect estimated in this experiment?
+4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. Give one plausible example of interference or treatment variation.
+5. The analytic sample consists of self-identified white evangelical Republicans who passed the authors' prespecified reading-speed screen. Identify two limits this places on external validity.
+6. The outcomes are survey responses measured shortly after treatment. What can and cannot be concluded about lasting changes in attitudes or political behavior?
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+--------------------------------------------------------------------------------
+
+## Question 6: Reading the Published Results
+
+1. Compare your unweighted estimates with Table 2 of the paper. The authors use YouGov sample weights and regression, so your estimates need not be numerically identical. Explain what each approach targets.
+2. Which outcomes provide evidence that the religious-values message increased support for refugees? Which outcomes produce null results?
+3. Does the paper support the hypothesis that adding an evangelical source cue makes the religious-values message more effective? Cite the relevant comparison.
+4. Summarize the paper's theoretical claim and central empirical finding in no more than 150 words.
+5. Propose one follow-up experiment in a different population or political context. Clearly identify the treatment, outcome, target population, and the average treatment effect of interest.
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+--------------------------------------------------------------------------------
+
+\newpage
+
+# Digesting Cutting Edge Methods Papers into Key Takeaways (Building an Open-Source Reviewer Agent)
+
+See [https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib](https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib). We are going to build an open-source reviewer agent focusing on quantitative methods. 
+
+The TA has randomly assigned two papers to you. See `EXAMPLE-atsusaka_kim_2025.md` in the GitHub repository; your task is to carefully read the papers and create something equivalent for your assigned papers.
+
+For PS1, choose one of the two assigned papers. For that paper, submit the following two items:
+
+1. Show me that you actually did the reading. Print out the paper, take highlights and memos, and submit the outcome in person (I don't care if the memos and highlights are messy).
+2. Submit a `.md` file that summarizes the paper's main points and explains what the reviewer should check for methodological integrity.
