@@ -245,7 +245,7 @@ sapply(outcomes, function(y) {
     mean(demora[demora$treatment == "Control", y],
          na.rm = TRUE)
 })
-
+#4.
 #4.
 # Religious-values message vs. Control
 sapply(outcomes, function(y) {
@@ -292,7 +292,7 @@ ggplot(
 
 ```
 #4.
-Relative to the control group, the religious-values message increased the mean refugee feeling thermometer score by 9.36 points on the 0–100 scale. It increased mean resettlement support by 0.0178 units on the 0–1 scale. In contrast, mean school support was 0.018 points lower on the 1–5 scale, and mean benefits support was 0.141 points lower on the 1–5 scale, relative to the control group.
+Relative to the control group, the religious-values message increased the mean refugee feeling thermometer score by 9.36 points on the 0–100 scale. It increased mean resettlement support by 0.0178 units on the 0–1 scale. In contrast, mean school support was 0.018 points lower on the 1–5 scale, and mean benefits support was 0.141 points lower on the 1–5 scale, relative to the control group. iiiii
 
 #5.
 Based on the point estimates, the source cue does not appear to strengthen the religious-values message for the refugee thermometer outcome. The relevant comparison is not simply each treatment condition versus the control, but rather the source-cue condition directly versus the message-only condition. The estimated effect relative to control is 9.36 points for the message-only condition and 5.32 points for the message-plus-source-cue condition. Thus, the additional effect associated with the source cue is \(5.32 - 9.36 = -4.04\) points on the 0–100 thermometer scale. In this sample, the source-cue condition therefore has a lower mean than the message-only condition. However, without an estimate of uncertainty for this direct difference, we cannot determine whether the difference is statistically distinguishable from zero.
