@@ -118,7 +118,7 @@ summary(demora)
 ```{r}
 ## [PUT YOUR CODE HERE]
 #1  
- dim(demora)
+ dim(demora) #dim
  nrow(demora)   # observations
  ncol(demora)   # variables
 #2. 
@@ -153,7 +153,7 @@ summary(demora[outcomes])
 })
  
 # Plot four histograms together
-par(mfrow = c(2, 2))
+par(mfrow = c(2, 2)) ##
 
 hist(
   demora$refugee_thermometer,
