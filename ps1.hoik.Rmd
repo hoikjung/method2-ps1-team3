@@ -355,7 +355,7 @@ Categorical variables (gender, education, and ideology) were summarized using th
 #2.
 No, the groups are not exactly identical on the observed pretreatment characteristics. Random assignment does not guarantee exact balance in a particular realized sample. Instead, it ensures that treatment assignment is independent of pretreatment characteristics in expectation, so some differences across groups can arise by chance.
 #3.
-Across repeated random assignments, treatment assignment is independent of both observed and unobserved pretreatment characteristics. Thus, treatment groups are balanced on these characteristics in expectation, although chance imbalances may occur in any particular realized sample. 수정중 
+Across repeated random assignments, treatment assignment is independent of both observed and unobserved pretreatment characteristics. Thus, treatment groups are balanced on these characteristics in expectation, although chance imbalances may occur in any particular realized sample. 
 #4.
 Balance is a diagnostic check; randomization is the identification strategy.
 #5. 
@@ -375,8 +375,6 @@ No. A single statistically significant balance difference would not by itself in
 --------------------------------------------------------------------------------
 
 [PUT YOUR ANSWER HERE]
-#1. 
-One advantage of combining the two items is that it can provide a more reliable measure of general support for refugee resettlement by reducing the influence of measurement error in any single item. One disadvantage is that support for resettlement in the United States may differ substantively from support for resettlement in one's own local community. Combining them may therefore obscure meaningful differences between national-level support and willingness to accept resettlement locally.
 
 --------------------------------------------------------------------------------
 
