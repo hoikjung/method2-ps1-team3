@@ -1,6 +1,6 @@
 ---
 title: "PSIR Graduate Methods Problem Set 1"
-author: "Seo-young Silvia Kim"
+author: "Hoik Jung 2026-27005"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 header_includes:
 - \usepackage{amsmath}
@@ -13,7 +13,6 @@ output:
 ---
 
 # Instructions
-* Hi
 * All answers must be typed up and submitted electronically as a PDF file, either via LaTeX or R Markdown. Submit the corresponding .Rmd or .R file as well.
 * Most problem sets should be completed within the individual assigned groups. Collaboration is not allowed for the problem sets between set groups/individuals.
 * Substitute "author" with your own names for the submission.
@@ -116,7 +115,6 @@ summary(demora)
 [PUT YOUR ANSWER HERE]
 
 ```{r}
-## [PUT YOUR CODE HERE]
 #1  
  dim(demora) #dim
  nrow(demora)   # observations
@@ -124,73 +122,25 @@ summary(demora)
 #2. 
  table(demora$treatment)
 #3. 
- colSums(is.na(demora))
+ colSums(is.na(demora)) #refugee_theormometer: 25, ideology:7
 #4.
 #age 
- mean(demora$age, na.rm = TRUE)
- sd(demora$age, na.rm = TRUE)
+ mean(demora$age, na.rm = TRUE) #54.96481
+ sd(demora$age, na.rm = TRUE) #17.77131
 #female 
- mean(demora$gender == "Female", na.rm = TRUE)
- prop.table(table(demora$gender))
- 
- #5.
- outcomes <- c(
-  "refugee_thermometer",
-  "resettlement_support",
-  "school_support",
-  "benefits_support"
-)
-
-summary(demora[outcomes])
- 
- sapply(demora[outcomes], function(x) {
-  c(
-    Min = min(x, na.rm = TRUE),
-    Max = max(x, na.rm = TRUE),
-    Mean = mean(x, na.rm = TRUE),
-    SD = sd(x, na.rm = TRUE)
-  )
-})
- 
-# Plot four histograms together
-par(mfrow = c(2, 2)) ##
-
-hist(
-  demora$refugee_thermometer,
-  main = "Refugee Thermometer",
-  xlab = "Refugee Thermometer",
-  breaks = 10
-)
-
-hist(
-  demora$resettlement_support,
-  main = "Resettlement Support",
-  xlab = "Resettlement Support",
-  breaks = 10
-)
-
-hist(
-  demora$school_support,
-  main = "School Support",
-  xlab = "School Support",
-  breaks = 5
-)
-
-hist(
-  demora$benefits_support,
-  main = "Benefits Support",
-  xlab = "Benefits Support",
-  breaks = 5
-)
-
-# Return plotting window to normal
-par(mfrow = c(1, 1))
+ mean(demora$gender == "Female", na.rm = TRUE) #mean=0.527
+ prop.table(table(demora$gender)) #0.527
  
 ```
- #5. 
- The four outcome variables differ substantially in both their scales and distributions. refugee_thermometer ranges from 0 to 100, with a mean of 52.71 and a standard deviation of 26.15. Responses are spread across much of the scale, although they are relatively concentrated around the middle of the range. resettlement_support ranges from 0 to 1, with a mean of 0.358 and a standard deviation of 0.254. It takes discrete values and is concentrated mostly in the lower half of its range. school_support is measured on a 1–5 scale, with a mean of 3.35 and a standard deviation of 1.13; responses are concentrated around 3 and 4. benefits_support is also measured on a 1–5 scale, with a mean of 2.04 and a standard deviation of 1.19, but its distribution is strongly right-skewed, with many responses at the lower end of the scale.
-The raw numerical values of these outcomes should not be compared directly because they are measured on different scales. For example, the mean of 52.71 for refugee_thermometer is not substantively “larger” than the mean of 0.358 for resettlement_support; the difference in numerical magnitude primarily reflects their different measurement scales (0–100 versus 0–1). Likewise, a one-unit difference represents very different changes depending on the outcome. Comparisons therefore need to take each variable's range and scale into account.
+ #4.
+The potential outcome \(Y_i(1)\) is defined as the refugee_thermometer value that individual \(i\) would have if they received the religious-values message treatment, while \(Y_i(0)\) is defined as the refugee_thermometer value that the same individual \(i\) would have if they were assigned to the control condition.
+The average treatment effect is
+\[
+ATE = E[Y_i(1)-Y_i(0)],
+\]
+which represents the average change in refugee-thermometer points caused by assignment to the religious-values message rather than the control condition.
 
+ #5. 
 
 
 
