@@ -100,6 +100,46 @@ summary(demora)
 
 [PUT YOUR ANSWER HERE]
 
+1.State the paper’s causal research question in your own words.
+
+연구질문 - 종교적 정체성은 당파적 선호와 다른 정책적 지향을 강화시킬 수 있는가? 
+구체적으로 - 공화당원으로서의 정체성과 백인 복음주의 기독교인으로서의 정체성이 충돌할 때 어떤 일이 발생하는가?  복음주의 기독교로서 정체성은 이민정책에 대한 기존 태도를 바꾸는가? 
+
+Theoretical questions about conflicting social identities and the potential power of counter-partisan moral messages. 
+
+2.
+The experiment contains three randomly assigned conditions ; Two Treatment groups, and one control group. The Religious Values condition introduces a moral frame emphasizing core Christian teachings . The Religious values + Source cue condition contains the exact same treatment with Religious value group but adds an explicit elite attribution stating. While control group 
+Receives no text or message, with respondents moving directly to post-treatment survey question to establish a baseline measure of unprompted political attitudes. 
+
+The experiment contains three randomly assigned conditions : religious values frame (Religious Values) , religious values frame with source cue ( Religious Values) , religious values frame with source cue(Religious Values + Source Cue) , and control. 
+
+3.
+ Unit of Random Assignment : The individual survey respondent (participant). Each individual participant was randomly assigned to one of the three experimental conditions. 
+
+Unit of Observation: The individual respondent (individual level). Each observation/row in the dataset represents a single survey participant, containing their demographic traits, assigned treatment condition, identity strength scores, and post-treatment responses. 
+
+
+4.Focus first on the religious-values message without a source cue versus the control condition. Define Ti,  Yi(1), Yi(0), and the average treatment effect when refugee_thermometer is the outcome. 
+
+Ti is a binary indicator variable representing whether the respondent is assigned to receive the generic religious value messages or not. Ti=1 if respondent I was assigned to the Religious Values condition. Ti=0 if respondent I was assigned to the control condition. 
+
+Yi(1) is the potential feeling thermometer score toward refugees that respondent I would express if exposed to the Religious Values Treatment (Ti=1)
+
+Yi(0) is the potential feeling thermometer score toward refugees that responded I would express if assigned to the control condition (Ti=0) 
+
+The Average Treatment Effect (ATE) is the expected population difference between the two potential outcomes across all individuals in the target population . 
+ATE = E[Yi(1)-Yi(0)] = E[Yi(1)] - E[Yi(0)]
+The Average Treatment Effect (ATE) measures the expected causal impact across the entire target population rather than just the treated group. Because random assignment makes treatment status statistically independent of potential outcomes, the observed difference between treatment and control group averages provides an unbiased estimate of the overall ATE.
+
+
+5.
+We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned to only one treatment condition, so we can not observe the both potential outcomes of Yi(1) and Yi(0). We call this ‘the fundamental problem of causal inference’. Random assignment allows us to overcome this fundamental problem of causal inference at the group level by using control group to estimate the average counterfactual outcome for the treated group. 
+
+
+
+
+
+
 --------------------------------------------------------------------------------
 
 ## Question 2: Exploring the Experiment
