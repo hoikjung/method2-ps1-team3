@@ -484,7 +484,7 @@ For this experiment to have greater external validity, we would need to examine 
 [PUT YOUR ANSWER HERE]
 #1.
 
-Our unweighted mean difference estimates a simple difference in group means, treating each respondent equally in the current analytical sample. In contrast, Table 2 of the paper estimates the treatment effect by adjusting for differences in sample composition using YouGov sample weights and regression analysis. Therefore, the numerical values do not need to be exactly the same, but we can compare the direction of the effects and the overall patterns. In the paper, the religious-values message was estimated to increase the thermometer score by approximately 11 points and resettlement support by approximately 0.05.
+Unweighted mean difference estimates a simple difference in group means, treating each respondent equally in the current analytical sample. In contrast, Table 2 of the paper estimates the treatment effect by adjusting for differences in sample composition using YouGov sample weights and regression analysis. Therefore, the numerical values do not need to be exactly the same, but we can compare the direction of the effects and the overall patterns. In the paper, the religious-values message was estimated to increase the thermometer score by approximately 11 points and resettlement support by approximately 0.05.
 
 #2.
 In the paper, a clear positive effect appeared in the refugee thermometer, and weak positive evidence also appeared in resettlement support. In contrast, no positive effects appeared in school support and unemployment/benefits support.
