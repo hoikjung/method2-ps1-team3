@@ -232,7 +232,8 @@ aggregate(
   na.rm = TRUE
 )
 
-library(dplyr)ㅇ  
+library(dplyr)  
+
 demora %>%
   group_by(treatment) %>%
   summarise(
@@ -241,6 +242,12 @@ demora %>%
       ~ mean(.x, na.rm = TRUE)
     )
   )
+
+means <- sapply(demora[outcomes], function(x) {
+  tapply(x, demora$treatment, mean, na.rm = TRUE)
+})
+print(means)
+
 
 #2. 
 sapply(outcomes, function(y) {
@@ -296,6 +303,7 @@ thermo_means <- demora %>%
     upper = mean_thermometer + 1.96 * se
   )
 
+library(ggplot2)
 ggplot(
   thermo_means,
   aes(x = treatment, y = mean_thermometer)
@@ -457,7 +465,7 @@ No. A single statistically significant balance difference would not by itself in
 1. Advantage: Combining the two items can reduce measurement noise and capture a broader, more reliable measure of general support for refugee resettlement.
 Disadvantage: It may hide meaningful differences between support for local resettlement and support for national resettlement, especially if respondents support refugees nationally but not in their own community.
 
-2. The treatment combines the message with two reflection questions, so it is difficult to distinguish whether the observed effect is caused by the message itself, the reflection questions, or their combination. Therefore, the causal treatment should be understood as the entire treatment package, not simply the message.
+2. #page 9 참고 (수정) 
 
 3. Prior exposure does not violate random assignment, because randomization should balance prior exposure across treatment conditions on average. However, prior exposure may reduce the novelty or marginal impact of the treatment, potentially attenuating the estimated treatment effect. This does not necessarily create bias in the experimental comparison, but it may change the estimand: the experiment largely estimates the effect of additional exposure among a population already familiar with the message. Controlling for prior exposure may improve precision or allow analysis of heterogeneous treatment effects.
 
