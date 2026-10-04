@@ -90,10 +90,15 @@ demora$treatment <- factor(
 ## Question 1: Research Design
 
 1. State the paper's causal research question in your own words.
+## Does religious message affect self-identified white evangelical Repulicans' cognition of refugee?
 2. What are the three experimental conditions? What features distinguish them?
+##Religious value frame, Religious value frame source cue, Control
 3. What is the unit of random assignment? What is the unit of observation in the supplied data?
+##individual unit, the unit of observation is 682
 4. Focus first on the religious-values message without a source cue versus the control condition. Define $T_i$, $Y_i(1)$, $Y_i(0)$, and the average treatment effect when `refugee_thermometer` is the outcome.
+##T_i = religious values message withouout a source cue, Y_i(1) = groups with 
 5. Why can we never directly observe $Y_i(1)-Y_i(0)$ for any respondent?
+##
 
 --------------------------------------------------------------------------------
 
