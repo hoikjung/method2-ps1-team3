@@ -1,0 +1,357 @@
+---
+title: "PSIR Graduate Methods Problem Set 1"
+author: "Minje Park"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+header_includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb}
+- \usepackage{amsthm}
+output:
+  pdf_document:
+    latex_engine: xelatex
+    toc: true
+    toc_depth: 3
+  mainfont: Malgun Gothic
+---
+
+# Instructions
+
+* All answers must be typed up and submitted electronically as a PDF file, either via LaTeX or R Markdown. Submit the corresponding .Rmd or .R file as well.
+* Most problem sets should be completed within the individual assigned groups. Collaboration is not allowed for the problem sets between set groups/individuals.
+* Substitute "author" with your own names for the submission.
+* Problem set 1 will be completed in groups of 4--5.
+
+\newpage
+
+# The Average Treatment Effect and the Independence Assumption: Applying it to Research
+
+This part should have every member's individual answers assembled here as subsections. I know you already submitted the abstract/intro, but let's do the following again to clarify the RQ and the estimation strategy:
+
+1. What is the *causal* research question that you want to tackle in the final paper? State the question clearly. This does not mean that you have a clean causal setup; even when checking for correlations, the underlying questions are typically causal.
+
+  Answer: My causal research question is: when a metro station near an expected protest site is closed under high surveillance risk, do anonymity-enabling features of nearby open stations, above all the capacity to buy single-journey tickets with cash, affect which station becomes the substitute site of spontaneous protest?
+
+  The setting is the 2019–2020 Hong Kong anti-extradition bill protests. As protests escalated from June 2019, police and the MTR repeatedly closed stations near expected protest sites, and many protesters avoided their Octopus cards, which leave traceable travel records, by buying single-journey tickets with cash. The question speaks to a broader debate on whether repression suppresses dissent or displaces it. Work on the repression–dissent nexus argues that repression often leads dissidents to substitute one tactic for another rather than demobilize. This paper extends that substitution logic to physical space under digital surveillance: when metro routes are closed and electronic payment leaves a digital trail, protesters should favor sites from which they can disperse anonymously. This study tests that expectation.
+
+
+2. How would you operationalize and measure your outcome variable?
+
+  Answer: The unit of analysis is a candidate station within a closure event. A closure event occurs when one or more adjacent MTR stations are closed before protests begin on a given day, either preemptively, following a police request or an advance public announcement, or because of damage from an earlier day. Closures made in response to protests on the same day are excluded, as are days when the entire network was shut, since protesters then had no alternatives to choose from. For each event, the candidate stations are the still-open stations within a set distance (e.g., 3 km) of the closed station, plus the original protest site. The outcome, Y, equals 1 if a spontaneous protest took place within 500 m of a candidate station that day, and 0 otherwise. Closure data come from the Hong Kong government's November 2019 reply to the Legislative Council listing station closures since June 2019, BuzzFeed News reporting on police closure requests, and news archives for later months. Protest data come from ACLED and news archives. Protests announced in advance by organizers or covered by a police Letter of No Objection are coded as planned; all others are coded as spontaneous.
+
+
+3. How would you operationalize and measure your main explanatory variable?
+
+  Answer: The main explanatory is the anonymous-exit capacity of a candidate station, measured as the number of distinct concourse zones containing cash ticket machines, taken from MTR station layout maps archived before June 2019. Using pre-protest layouts keeps the measure fixed before the events and rules out protests shaping machine placement. While exact machine counts are not available, the number of dispersed purchase points might be better than a raw count in which anonymous dispersal depends on being able to buy a ticket without converging on a single queue that is easily watched or policed. Also, a single queue might mena less alternative machines in case one gets broken. Number of exits, interchange status, and mall connections are recorded as related station features.
+
+4. Consider the *average treatment effect (ATE)* under the potential outcomes framework, given binary treatment. If your explanatory variable is continuous or discrete, try creating a binary explanatory variable based on it, such as dichotomizing it. Consider the difference-in-means estimator (subscripts discarded for brevity):
+
+$$ATE = \mathop{\mathbb{E}}[Y \mid T=1] - \mathop{\mathbb{E}}[Y \mid T=0]$$
+
+In your research question, is this a valid estimator of the average treatment effect? That is to say, is the independence assumption $Y_i(1), Y_i(0) \perp T_i$ satisfied? At this point, do not consider controlling for other variables. We will return to that possibility later in the course.
+
+  Answer: For each station, I count the number of concourse zones with cash ticket machines from pre-June 2019 layout maps. Within each closure event, T = 1 if an open candidate station's count is strictly above the event-specific median, and T = 0 otherwise; the original protest site is excluded because its station is closed, and events with no variation in T are dropped. The difference-in-means estimator, pooled across events, compares spontaneous protest rates at high- versus low-capacity stations. I focus on cash ticket capacity because it is the most anonymity-specific station feature: it offers little to protesters apart from avoiding traceable payment. Because each event contributes treated and control stations sharing the same day, area, and displaced protest demand, and only predetermined closures are used, this design mitigates city-wide confounding and the most direct reverse causality.
+  
+  Even so, the independence assumption is unlikely to hold. First, stations with more ticket zones tend to be larger and to be interchange stations, which often have separate concourses for each line. Size and interchange status may themselves aid anonymous dispersal, through larger crowds and more directions of exit, but they also attract protest through accessibility and visibility. These stations would therefore draw more protest regardless of cash ticket capacity, so E[Y(0) | T = 1] > E[Y(0) | T = 0], biasing the estimate upward; distance to the closed station is a further confounder. Second, if police deploy to, or the MTR closes, the alternatives protesters are expected to favor, treatment status is itself shaped by anticipated protest. Third, outcomes within a choice set are interdependent since protest gathering at one station makes it less likely at another.This means each station's outcome depends on the others, violating SUTVA. Because this competition is itself the displacement I want to study, a later analysis should compare stations only within the same closure event and model them as alternatives in a single choice, for example with a conditional logit. For these reasons, the difference-in-means estimator does not give a valid estimate of the ATE. Large, interchange, and nearby stations would attract protest even without many ticket machines, so station size, interchange status, and distance must be controlled later to separate the effect of cash ticket capacity from the general appeal of large, well-connected stations.
+  
+\newpage
+
+# The Average Treatment Effect in a Randomized Experiment
+
+White evangelical Republicans often hold two identities that point in different directions on refugee policy. Republican leaders have generally favored restrictions, while Christian teachings can emphasize care for refugees and other vulnerable strangers. DeMora et al. (2024) ask whether a message framed around religious values can increase support for refugees among self-identified white evangelical Republicans.
+
+This exercise is based on: DeMora, Stephanie L., Jennifer L. Merolla, Brian Newman, and Elizabeth J. Zechmeister. 2024. "[Jesus Was a Refugee: Religious Values Framing Can Increase Support for Refugees Among White Evangelical Republicans.](https://doi.org/10.1007/s11109-024-09912-2)" *Political Behavior* 46: 2145--2168. The authors' replication materials are available from the [Harvard Dataverse](https://doi.org/10.7910/DVN/QYZQ4Y).
+
+Read the sections titled "An Experiment to Assess the Religious Values Frame" and "Results of the Religious Values Framing Experiment" carefully. The researchers randomly assigned respondents to a control condition, a religious-values message without a source cue, or the same message accompanied by an evangelical source cue. The control group received neither the message nor its two follow-up questions.
+
+The supplied file, `data/demora_2024.csv`, is a simplified teaching version of the authors' cleaned YouGov sample. Each row describes one respondent. Higher values on every outcome indicate more favorable attitudes toward refugees. Do not use `sample_weight` unless a question specifically asks you to do so.
+
+--------------------------------------------------------------------------------
+ Name                       Description
+ -------------------------- -----------------------------------------------------
+ `respondent_id`            Anonymous row identifier
+
+ `treatment`                Control, religious-values message, or religious-values message with a source cue
+
+ `refugee_thermometer`      Feeling toward refugees, from 0 to 100
+
+ `resettlement_support`     Support for refugee resettlement, from 0 to 1
+
+ `school_support`           Support for refugee children attending public schools, from 1 to 5
+
+ `benefits_support`         Support for refugees receiving unemployment benefits, from 1 to 5
+
+ `age`                      Respondent's age in 2020
+
+ `gender`                   Respondent's gender, recorded as `Male` or `Female`
+
+ `education`                Respondent's highest level of education
+
+ `ideology`                 Ideology from 1, very liberal, to 5, very conservative
+
+ `sample_weight`            YouGov weight for the target population
+--------------------------------------------------------------------------------
+
+Load the data before beginning the exercise. Beware of the relative paths; you may put the data where it suits you and edit the file path used for `read.csv`.
+
+```{r, message=FALSE, warning=FALSE}
+demora <- read.csv("data/demora_2024.csv")
+
+demora$treatment <- factor(
+  demora$treatment,
+  levels = c(
+    "Control",
+    "Religious values message",
+    "Religious values + source cue"
+  )
+)
+```
+
+## Question 1: Research Design
+
+1. State the paper's causal research question in your own words.
+2. What are the three experimental conditions? What features distinguish them?
+3. What is the unit of random assignment? What is the unit of observation in the supplied data?
+4. Focus first on the religious-values message without a source cue versus the control condition. Define $T_i$, $Y_i(1)$, $Y_i(0)$, and the average treatment effect when `refugee_thermometer` is the outcome.
+5. Why can we never directly observe $Y_i(1)-Y_i(0)$ for any respondent?
+
+--------------------------------------------------------------------------------
+
+Answer 1. Does a pro-refugee message based on Christian values make white evangelical Republicans feel more favorable toward refugees? The paper also asks whether the message works better when it is linked to evangelical leaders.
+
+Answer 2: Respondents were randomly placed into one of three groups. The control group read no text and moved straight to the survey questions. The Religious Values group read a message saying that Jesus calls Christians to care for vulnerable strangers including refugees. It was presented as a view that "some people" hold. The Religious Values + Source Cue group read the same message. But it was presented as the view of evangelical leaders and as part of a letter signed by Max Lucado and Timothy Keller and more than 500 other evangelical pastors. Both treatment groups were then asked whether they had heard the message before and how much they agreed with it. The control group did not get these questions. So the two treatment groups differ only in the source cue. The control group differs from both because it sees no message and answers no follow-up questions.
+
+Answer 3: The unit of random assignment is the individual respondent. Each person was randomly placed into one of the three groups. The unit of observation is also the individual respondent. Each row in the data is one person.
+
+Answer 4: T1 shows the treatment whether the respondent has read the religious message without the source cue (Ti=1) or if the respondent was in the control group (Ti=0). Yi(1) is the score from 0 to 100 that respondent i would give after reading the religious message and Yi(0) is the score the same respondent would give without reading the message. ATE is the average difference between these two scores across respondents. This shows how religious message can change people's attitude toward refugees.
+
+Answer 5: Each respondent is placed in only one group. If a person is in the control group, the person cannot see the message so we do not know how this person would have reacted if they have seen the message. Likewise, if a person is in the treatment group, the person has to see the message, so we can never know how this person would have reacted if he or she did not see the message because seeing cannot be reversed. We can never see both scores for the same person at the same time, which is why the effect for any single person is always unknown.
+
+--------------------------------------------------------------------------------
+
+## Question 2: Exploring the Experiment
+
+1. How many observations and variables are in the supplied data?
+2. How many respondents are in each experimental condition?
+3. Which variables contain missing values? Show how you checked.
+4. Report the mean and standard deviation of age and the proportion of respondents recorded as female.
+5. Describe the distributions and scales of the four outcome variables. Explain why their numerical values should not be compared without attending to their scales.
+
+--------------------------------------------------------------------------------
+
+Answer 1: 682 observations, 11 variables 
+
+Answer 2: 
+Control group: 234 respondents 
+Treatment w/o source group: 226 respondents 
+Treatment with source cue group: 222 respondents
+
+Answer 3: I used colSums(is.na(df)) to count missing values in each variable. Two variables have missing values. refugee_thermometer has 25 missing values and ideology has 7. All other variables have no missing values. This means analyses of the thermometer will use 657 respondents instead of 682.
+
+Answer 4: 
+Mean age: 54.96 years 
+Standard deviation: 17.77. 
+About 52.8 percent of respondents are recorded as female. 
+
+Answer 5: refugee_thermometer runs from 0 to 100. Higher values mean warmer feelings toward refugees. The mean is 52.71 and the median is 51. Half of the respondents fall between 40 and 71. So feelings are centered near the middle of the scale with a wide spread.
+
+resettlement_support runs from 0 to 1. It combines two five-point items so it moves in steps of 0.125. The mean is 0.36 and three quarters of respondents score 0.5 or lower. So most respondents lean toward opposing resettlement.
+
+school_support is a five-point item from 1 to 5. Most respondents chose 3 or 4 and the mean is 3.36. So respondents lean toward allowing refugee children in public schools.
+
+benefits_support is also a five-point item from 1 to 5. Higher values mean more support for unemployment benefits for refugees. Most respondents chose 1 and only 84 chose 4 or 5. The mean is 2.04. So most respondents oppose giving refugees unemployment benefits.
+
+The raw numbers cannot be compared across outcomes because the scales differ. A change of 5 points is small on the 0 to 100 thermometer. But the same change is impossible on the 0 to 1 resettlement scale and is larger than the whole range of a five-point item. So a treatment effect of 11 on the thermometer is not necessarily larger than an effect of 0.05 on resettlement. Each number must be read relative to the range of its own scale.
+
+```{r}
+## 2.1 Number of observations and variables
+dim(demora)
+
+## 2.2 Number of respondents in each condition
+table(demora$treatment)
+
+## 2.3 Missing values by variable
+colSums(is.na(demora))
+
+## 2.4 Age (mean, SD) and proportion female
+mean(demora$age)
+sd(demora$age)
+mean(demora$gender == "Female")
+
+## 2.5 Distributions of the four outcomes
+summary(demora[, c("refugee_thermometer", "resettlement_support",
+                   "school_support", "benefits_support")])
+
+table(demora$school_support)
+table(demora$benefits_support)
+
+```
+
+--------------------------------------------------------------------------------
+
+## Question 3: Estimating Average Treatment Effects
+
+1. Calculate the unweighted mean of each outcome separately for the three experimental conditions.
+2. For each outcome, estimate the effect of the religious-values message relative to the control using a difference in means.
+3. For each outcome, estimate the effect of the religious-values message with a source cue relative to the control using a difference in means.
+4. Interpret every estimate in the units of its outcome. For example, distinguish points on the 0--100 feeling thermometer from changes on the 0--1 resettlement scale.
+5. Create one clearly labeled figure comparing mean `refugee_thermometer` scores across the three conditions. Preserve the experimental ordering shown in the variable table.
+6. Based on these estimates, does the source cue appear to strengthen the message? Explain what comparison answers this question.
+
+--------------------------------------------------------------------------------
+
+Answer 1
+| Condition | Thermometer (0-100) | Resettlement (0-1) | Schooling (1-5) | Benefits (1-5) |
+|---|---|---|---|---|
+| Control | 47.884 | 0.346 | 3.359 | 2.128 |
+| Religious values message | 57.247 | 0.364 | 3.341 | 1.987 |
+| Religious values + source cue | 53.207 | 0.365 | 3.365 | 1.991 |
+
+Answer 2. The religious values message raises the thermometer by 9.362 points. It raises resettlement by 0.018. It lowers schooling by 0.018 and benefits by 0.141.
+
+Answer 3. The message with a source cue raises the thermometer by 5.323 points. It raises resettlement by 0.019 and schooling by 0.006. It lowers benefits by 0.137.
+
+Answer 4: 
+On the thermometer the message makes respondents about 9.4 points warmer toward refugees on a 0 to 100 scale. With the source cue the shift is about 5.3 points.
+
+On resettlement both messages raise support by about 0.02 on a 0 to 1 scale. This is only about 2 percent of the full range. It is less than one step on this scale since the scale moves in steps of 0.125.
+
+On schooling both changes are close to zero on a 1 to 5 scale. They are less than a fiftieth of one response category.
+
+On benefits both messages lower support by about 0.14 on a 1 to 5 scale. This is a small move in the opposite direction of the message. It is about a seventh of one response category.
+
+So the message clearly changes feelings toward refugees. It barely changes policy views.
+
+Answer 5: 
+barplot(means[, "refugee_thermometer"],
+        names.arg = c("Control", "Religious values\nmessage",
+                      "Religious values\n+ source cue"),
+        ylim = c(0, 100),
+        ylab = "Mean feeling toward refugees (0-100)",
+        main = "Mean Refugee Thermometer by Experimental Condition")
+
+Answer 6: The source cue group scores 4.039 points lower on the thermometer than the message group. On the other three outcomes the two groups differ by almost nothing. So the source cue does not strengthen the message. If anything the message works better without it. These are only differences in means so I have not yet tested whether the 4 point gap is larger than chance.
+
+```{r}
+outcomes <- c("refugee_thermometer", "resettlement_support",
+              "school_support", "benefits_support")
+
+## 3.1 Mean of each outcome by condition
+means <- sapply(outcomes, function(v)
+  tapply(demora[[v]], demora$treatment, mean, na.rm = TRUE))
+round(means, 3)
+
+## 3.2 Message vs control
+round(means["Religious values message", ] - means["Control", ], 3)
+
+## 3.3 Message + source cue vs control
+round(means["Religious values + source cue", ] - means["Control", ], 3)
+
+## 3.5 Figure
+barplot(means[, "refugee_thermometer"],
+        names.arg = c("Control", "Religious values\nmessage",
+                      "Religious values\n+ source cue"),
+        ylim = c(0, 100),
+        ylab = "Mean feeling toward refugees (0-100)",
+        main = "Mean Refugee Thermometer by Experimental Condition")
+
+## 3.6 Source cue vs message alone
+round(means["Religious values + source cue", ] -
+      means["Religious values message", ], 3)
+```
+
+--------------------------------------------------------------------------------
+
+## Question 4: Randomization and Independence
+
+1. Compare age, gender, education, and ideology across the three conditions. Present a readable balance table. You will need to explain how you summarized categorical variables.
+2. Are the groups exactly identical on these observed pretreatment characteristics? Should random assignment make them exactly identical in this realized sample?
+3. What does random assignment imply about the relationship between treatment assignment and both observed and unobserved pretreatment characteristics across repeated assignments?
+4. Based on the research design, is $Y_i(1),Y_i(0) \perp T_i$ plausible for the religious-values-message-versus-control comparison? Explain why the design, rather than the observed balance table alone, is the basis for your answer.
+5. Suppose one balance difference is statistically significant at the 0.05 level after examining twenty pretreatment variables. Would this fact alone invalidate the experiment? Explain.
+
+--------------------------------------------------------------------------------
+
+```{r}
+## Put education levels in a meaningful order
+edu_levels <- c("No high school diploma", "High school graduate",
+                "Some college", "Two-year degree",
+                "Four-year degree", "Postgraduate degree")
+demora$education <- factor(demora$education, levels = edu_levels)
+
+## 4.1 Balance table
+balance <- rbind(
+  "Age (mean)"            = tapply(demora$age, demora$treatment, mean),
+  "Female (proportion)"   = tapply(demora$gender == "Female", demora$treatment, mean),
+  "Ideology (mean, 1-5)"  = tapply(demora$ideology, demora$treatment, mean, na.rm = TRUE),
+  prop.table(table(demora$education, demora$treatment), margin = 2)
+)
+round(balance, 3)
+
+## Tests of difference across the three conditions
+summary(aov(age ~ treatment, data = demora))
+chisq.test(table(demora$gender, demora$treatment))
+chisq.test(table(demora$education, demora$treatment))
+summary(aov(ideology ~ treatment, data = demora))
+```
+Answer 1: 
+```{r}
+knitr::kable(balance, digits = 3,
+             caption = "Pretreatment characteristics by condition")
+```
+  Age and ideology are numeric so I report the mean in each condition. Ideology has 7 missing values which I dropped. Gender and education are categorical so a mean does not make sense. For gender I report the proportion of respondents recorded as female. For education I report the share of each condition in each education level. The shares in each column add up to 1.
+
+  The three groups look very similar. Mean age differs by about one year. The share of women is about 53 percent in every group. Mean ideology is about 4.35 in every group. Education shows somewhat larger gaps. The control group has more postgraduates and fewer people with some college. But none of these differences is statistically significant. The p values are 0.766 for age and 0.981 for gender and 0.200 for education and 0.952 for ideology.  
+  
+  Answer 2: No. The groups are close but not exactly the same. 
+  
+  Answer 3: Random assignment means that treatment is not related to any characteristic people had before the experiment. This holds for characteristics we measured like age and for ones we did not measure like empathy or past contact with refugees. 
+  
+  Answer 4: Yes. Respondents were randomly assigned to the message or the control. Whether someone read the message is not related with how warm they would feel toward refugees either way. 
+
+  The basis for this answer is the design and not the balance table. The balance table only covers four observed variables. It cannot show balance on things we did not measure. Independence also concerns potential outcomes which we can never fully observe. A good balance table is consistent with random assignment but it cannot prove independence. The random assignment itself is what makes it plausible.
+  
+Answer 5: No. This alone would not invalidate the experiment. A 0.05 significance level means that even when there is no real difference, we expect a significant result 5 percent of the time by chance. With twenty variables we would expect about one significant difference just by chance. It would be a concern only if there were many such differences or if the randomization procedure itself had a problem. 
+
+--------------------------------------------------------------------------------
+
+## Question 5: Measurement, Assumptions, and Generalization
+
+1. The `resettlement_support` outcome combines support for resettlement in the respondent's local community and in the United States. Discuss one advantage and one disadvantage of combining the two items.
+2. The authors note that the treatment technically consists of a message plus two questions that ask respondents to reflect on it. What complication does this create when naming the causal treatment?
+3. About 77 percent of treated respondents reported having heard the message previously. Does prior exposure violate random assignment? How might it affect the treatment effect estimated in this experiment?
+4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. Give one plausible example of interference or treatment variation.
+5. The analytic sample consists of self-identified white evangelical Republicans who passed the authors' prespecified reading-speed screen. Identify two limits this places on external validity.
+6. The outcomes are survey responses measured shortly after treatment. What can and cannot be concluded about lasting changes in attitudes or political behavior?
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+--------------------------------------------------------------------------------
+
+## Question 6: Reading the Published Results
+
+1. Compare your unweighted estimates with Table 2 of the paper. The authors use YouGov sample weights and regression, so your estimates need not be numerically identical. Explain what each approach targets.
+2. Which outcomes provide evidence that the religious-values message increased support for refugees? Which outcomes produce null results?
+3. Does the paper support the hypothesis that adding an evangelical source cue makes the religious-values message more effective? Cite the relevant comparison.
+4. Summarize the paper's theoretical claim and central empirical finding in no more than 150 words.
+5. Propose one follow-up experiment in a different population or political context. Clearly identify the treatment, outcome, target population, and the average treatment effect of interest.
+
+--------------------------------------------------------------------------------
+
+[PUT YOUR ANSWER HERE]
+
+--------------------------------------------------------------------------------
+
+\newpage
+
+# Digesting Cutting Edge Methods Papers into Key Takeaways (Building an Open-Source Reviewer Agent)
+
+See [https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib](https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib). We are going to build an open-source reviewer agent focusing on quantitative methods. 
+
+The TA has randomly assigned two papers to you. See `EXAMPLE-atsusaka_kim_2025.md` in the GitHub repository; your task is to carefully read the papers and create something equivalent for your assigned papers.
+
+For PS1, choose one of the two assigned papers. For that paper, submit the following two items:
+
+1. Show me that you actually did the reading. Print out the paper, take highlights and memos, and submit the outcome in person (I don't care if the memos and highlights are messy).
+2. Submit a `.md` file that summarizes the paper's main points and explains what the reviewer should check for methodological integrity.
