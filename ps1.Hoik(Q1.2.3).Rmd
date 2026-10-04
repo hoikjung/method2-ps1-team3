@@ -400,7 +400,6 @@ balance_table
 
 #2.
 
-balance_table
 # Age
 demora %>%
   group_by(treatment) %>%
