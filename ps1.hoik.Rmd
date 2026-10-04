@@ -120,7 +120,7 @@ summary(demora)
 [PUT YOUR ANSWER HERE]
 
 #1.
-RQ: Can religious vlaues framing move partisans away from the party line on polict attitudes? 
+RQ: Can religious vlaues framing move partisans away from the party line on policy attitudes? 
 
 #2. 
 The experiment contains three randomly assigned conditions ; Two Treatment groups, and one control group. The Religious Values condition introduces a moral frame emphasizing core Christian teachings. The Religious values + Source cue condition contains the exact same treatment with Religious value group but adds an explicit elite attribution stating. While control group 
@@ -258,7 +258,7 @@ sapply(outcomes, function(y) {
          na.rm = TRUE)
 })
 
-#4.
+#4. #explanation below. 
 # Religious-values message vs. Control
 message_effect <- sapply(outcomes, function(y) {
   mean(demora[demora$treatment == "Religious values message", y],
@@ -284,7 +284,7 @@ effects <- data.frame(
 effects
 
 
-#5.
+#5. #explanation below 
 thermo_means <- demora %>%
   group_by(treatment) %>%
   summarise(
@@ -437,7 +437,7 @@ No. The groups are not exactly identical on the observed pretreatment characteri
 #3.
 Across repeated random assignments, treatment assignment is independent of both observed and unobserved pretreatment characteristics. Thus, treatment groups are balanced on these characteristics in expectation, although chance imbalances may occur in any particular realized sample. 
 #4.
-Balance is a diagnostic check; randomization is the identification strategy.
+Balance is a diagnostic check; randomization is the identification strategy. The research design, especially random assignment, is the basis for causal inference because it makes treatment assignment independent of potential outcomes by construction. An observed balance table only shows that the treatment and control groups happen to be similar on measured covariates in the realized sample. It cannot establish balance on unobserved characteristics. Therefore, balance tables are useful as diagnostic checks, but randomization—not observed balance—is what justifies causal identification.
 #5. 
 No. A single statistically significant balance difference would not by itself invalidate the experiment. When twenty pretreatment variables are tested at the 0.05 significance level, some significant differences can arise by chance even under proper random assignment. In fact, the probability of observing at least one significant result among twenty independent tests is approximately \(1-0.95^{20}\approx 0.64\). Therefore, an isolated significant imbalance is not sufficient evidence that randomization failed. The validity of the experiment should primarily be assessed based on the random assignment procedure rather than whether every observed covariate is statistically balanced.
 
@@ -455,13 +455,19 @@ No. A single statistically significant balance difference would not by itself in
 --------------------------------------------------------------------------------
 
 [PUT YOUR ANSWER HERE]
-1. 지역 커뮤니티에 재정착을 지지하지 않는 사람도 미국 타 지역에서의 재정책은 지지할 수 있다.
-2. 두 가지 처치의 효과 중 무엇 때문인지 정확하게 구분하기 어렵다.
-3. 무작위 배정을 할 경우 문제는 해결된다. 또한 실제 효과를 보수적으로 측정하기 때문에 강건성 측면에서 의미가 있다. 
-4. SUTVA 가정은 처치가 모든 대상에게 동일하고, 한 대상자에 대한 처치가 다른 대상자에 영향을 주는 간섭 효과가 있어서는 안 됨을 의미한다. 만약 실험 시행 중 참여자가 여타 교회 커뮤니티에 정보를 제시하거나 다른 실험자로부터 사전 정보를 습득했을 경우, SUTVA 가정은 위배된다. 
-5. 외적 타당성은 실험 과정 및 결과가 다른 공간에서 똑같이 반복되었을 때 동일한 일반론으로 이어질 수 있는지 여부를 의미한다.
-이 실험이 외적 타당성을 갖추려면 동일한 매커니즘에 관해 다른 사회적 정체성의 유권자층이 특정 의제에 대해 어떤 응답을 보이는지 관찰해야 한다.
-6. 실제 실험 매커니즘에 따른 감정 변화가 선거에서의 투표 행태로까지 이어지는지 여부를 확인할 수는 없다. 
+1. Advantage: Combining the two items can reduce measurement noise and capture a broader, more reliable measure of general support for refugee resettlement.
+Disadvantage: It may hide meaningful differences between support for local resettlement and support for national resettlement, especially if respondents support refugees nationally but not in their own community.
+
+2. The treatment combines the message with two reflection questions, so it is difficult to distinguish whether the observed effect is caused by the message itself, the reflection questions, or their combination. Therefore, the causal treatment should be understood as the entire treatment package, not simply the message.
+
+3. Prior exposure does not violate random assignment, because randomization should balance prior exposure across treatment conditions on average. However, prior exposure may reduce the novelty or marginal impact of the treatment, potentially attenuating the estimated treatment effect. This does not necessarily create bias in the experimental comparison, but it may change the estimand: the experiment largely estimates the effect of additional exposure among a population already familiar with the message. Controlling for prior exposure may improve precision or allow analysis of heterogeneous treatment effects.
+
+4. The SUTVA assumption requires that the treatment be consistently defined across participants and that the treatment assigned to one participant does not affect the outcomes of other participants. SUTVA may therefore be violated if, during the experiment, participants share treatment-related information with members of their church community or are exposed to information about the treatment through other participants.
+
+5. External validity refers to whether the findings of an experiment can be generalized to other settings or contexts when the study is replicated under different conditions.
+For this experiment to have greater external validity, we would need to examine whether voters with different social identities respond similarly to the same mechanism when considering specific political issues.
+
+6. It is not possible to determine whether the emotional changes induced by the experimental treatment ultimately translate into actual voting behavior in elections.
 
 --------------------------------------------------------------------------------
 
@@ -476,21 +482,29 @@ No. A single statistically significant balance difference would not by itself in
 --------------------------------------------------------------------------------
 
 [PUT YOUR ANSWER HERE]
- #1.우리의 비가중 평균차이는 현재 분석표본에서 각 응답자를 동일하게 취급한 단순한 집단 평균 차이를 추정한다. 반면 논문의 Table 2는  YouGov 표본가중치와 회귀분석을 사용하여 표본구성의 차이를 보정한 처치효과를 추정한다. 따라서 수치는 완전히 같을 필요가 없지만, 효과의 방향과 전반적 패턴을 비교할 수 있다. 논문에서는 religious-values message가 thermometer를 약 11점, resettlement를 약 0.05 높이는 것으로 추정했다. 
- 
- #2.
-논문에서는 refugee thermometer에서 명확한 긍정적 효과가 나타났고, resettlement support에서도 약한 긍정적 증거가 나타났다. 반면 school support와 unemployment/benefits support에서는 긍정적 효과가 나타나지 않았다. Springer Nature Link
+#1.
 
-3. 
-아니다. 이를 판단하려면 Religious Values + Source Cue 조건과 Religious Values 조건을 직접 비교해야 한다. 논문은 이 직접 비교에서 source cue가 메시지의 효과를 더 크게 만들었다는 증거를 발견하지 못했으며, 따라서 H2를 지지하지 않았다. 
+Our unweighted mean difference estimates a simple difference in group means, treating each respondent equally in the current analytical sample. In contrast, Table 2 of the paper estimates the treatment effect by adjusting for differences in sample composition using YouGov sample weights and regression analysis. Therefore, the numerical values do not need to be exactly the same, but we can compare the direction of the effects and the overall patterns. In the paper, the religious-values message was estimated to increase the thermometer score by approximately 11 points and resettlement support by approximately 0.05.
+
+#2.
+In the paper, a clear positive effect appeared in the refugee thermometer, and weak positive evidence also appeared in resettlement support. In contrast, no positive effects appeared in school support and unemployment/benefits support.
+
+#3.
+No. To evaluate this, the Religious Values + Source Cue condition must be directly compared with the Religious Values condition. In this direct comparison, the paper found no evidence that the source cue made the message more effective. Therefore,H2 was not supported.
+
+#3.
+The paper's theoretical argument is that framing that appeals to an individual's religious and moral values can change political attitudes even when those values conflict with partisan positions. The experimental results showed that the pro-refugee Christian values message increased favorable attitudes toward refugees and some support for refugee resettlement among White evangelical Republicans. However, it had no effect on attitudes toward government welfare support for refugees, and adding an evangelical source cue did not make the message more effective.
+
+#4.
 
 
-3.
-논문의 이론적 주장은 당파적 입장과 충돌하더라도 개인의 종교적·도덕적 가치에 호소하는 프레이밍이 정치적 태도를 변화시킬 수 있다는 것이다. 실험 결과, 친난민 기독교 가치 메시지는 백인 복음주의 공화당원의 난민에 대한 호감도와 일부 재정착 지지를 증가시켰다. 그러나 난민에 대한 정부 복지지원 태도에는 효과가 없었으며, 복음주의 출처 단서를 추가한다고 메시지 효과가 더 강해지지도 않았다. 
+#5.
+Indian Hindus are shown religious messages and doctrines related to peace, and their feeling thermometer toward Muslims is measured.
 
-4. 
-한국의 보수 성향 개신교인을 대상으로 실험할 수 있다. 처치는 난민 보호를 기독교적 가치와 연결한 메시지, 통제조건은 메시지가 없는 조건으로 설정한다. 결과변수는 난민 수용·재정착에 대한 지지 정도이며, 관심 있는 ATE는
-
+- Treatment: Using messages and warnings about peace from Hindu scriptures.
+- Outcome: Views on the establishment of Muslim educational institutions in the local community.
+- Target Population: Indian regions with a high proportion of Muslims or Indian states where Hindu-Muslim conflicts have frequently occurred in the past.
+- ATE: The comparison between the treatment group that received the religious message and the control group that did not receive the message.
 --------------------------------------------------------------------------------
 
 \newpage
