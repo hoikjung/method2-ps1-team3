@@ -100,8 +100,6 @@ demora$treatment <- factor(
 4. Focus first on the religious-values message without a source cue versus the control condition. Define $T_i$, $Y_i(1)$, $Y_i(0)$, and the average treatment effect when `refugee_thermometer` is the outcome.
 ##T_i = religious values message withouout a source cue, Y_i(1) = groups with 
 5. Why can we never directly observe $Y_i(1)-Y_i(0)$ for any respondent?
-##
-
 --------------------------------------------------------------------------------
 
 [PUT YOUR ANSWER HERE]
@@ -173,8 +171,30 @@ demora$treatment <- factor(
 6. The outcomes are survey responses measured shortly after treatment. What can and cannot be concluded about lasting changes in attitudes or political behavior?
 
 --------------------------------------------------------------------------------
-
+###### Answer
 [PUT YOUR ANSWER HERE]
+1. resettlement support를 할 때 local community의 응답과 미국 전체에 대한 응답을 결합해서 보는 것이 좋은가 ?
+-좋은 점: 합치면 데이터가 커지니까 관측 결과가 덜 불확실해질 것. 통계 수 때문에 생기는 불확실성은 해소됨.
+# 표본값이 커져서 표준오차가 줄어든다?
+
+-단점: 지역 내의 재정착 지지와 국가 차원의 재정착 지지는 다른 사안일수도 있다. 
+# 국가 차원의 재정착을 지지해도 지역 차원의 재정착을 지지하지 않을 수도 있다.
+
+2. 메세지 + 질문: 메세지의 결과라고만 볼 수 있는가? 질문에 의한 '반성적 성찰'의 효과가 있을 수 있다고 논문에서 명시되었다는 점을 고려한다면, 질문 자체가 메세지만 주었다. 이상의 독립적 효과를 준다고 말할 수 있을 것. 즉 '메세지 노출'에 따른 효과를 보기 위해서는 질문이 없는 경우 <- 들에 대한 결과를 함께 보아야 했을지도.
+
+3. 설계를 무효화하지는 않지만, 기존에 이미 노출된 것보다는 효과를 더 적게 만들 수도 있을 것.
+사전 노출이 결과에 미치는 영향이 우려된다면 -> 사전 공변량을 조절하여 고려할 수 있음.
+#random assignment...
+
+4. 모든 참여자 집단들에게 처치가 동일한 효과를 할 것/처치 받은 집단이 받지 않은 집단의 결과에 영향을 미치지 않아야. 위반될 가능성이 있다면 처치 받은 사람이 교회에서 미리 처치 안 받은 사람과 함께 논의를 한다 등.. - 간섭효과가 생길 수 있음.
+# 데이터 모으는 기간(august 14-24, 2020)에 교회에서 처치받지 않은 사람과 논의를 하면 간섭 효과가 생길 수 있음. 해당 연구에서 SUTVA는 온라인 독립 설문(Yougov).에 의해 조사되었으며, 연구자는 무작위로 배정된 RV, RVSC, CONTROL로 변수를 구성하여 multiple treatment variation 을 지정하여 만족함.
+
+5. 외적 타당성 - 동일한 실험을 동일한 메커니즘을 가진 다른 집단/환경에 했을 때도 같은 결과가 나와야 함. 다른 유형의 정치적 이슈에 대해서도 동일한 결과가 나올 수 있는가?
+
+6. 당장의 실험 처치에 따른 감정적 변화일 수도. 사후적으로 나타나는 정책 변화/선거 투표 행태에 대해서는 특정 결론을 내린다고 단정짓기 어려움.
+외부적external 사건이 나타나면 크게 영향을 주지 못할수도 있음.
+투표 행태에서 '종교'나 이민자가 얼마나 중요한 이슈로 부각될지도 의문.
+
 
 --------------------------------------------------------------------------------
 
