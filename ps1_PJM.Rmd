@@ -1,5 +1,5 @@
 ---
-title: "PSIR Graduate Methods Problem Set 1"
+title: "PSIR Graduate Methods Problem Set 1 Jumyeong"
 author: "Jumyeong Park"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 header_includes:
@@ -33,6 +33,8 @@ This part should have every member's individual answers assembled here as subsec
 $$ATE = \mathop{\mathbb{E}}[Y \mid T=1] - \mathop{\mathbb{E}}[Y \mid T=0]$$
 
 In your research question, is this a valid estimator of the average treatment effect? That is to say, is the independence assumption $Y_i(1), Y_i(0) \perp T_i$ satisfied? At this point, do not consider controlling for other variables. We will return to that possibility later in the course.
+
+## Answer
 
 \newpage
 
