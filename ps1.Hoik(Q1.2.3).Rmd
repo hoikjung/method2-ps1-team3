@@ -180,7 +180,7 @@ We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned
  mean(demora$gender == "Female", na.rm = TRUE) #mean=0.527
  prop.table(table(demora$gender)) #0.527
  
- #5.#explanotry description is below the code-box. 
+#5.#explanotry description is below the code-box. 
  # Define outcome variables
 outcomes <- c(
   "refugee_thermometer",
@@ -199,18 +199,12 @@ sapply(demora[outcomes], function(x) {
   )
 })
 
-lapply(demora[outcomes], function(x) {
-  c(
-    Min  = min(x, na.rm = TRUE),
-    Max  = max(x, na.rm = TRUE),
-    Mean = mean(x, na.rm = TRUE),
-    SD   = sd(x, na.rm = TRUE)
-  )
-})
 
-#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
- 
 ```
+#5.
+refugee_thermometer runs from 0 to 100. Higher values mean warmer feelings toward refugees. The mean is 52.71 and the median is 51. Half of the respondents fall between 40 and 71. So feelings are centered near the middle of the scale with a wide spread. resettlement_support runs from 0 to 1. It combines two five-point items so it moves in steps of 0.125. The mean is 0.36 and three quarters of respondents score 0.5 or lower. So most respondents lean toward opposing resettlement.school_support is a five-point item from 1 to 5. Most respondents chose 3 or 4 and the mean is 3.36. So respondents lean toward allowing refugee children in public schools. benefits_support is also a five-point item from 1 to 5. Higher values mean more support for unemployment benefits for refugees. Most respondents chose 1 and only 84 chose 4 or 5. The mean is 2.04. So most respondents oppose giving refugees unemployment benefits.
+
+The raw numbers cannot be compared across outcomes because the scales differ. A change of 5 points is small on the 0 to 100 thermometer. But the same change is impossible on the 0 to 1 resettlement scale and is larger than the whole range of a five-point item. So a treatment effect of 11 on the thermometer is not necessarily larger than an effect of 0.05 on resettlement. Each number must be read relative to the range of its own scale.
 
 
 --------------------------------------------------------------------------------
@@ -412,7 +406,7 @@ balance_table <- demora %>%
 # Display table
 balance_table
 
-#2.
+#2.~#5. Explanatory Answers are below the code-box. 
 
 # Age
 demora %>%
