@@ -180,7 +180,7 @@ We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned
  mean(demora$gender == "Female", na.rm = TRUE) #mean=0.527
  prop.table(table(demora$gender)) #0.527
  
- #5.
+ #5.#explanotry description is below the code-box. 
  # Define outcome variables
 outcomes <- c(
   "refugee_thermometer",
@@ -199,7 +199,14 @@ sapply(demora[outcomes], function(x) {
   )
 })
 
-lapply(demora[outcomes], table, useNA = "ifany")
+lapply(demora[outcomes], function(x) {
+  c(
+    Min  = min(x, na.rm = TRUE),
+    Max  = max(x, na.rm = TRUE),
+    Mean = mean(x, na.rm = TRUE),
+    SD   = sd(x, na.rm = TRUE)
+  )
+})
 
 #their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
  
