@@ -35,7 +35,7 @@ In your research question, is this a valid estimator of the average treatment ef
 
 -------------------------------------------
  Answer 
- 
+#JungHoik
 #1. Causal research question
 Does owning stock market assets (individual stocks or mutual funds) causally shift Americans' economic and trade policy attitudes toward a more market-friendly, individualist position — or do stockholders simply happen to hold such views for other reasons?
 
