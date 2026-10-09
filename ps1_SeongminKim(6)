@@ -127,17 +127,34 @@ demora$treatment <- factor(
 
 --------------------------------------------------------------------------------
 
-[PUT YOUR ANSWER HERE] - 한국어, 논의 메모.
-1. 개인의 종교적 가치 프레이밍이 정책에 대한 정파적 태도를 바꾸는가?
-+ 메신저가 종교적인 인물인 경우 그 효과가 더 커지는가?
-종교적 프레이밍이 공화당 정파적, 강성지지자의 난민 수용에 미치는 효과
-2. control, RVM, RV+SC - 아무것도 안받음 / 프레이밍 + 설문 / 프레이밍 + 누가 동의했는지 + 설문
-3. 개인 단위. individual survey respondent. randomly assigned
-개인 단위. 단일한 설문 응답자에 대한 것. 인구사회적 특징, 배정된 condition, 정체성 등 사후처치변수도 함께 담김.
-4. Ti: controled / religious message
-Yi(1): religious value treatment 를 받은 Ti일 경우, potential feeling (refugee thermometer 점수)
-Yi(0): controled일 때의 potential feeling (동일)
-5. 동일한 대상에게 복수의 assignment를 줄 수 없어서. / 인과추론의 근본적 problem.
+#1.
+RQ: Can religious vlaues framing move partisans away from the party line on policy attitudes? 
+
+#2. 
+The experiment contains three randomly assigned conditions ; Two Treatment groups, and one control group. The Religious Values condition introduces a moral frame emphasizing core Christian teachings. The Religious values + Source cue condition contains the exact same treatment with Religious value group but adds an explicit elite attribution stating. While control group 
+receives no text or message, with respondents moving directly to post-treatment survey question to establish a baseline measure of unprompted political attitudes. 
+
+#3.
+Unit of Random Assignment : The individual survey respondent (participant). Each individual participant was randomly assigned to one of the three experimental conditions. 
+
+Unit of Observation: The individual respondent (individual level). Each observation/row in the dataset represents a single survey participant, containing their demographic traits, assigned treatment condition, identity strength scores, and post-treatment responses. 
+
+
+#4.
+Ti is a binary indicator variable representing whether the respondent is assigned to receive the generic religious value messages or not. Ti=1 if respondent I was assigned to the Religious Values condition. Ti=0 if respondent I was assigned to the control condition. 
+
+Yi(1) is the potential feeling thermometer score toward refugees that respondent I would express if exposed to the Religious Values Treatment (Ti=1)
+
+Yi(0) is the potential feeling thermometer score toward refugees that responded I would express if assigned to the control condition (Ti=0) 
+
+The Average Treatment Effect (ATE) is the expected population difference between the two potential outcomes across all individuals in the target population . 
+ATE = E[Yi(1)-Yi(0)] = E[Yi(1)] - E[Yi(0)]
+The Average Treatment Effect (ATE) measures the expected causal impact across the entire target population rather than just the treated group. Because random assignment makes treatment status statistically independent of potential outcomes, the observed difference between treatment and control group averages provides an unbiased estimate of the overall ATE.
+
+
+#5.
+We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned to only one treatment condition, so we can not observe the both potential outcomes of Yi(1) and Yi(0). We call this ‘the fundamental problem of causal inference’. Random assignment allows us to overcome this fundamental problem of causal inference at the group level by using control group to estimate the average counterfactual outcome for the treated group. 
+
 
 --------------------------------------------------------------------------------
 
@@ -151,9 +168,8 @@ Yi(0): controled일 때의 potential feeling (동일)
 
 --------------------------------------------------------------------------------
 
-[PUT YOUR ANSWER HERE]
-
-#1
+```{r}
+#1  
  dim(demora) #dim
  nrow(demora)   # observations
  ncol(demora)   # variables
@@ -172,8 +188,8 @@ Yi(0): controled일 때의 potential feeling (동일)
  mean(demora$gender == "Female", na.rm = TRUE) #mean=0.527
  prop.table(table(demora$gender)) #0.527
  
-#5.
-# Define outcome variables
+ #5.
+ # Define outcome variables
 outcomes <- c(
   "refugee_thermometer",
   "resettlement_support",
@@ -193,12 +209,8 @@ sapply(demora[outcomes], function(x) {
 
 lapply(demora[outcomes], table, useNA = "ifany")
 
-#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales. - 단위차이로 바로 비교할 수 없음.
-#문항에서의 측정 단위 차이로 인해, 데이터들의 단위를 사후 통일하더라도 모두 같은 값이라고 비교하기 어려움. (Ex. 온도계 20도와 school support 1이 같다 보기 어려움)
-# 서로 다른 측정 문항에 대해 '동일한 정도의 support 차이'라고 볼 수 있나?
-
-```{r}
-## [PUT YOUR CODE HERE]
+#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
+ 
 ```
 
 --------------------------------------------------------------------------------
@@ -214,16 +226,107 @@ lapply(demora[outcomes], table, useNA = "ifany")
 
 --------------------------------------------------------------------------------
 
-[PUT YOUR ANSWER HERE]
-
-
 ```{r}
 ## [PUT YOUR CODE HERE]
+#1. 
+aggregate(
+  demora[outcomes],
+  by = list(treatment = demora$treatment),
+  FUN = mean,
+  na.rm = TRUE
+)
+
+library(dplyr)ㅇ  
+demora %>%
+  group_by(treatment) %>%
+  summarise(
+    across(
+      all_of(outcomes),
+      ~ mean(.x, na.rm = TRUE)
+    )
+  )
+
+#2. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+  mean(demora[demora$treatment == "Control", y],
+       na.rm = TRUE)
+})
+
+#3. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+#4. #explanation below. 
+# Religious-values message vs. Control
+message_effect <- sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+# Religious-values message + source cue vs. Control
+source_effect <- sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+effects <- data.frame(
+  Outcome = outcomes,
+  Message_vs_Control = message_effect,
+  SourceCue_vs_Control = source_effect
+)
+
+effects
 
 
-```{r}
-## [PUT YOUR CODE HERE]
+#5. #explanation below 
+thermo_means <- demora %>%
+  group_by(treatment) %>%
+  summarise(
+    mean_thermometer = mean(refugee_thermometer, na.rm = TRUE),
+    sd_thermometer = sd(refugee_thermometer, na.rm = TRUE),
+    n = sum(!is.na(refugee_thermometer)),
+    se = sd_thermometer / sqrt(n),
+    lower = mean_thermometer - 1.96 * se,
+    upper = mean_thermometer + 1.96 * se
+  )
+
+ggplot(
+  thermo_means,
+  aes(x = treatment, y = mean_thermometer)
+) +
+  geom_errorbar(
+    aes(ymin = lower, ymax = upper),
+    width = 0.12
+  ) +
+  geom_point(size = 3) +
+  labs(
+    title = "Mean Refugee Thermometer Score by Experimental Condition",
+    x = "Experimental Condition",
+    y = "Mean Refugee Thermometer Score (0–100)"
+  ) +
+  ylim(0, 100) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
 ```
+#4.
+Relative to the control, the religious-values message increased the refugee thermometer by 9.36 points on the 0–100 scale and resettlement support by 0.018 units on the 0–1 scale, while decreasing school support by 0.018 points and benefits support by 0.141 points on their 1–5 scales. With the source cue, the corresponding changes were +5.32 points, +0.019 units, +0.006 points, and −0.137 points, respectively.
+
+
+#6.
+No. Based on the point estimates, the source cue does not appear to strengthen the message. The relevant comparison is the message-plus-source-cue condition versus the message-only condition. The estimated effects relative to control are 5.32 and 9.36 points, respectively, so the direct difference is \(5.32-9.36=-4.04\) points on the 0–100 refugee thermometer scale.
+
 
 --------------------------------------------------------------------------------
 
@@ -236,17 +339,48 @@ lapply(demora[outcomes], table, useNA = "ifany")
 5. Suppose one balance difference is statistically significant at the 0.05 level after examining twenty pretreatment variables. Would this fact alone invalidate the experiment? Explain.
 
 --------------------------------------------------------------------------------
-
-[PUT YOUR ANSWER HERE]
-
 ```{r}
-## [PUT YOUR CODE HERE]
+## Put education levels in a meaningful order
+edu_levels <- c("No high school diploma", "High school graduate",
+                "Some college", "Two-year degree",
+                "Four-year degree", "Postgraduate degree")
+demora$education <- factor(demora$education, levels = edu_levels)
+
+## 4.1 Balance table
+balance <- rbind(
+  "Age (mean)"            = tapply(demora$age, demora$treatment, mean),
+  "Female (proportion)"   = tapply(demora$gender == "Female", demora$treatment, mean),
+  "Ideology (mean, 1-5)"  = tapply(demora$ideology, demora$treatment, mean, na.rm = TRUE),
+  prop.table(table(demora$education, demora$treatment), margin = 2)
+)
+round(balance, 3)
+
+## Tests of difference across the three conditions
+summary(aov(age ~ treatment, data = demora))
+chisq.test(table(demora$gender, demora$treatment))
+chisq.test(table(demora$education, demora$treatment))
+summary(aov(ideology ~ treatment, data = demora))
 ```
-1. 
-2. 
-3. random assignment는 실험 이전의 개인의 특성이 실험 결과에 영향을 주지 않았다는 것. 반복된 random assignment가 사전 불균형 공변량을 다루는 방식이 됨.
-4. research design을 근거로 본다면 random design이 더 중요하지, 통계치로 나온 것이 더 중요한 것은 아니다. 응답자들이 어떤 처치를 받을지에 대해 무작위로 배정되었기 때문에, 누가 메세지를 읽었는가의 여부가 이민자에 대한 기존 선호에서 비롯되지 않음.
-5. no. 0.05 significance level 자체로 실험이 망했다 하긴 어렵다. 숫자가 실험 디자인에 영향을 미치는 것은 아니다.
+
+-----------------------
+Answer
+
+Answer #1. 
+Age and ideology are numeric so I reported the mean in each condition. Gender and education are categorical so mean was not used. For gender, instead of mean, I report the proportion of respondents recorded as female. In case of education, I report the share of each condition in each education level. The shares in each column add up to 1. The three groups look very similar. Mean age differs by about one year, the share of women is about 53 percent in every group, and mean ideology is about 4.35 in every group. Education shows somewhat larger gaps though. The control group has more postgraduates and fewer people with some college. 
+```{r}
+knitr::kable(balance, digits = 3,
+             caption = "Pretreatment characteristics by condition")
+```
+  
+  
+Answer #2. No. The groups are close but not exactly the same. Random assignment does not have to make them exactly identical in real life. 
+  
+Answer #3. Random assignment means that treatment is not related to any characteristic people had before the experiment. This holds for characteristics we measured like age and also for ones we did not measure like empathy or past contact with refugees. 
+  
+Answer #4. Yes. Respondents were randomly assigned to the message or the control. Whether someone read the message is not related with how warm they would feel toward refugees either way. The design is more important than the balance table because the balance table only covers four observed variables. It cannot show balance on things we did not measure. Independence also concerns potential outcomes which we can never fully observe. As a result, the random assignment was necessary.
+  
+Answer #5: No. This alone does not invalidate the experiment. A 0.05 significance level means a test will show a “significant” difference 5% of the time even when there is no real difference. If we check 20 variables we should expect about one of them to look significant purely by chance. It would become a real concern only if several variables were significantly different or if there was evidence that the randomization itself was done incorrectly. Under proper randomization, 0.05 significance level is acceptable. 
+
 
 --------------------------------------------------------------------------------
 
@@ -261,18 +395,43 @@ lapply(demora[outcomes], table, useNA = "ifany")
 
 --------------------------------------------------------------------------------
 
-[PUT YOUR ANSWER HERE]
-1. resettlement support를 할 때 local community의 응답과 미국 전체에 대한 응답을 결합해서 보는 것이 좋은가 ?
--좋은 점: 합치면 데이터가 커지니까 관측 결과가 덜 불확실해질 것. 통계 수 때문에 생기는 불확실성은 해소됨.
--단점: 지역 내의 재정착 지지와 국가 차원의 재정착 지지는 다른 사안일수도 있다.
-2. 메세지 + 질문: 메세지의 결과라고만 볼 수 있는가? 질문에 의한 '반성적 성찰'의 효과가 있을 수 있다고 논문에서 명시되었다는 점을 고려한다면, 질문 자체가 메세지만 주었다. 이상의 독립적 효과를 준다고 말할 수 있을 것. 즉 '메세지 노출'에 따른 효과를 보기 위해서는 질문이 없는 경우 <- 들에 대한 결과를 함께 보아야 했을지도.
-3. 설계를 무효화하지는 않지만, 기존에 이미 노출된 것보다는 효과를 더 적게 만들 수도 있을 것.
-사전 노출이 결과에 미치는 영향이 우려된다면 -> 사전 공변량을 조절하여 고려할 수 있음.
-4. 모든 참여자 집단들에게 처치가 동일한 효과를 할 것/처치 받은 집단이 받지 않은 집단의 결과에 영향을 미치지 않아야. 위반될 가능성이 있다면 처치 받은 사람이 교회에서 미리 처치 안 받은 사람과 함께 논의를 한다 등.. - 간섭효과가 생길 수 있음.
-5. 외적 타당성 - 동일한 실험을 동일한 메커니즘을 가진 다른 집단/환경에 했을 때도 같은 결과가 나와야 함. 다른 유형의 정치적 이슈에 대해서도 동일한 결과가 나올 수 있는가?
-6. 당장의 실험 처치에 따른 감정적 변화일 수도. 사후적으로 나타나는 정책 변화/선거 투표 행태에 대해서는 특정 결론을 내린다고 단정짓기 어려움.
-외부적external 사건이 나타나면 크게 영향을 주지 못할수도 있음.
-투표 행태에서 '종교'나 이민자가 얼마나 중요한 이슈로 부각될지도 의문.
+1.Discuss one advantage and one disadvantage of combining the two items.
+-장점 : 질문 두개의 크론바흐 알파값이 0.92로 실질적으로 동일한 태도를 측정하고 있기 때문에(p.2154) 둘을 결합하면 개별 문항이 갖는 측정 오차를 줄일 수 있다.
+- Advantage : Two questions' Cronbach's alpha is 0.92(p.2154), which means two questions measure the same attitudes. Therefore, combining two questions into one could reduce measurement noise.
+
+-단점: 응답자가 국가 차원의 재정착을 지지해도 지역 차원의 재정착을 지지하지 않을 수 있는 지점이 누락될 수 있다.
+- Disadvantage : Respondents supporting refugee resettlement in nationally might oppose it at the local level. If researchers combine them, they might miss this point.
+
+2. What complication does this create when naming the causal treatment?
+메세지 + 질문: 메세지의 결과라고만 볼 수 있는가? 질문에 의한 '반성적 성찰'의 효과가 있을 수 있다고 논문에서 명시되었다는 점을 고려한다면, 질문 자체가 메세지만 주었다. 이상의 독립적 효과를 준다고 말할 수 있을 것. 즉 '메세지 노출'에 따른 효과를 보기 위해서는 질문이 없는 경우 <- 들에 대한 결과를 함께 보아야 했을지도.
+The treatment combines the message with two reflection questions, so it is difficult to distinguish whether the observed effect is caused by the message itself, the reflection questions, or their combination. Therefore, the causal treatment should be understood as the entire treatment package, not simply the message.
+
+3.Does prior exposure violate random assignment?
+사전 노출 여부는 처치 이전 특성이다. 그러나 연구자는 사전노출여부가 아닌 응답자 전체를 처치군과 대조군으로 무작위 배정하였기 때문에(p.2153) 사전 노출 경험이 통제군과 처치군에 고르게 분포되어 있을 것이다. 따라서 이는 무작위 배정을 위반하지 않는다.
+No, prior exposure does not violate random assignment. Prior exposure is a pre-treatment characteristic. Because respondents as a whole were randomly assigned to either the treatment or control group(p.2153), not based on their prior exposure status, the distribution of prior exposure is expected to be balanced between both groups. Therefore, it does not violate random assignment.
+
+How might it affect the treatment effect estimated in this experiment?
+실험에 미치는 영향은, 77%의 사람들이 노출되어 포화효과가 발생하고(p.2153), 이에 따라 처치 효과가 잠정적으로 감소하거나 없을 수 있다.
+Because 77% of respondents reported prior exposure, a saturation effect occurs (p. 2153). Since most respondents were already exposed to the message at baseline, the marginal persuasive impact of an additional exposure is diminished. This likely causes the estimated treatment effect to be attenuated toward zero (downwardly biased) or potentially result in a null effect.
+ 
+
+4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. 
+이 연구의 SUTVA에서 Yougov(온라인 설문, p.2154)를 이용하여 설문을 진행하여 상호간섭이 없도록 설정하였다. speeder을 제외하고(p.2154), 처치군이 동일한 메시지를 제공하였다는 부분을 논문에서 명시하여  동일한 처치를 받았음을 보여준다 .(p.2153)
+SUTVA is no interference and no hidden variation of treatment. Researchers used Yougov survey(p.2154), showing no interference. Researchers eliminated speeders(p.2154), and described two treatments are identical except for the source cue in the paper(p.2153), showing no hidden variation of treatment. 
+
+Give one plausible example of interference or treatment variation.
+데이터를 모으는 기간에 같은 교회를 다니는 교인이 설문 내용을 논의할 경우  간섭 효과가 생길 수 있다. 
+One example of interference is when respondents who attended the same church discussed the survey, there might be a interference.
+
+5. Identify two limits this places on external validity.
+1. 백인 복음주의가 아닌 다른 인종, 종교적 배경을 가진 사람에게 결과를 확대할 수 없는 한계가 있다. 2. 실험에서는 speeder을 제외하였지만 실제 도덕적 메시지를 사람들이 읽을 때에는 speeder들도 존재하기 때문에 외적 타당도에 한계가 있다. 
+1. Demographic and political narrowness: The results cannot be generalized to people with different racial or religious backgrounds, because the sample was white evangelical Republicans. 2. Exclusion of Speeders: The test exclude speeders to ensure high attention, while people in real world read the moral message quickly.Therefore, the results cannot be generalized to typical situation.
+
+
+6. What can and cannot be concluded about lasting changes in attitudes or political behavior?
+메시지에 노출된 직후 단기적으로는 난민 재정착 태도에 긍정적인 영향을 미칠 수 있는 것으로 결론낼 수 있다. 그러나 이러한 변화가 얼마나 지속되고 실제 투표 행태에 영향을 미치는지는 결론낼 수 없다. 투표에 영향을 미치는 다른 외부 사건이 발생하면 도덕적 메시지보다 영향을 크게 미칠 수 있기 때문이다.
+It can be concluded that the message has a positive effect on support for refugee resettlement in the short term. 
+It cannot be concluded whether this shift affects political behavior. Because we cannot observe how long this support endures, especially when respondents are later exposed to other external political events.
 
 --------------------------------------------------------------------------------
 
