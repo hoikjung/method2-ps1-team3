@@ -29,19 +29,9 @@ This part should have every member's individual answers assembled here as subsec
 
 1. What is the *causal* research question that you want to tackle in the final paper? State the question clearly. This does not mean that you have a clean causal setup; even when checking for correlations, the underlying questions are typically causal.
 
-  Answer: My causal research question is: when a metro station near an expected protest site is closed under high surveillance risk, do anonymity-enabling features of nearby open stations, above all the capacity to buy single-journey tickets with cash, affect which station becomes the substitute site of spontaneous protest?
-
-  The setting is the 2019–2020 Hong Kong anti-extradition bill protests. As protests escalated from June 2019, police and the MTR repeatedly closed stations near expected protest sites, and many protesters avoided their Octopus cards, which leave traceable travel records, by buying single-journey tickets with cash. The question speaks to a broader debate on whether repression suppresses dissent or displaces it. Work on the repression–dissent nexus argues that repression often leads dissidents to substitute one tactic for another rather than demobilize. This paper extends that substitution logic to physical space under digital surveillance: when metro routes are closed and electronic payment leaves a digital trail, protesters should favor sites from which they can disperse anonymously. This study tests that expectation.
-
-
 2. How would you operationalize and measure your outcome variable?
 
-  Answer: The unit of analysis is a candidate station within a closure event. A closure event occurs when one or more adjacent MTR stations are closed before protests begin on a given day, either preemptively, following a police request or an advance public announcement, or because of damage from an earlier day. Closures made in response to protests on the same day are excluded, as are days when the entire network was shut, since protesters then had no alternatives to choose from. For each event, the candidate stations are the still-open stations within a set distance (e.g., 3 km) of the closed station, plus the original protest site. The outcome, Y, equals 1 if a spontaneous protest took place within 500 m of a candidate station that day, and 0 otherwise. Closure data come from the Hong Kong government's November 2019 reply to the Legislative Council listing station closures since June 2019, BuzzFeed News reporting on police closure requests, and news archives for later months. Protest data come from ACLED and news archives. Protests announced in advance by organizers or covered by a police Letter of No Objection are coded as planned; all others are coded as spontaneous.
-
-
 3. How would you operationalize and measure your main explanatory variable?
-
-  Answer: The main explanatory is the anonymous-exit capacity of a candidate station, measured as the number of distinct concourse zones containing cash ticket machines, taken from MTR station layout maps archived before June 2019. Using pre-protest layouts keeps the measure fixed before the events and rules out protests shaping machine placement. While exact machine counts are not available, the number of dispersed purchase points might be better than a raw count in which anonymous dispersal depends on being able to buy a ticket without converging on a single queue that is easily watched or policed. Also, a single queue might mena less alternative machines in case one gets broken. Number of exits, interchange status, and mall connections are recorded as related station features.
 
 4. Consider the *average treatment effect (ATE)* under the potential outcomes framework, given binary treatment. If your explanatory variable is continuous or discrete, try creating a binary explanatory variable based on it, such as dichotomizing it. Consider the difference-in-means estimator (subscripts discarded for brevity):
 
@@ -49,10 +39,27 @@ $$ATE = \mathop{\mathbb{E}}[Y \mid T=1] - \mathop{\mathbb{E}}[Y \mid T=0]$$
 
 In your research question, is this a valid estimator of the average treatment effect? That is to say, is the independence assumption $Y_i(1), Y_i(0) \perp T_i$ satisfied? At this point, do not consider controlling for other variables. We will return to that possibility later in the course.
 
-  Answer: For each station, I count the number of concourse zones with cash ticket machines from pre-June 2019 layout maps. Within each closure event, T = 1 if an open candidate station's count is strictly above the event-specific median, and T = 0 otherwise; the original protest site is excluded because its station is closed, and events with no variation in T are dropped. The difference-in-means estimator, pooled across events, compares spontaneous protest rates at high- versus low-capacity stations. I focus on cash ticket capacity because it is the most anonymity-specific station feature: it offers little to protesters apart from avoiding traceable payment. Because each event contributes treated and control stations sharing the same day, area, and displaced protest demand, and only predetermined closures are used, this design mitigates city-wide confounding and the most direct reverse causality.
-  
-  Even so, the independence assumption is unlikely to hold. First, stations with more ticket zones tend to be larger and to be interchange stations, which often have separate concourses for each line. Size and interchange status may themselves aid anonymous dispersal, through larger crowds and more directions of exit, but they also attract protest through accessibility and visibility. These stations would therefore draw more protest regardless of cash ticket capacity, so E[Y(0) | T = 1] > E[Y(0) | T = 0], biasing the estimate upward; distance to the closed station is a further confounder. Second, if police deploy to, or the MTR closes, the alternatives protesters are expected to favor, treatment status is itself shaped by anticipated protest. Third, outcomes within a choice set are interdependent since protest gathering at one station makes it less likely at another.This means each station's outcome depends on the others, violating SUTVA. Because this competition is itself the displacement I want to study, a later analysis should compare stations only within the same closure event and model them as alternatives in a single choice, for example with a conditional logit. For these reasons, the difference-in-means estimator does not give a valid estimate of the ATE. Large, interchange, and nearby stations would attract protest even without many ticket machines, so station size, interchange status, and distance must be controlled later to separate the effect of cash ticket capacity from the general appeal of large, well-connected stations.
-  
+
+---------------------------
+Answer 
+
+
+#1.Causal research question
+Did the National Security Law (NSL) and the following push for mainland integration cause the Hong Kong Ombudsman to be more lenient towards mainland-related agencies compared with complaints against other agencies? The claim is relative. Examination may fall for every agency after 2020, so the question lies on whether it fell more for agencies whose work involves people from the mainland.
+
+
+#2.Outcome variable
+Outcome variable(Y) is the examination rate for Ombudsman(i) in year t. Complaints concluded by inquiry or full investigation is divided by complaints received. A low rate means the Ombudsman closed most complaints without further steps. Source is the agency tables in the Ombudsman’s annual reports 2003/04 to 2025/26, 17 years before the National Security Law and 6 years after. The seven mainland-related agencies are compared with all other agencies across this window. The total n is 1059 agency-years and 54777 complaints. Agency-years inflated by mass complaints are excluded.
+
+
+#3.Main explanatory variable 
+Main explanatory variable(T) is mainland-related government agency after the National Security Law took effect in June 2020. It is 1 if the agency is mainland-related and the year is 2020/21 or later. T = 0 otherwise. An agency counts as mainland-related if its legal mandate includes one of two things. One is controlling the entry of people from the mainland. The other is deciding newcomers’ eligibility for welfare or housing or schooling or work. The seven selected mainland-related agencies are the Immigration Department and Customs and Excise and the Education Bureau and the Social Welfare Department and the Housing Department and the Housing Authority and the Labor Department. They are chosen by their legal role in admitting or serving people from the mainland. The list is fixed before looking at outcomes. T = 0 for all other agency-years. A continuous version uses the yearly volume of mainland admissions each agency handles.
+
+
+#4.Is the difference-in-means a valid ATE estimator?
+This is not a valid ATE because independence fails. The main problem is time. Every treated observation comes after 2020 which coincided with COVID border closures, two new Ombudsmen and a 2024 shift to mediation. As a result, examination fell for every agency. Mainland-related agencies also differ by nature since they make eligibility decisions on visas and welfare and housing that the Ombudsman often sees as beyond its review. Their complaint volume and content also rose and fell with the border. Mainland-related agencies fell from 51.4% to 39.4% and other agencies fell from 51.0% to 38.4%. The two moved almost identically: mostly the post-2020 decline that hit everyone.
+ 
+ 
 \newpage
 
 # The Average Treatment Effect in a Randomized Experiment
@@ -160,7 +167,7 @@ school_support is a five-point item from 1 to 5. Most respondents chose 3 or 4 a
 
 benefits_support is also a five-point item from 1 to 5. Higher values mean more support for unemployment benefits for refugees. Most respondents chose 1 and only 84 chose 4 or 5. The mean is 2.04. So most respondents oppose giving refugees unemployment benefits.
 
-The raw numbers cannot be compared across outcomes because the scales differ. A change of 5 points is small on the 0 to 100 thermometer. But the same change is impossible on the 0 to 1 resettlement scale and is larger than the whole range of a five-point item. So a treatment effect of 11 on the thermometer is not necessarily larger than an effect of 0.05 on resettlement. Each number must be read relative to the range of its own scale.
+The raw numbers cannot be compared across outcomes because the scales differ. A change of 5 points is small on the 0 to 100 thermometer. But the same change is impossible on the 0 to 1 resettlement scale and is larger than the whole range of a five-point item. So a treatment effect of 11 on the thermometer is not necessarily larger than an effect of 0.05 on resettlement. Each number must be read relative to the range of its own scale. 
 
 ```{r}
 ## 2.1 Number of observations and variables
@@ -293,24 +300,25 @@ chisq.test(table(demora$gender, demora$treatment))
 chisq.test(table(demora$education, demora$treatment))
 summary(aov(ideology ~ treatment, data = demora))
 ```
-Answer 1: 
+
+-----------------------
+Answer
+
+Answer #1. 
+Age and ideology are numeric so I reported the mean in each condition. Gender and education are categorical so mean was not used. For gender, instead of mean, I report the proportion of respondents recorded as female. In case of education, I report the share of each condition in each education level. The shares in each column add up to 1. The three groups look very similar. Mean age differs by about one year, the share of women is about 53 percent in every group, and mean ideology is about 4.35 in every group. Education shows somewhat larger gaps though. The control group has more postgraduates and fewer people with some college. 
 ```{r}
 knitr::kable(balance, digits = 3,
              caption = "Pretreatment characteristics by condition")
 ```
-  Age and ideology are numeric so I report the mean in each condition. Ideology has 7 missing values which I dropped. Gender and education are categorical so a mean does not make sense. For gender I report the proportion of respondents recorded as female. For education I report the share of each condition in each education level. The shares in each column add up to 1.
-
-  The three groups look very similar. Mean age differs by about one year. The share of women is about 53 percent in every group. Mean ideology is about 4.35 in every group. Education shows somewhat larger gaps. The control group has more postgraduates and fewer people with some college. But none of these differences is statistically significant. The p values are 0.766 for age and 0.981 for gender and 0.200 for education and 0.952 for ideology.  
   
-  Answer 2: No. The groups are close but not exactly the same. 
   
-  Answer 3: Random assignment means that treatment is not related to any characteristic people had before the experiment. This holds for characteristics we measured like age and for ones we did not measure like empathy or past contact with refugees. 
+Answer #2. No. The groups are close but not exactly the same. Random assignment does not have to make them exactly identical in real life. 
   
-  Answer 4: Yes. Respondents were randomly assigned to the message or the control. Whether someone read the message is not related with how warm they would feel toward refugees either way. 
-
-  The basis for this answer is the design and not the balance table. The balance table only covers four observed variables. It cannot show balance on things we did not measure. Independence also concerns potential outcomes which we can never fully observe. A good balance table is consistent with random assignment but it cannot prove independence. The random assignment itself is what makes it plausible.
+Answer #3. Random assignment means that treatment is not related to any characteristic people had before the experiment. This holds for characteristics we measured like age and also for ones we did not measure like empathy or past contact with refugees. 
   
-Answer 5: No. This alone would not invalidate the experiment. A 0.05 significance level means that even when there is no real difference, we expect a significant result 5 percent of the time by chance. With twenty variables we would expect about one significant difference just by chance. It would be a concern only if there were many such differences or if the randomization procedure itself had a problem. 
+Answer #4. Yes. Respondents were randomly assigned to the message or the control. Whether someone read the message is not related with how warm they would feel toward refugees either way. The design is more important than the balance table because the balance table only covers four observed variables. It cannot show balance on things we did not measure. Independence also concerns potential outcomes which we can never fully observe. As a result, the random assignment was necessary.
+  
+Answer #5: No. This alone does not invalidate the experiment. A 0.05 significance level means a test will show a “significant” difference 5% of the time even when there is no real difference. If we check 20 variables we should expect about one of them to look significant purely by chance. It would become a real concern only if several variables were significantly different or if there was evidence that the randomization itself was done incorrectly. Under proper randomization, 0.05 significance level is acceptable. 
 
 --------------------------------------------------------------------------------
 
