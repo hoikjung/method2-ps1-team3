@@ -54,31 +54,22 @@ No. $T_i$ is self-selected, not randomly assigned, so independence $Y_i(1), Y_i(
 
 #1. Causal research question
 Does the announcement of a large-scale manufacturing investment in an eastern German county change local political behavior? In particular, does it reduce electoral support for the far-right Alternative für Deutschland(AfD)?
-
 If economic grievance drives far-right support, then regions that received large investments, such as Tesla in Grünheide, CATL in Arnstadt or the semiconductor fabs in Dresden should show weaker surge of AfD. Yet the AfD has kept growing in these regions. Did it grew less than it would have without the investment?
-
 The primary aim of the research is to estimate the effect of large investment. A secondary aim is to probe the mechanisms behind it. The main cases are Tesla (Oder-Spree), CATL (Ilm-Kreis), Intel (Magdeburg/Börde) etc.
 
 #2. Outcome variable
 The main outcome is the AfD second-vote share (of valid votes) at the county (Kreis) level in federal elections from 2013 to 2025. I use the second vote because it measures support for the party rather than for individual candidates. The data come from the German Election Database (GERDA). Municipal results are aggregated to counties on harmonised 2021 boundaries, so the same units can be followed across elections despite the counties merging(Kreisreform).
-
 A secondary outcome is the AfD vote share in state (Landtag) elections. Because these elections are held on different dates in each state, treated and untreated counties are compared only within the same state. Comparing federal and state results may also suggest whether voters credit the state or the federal government for the investment.
-
 To probe mechanisms, I use state-level ESS data on government satisfaction (stfgov), trust in parliament and politicians (trstprl, trstplt) and views on immigration (imbgeco), all measured on 0–10 scales.
 
 #3. Main explanatory variable 
 The main explanatory variable is the announcement of a large-scale manufacturing investment in a county, coded as a binary treatment. A county is treated when a company officially announces a plant there with at least €1 billion in investment or at least 1,000 planned jobs. If a project crosses this threshold only through a later expansion, the expansion date counts. Dates come from company press releases and official government statements.
-
 Let $t$ index federal elections (2013, 2017, 2021, 2025), and let $G_i$ be the first federal election after the first qualifying announcement in county $i$. The treatment indicator is $T_{it} = \mathbb{1}\{t \ge G_i\}$. A county is treated from its first post-announcement election onwards and remains treated thereafter. Counties that never receive a qualifying investment have $T_{it} = 0$ in all elections. Counties that receive one later have $T_{it} = 0$ until $G_i$.
 
 #4. Is the difference-in-means a valid ATE estimator?
 No. The difference in means estimates the ATE only if treatment is independent of the potential outcomes, $\{Y_i(1), Y_i(0)\} \perp T_i$. That is unlikely here, because firms choose plant locations and state governments compete for them with subsidies.
-
 First, there is selection bias. Firms prefer counties with good transport links, available land and skilled workers. Such counties are usually less economically declining and may have lower AfD support even without the investment. Firms may also avoid places with a hostile political climate. A naive comparison would therefore attribute this pre-existing gap to the investment.
-
 Second, firms are likely to pick sites where the spillovers will be largest. The effect in treated counties may then differ from the average effect across all counties.
-
-Therefore, I do not target the ATE. Instead, I estimate the effect on treated counties (ATT) with a staggered difference-in-differences design, which requires only parallel trends.
 
 -------------------------------------------------------
 [Jumyeong Park]
@@ -90,18 +81,14 @@ Therefore, I do not target the ATE. Instead, I estimate the effect on treated co
 #1.Causal research question
 Did Hong Kong's political shift during 2019 protests to the National Security Law (NSL) make the Hong Kong Ombudsman less likely to find against the government in politically sensitive complaints? There are two ways Ombudsman could approach these kind of issues either by declining to handle them or by not substantiating them. The main objective of this research is to see whether outcomes for political complaints were handled differently after 2019 than before and worsened more than those for non-political complaints over the same period. Such result would signal authoritarian change in the democratic institution's role in Hong Kong society. 
 
-
 #2.Outcome variable
 The outcome (Y) is whether a complaint ended in a finding against the government. Y = 1 if the Ombudsman substantiated the complaint, fully or partially. Y = 0 if it found the complaint unsubstantiated, or if it declined to handle it. The same rule applies to political and non-political complaints. Declined complaints are included because declining may itself be a way of responding to political complaints. Looking only at investigated cases would miss this subtle rejection tactic. The unit is the individual complaint. To look at this, case summaries in the Ombudsman’s annual reports will be used from 2009/10 to 2025/2026. Mass complaints are excluded for after 2019 the Ombudsman fully investigated none of them, whether political or not.
-
 
 #3.Main explanatory variable 
 Main explanatory variable T = 1 if a political complaint was concluded in 2019/20 or later and T = 0 if it was concluded before. A complaint is coded as political if it concerns protests, elections, press freedom, public broadcasting, politically sensitive teaching or library materials, or the police’s handling of political events.
 
-
 #4.Is the difference-in-means a valid ATE estimator?
 Difference-in-means is not a valid ATE estimator because independence is not satisfied. Even without treatment, it is unsure if Ombudsman would have continued to deal with complaints in the similar manner. After 2019, Hong Kong Ombudsman also experienced COVID-19, change in leadership, and global Ombudsman's trend toward mediation. Due to such reasons, political complaints before and after 2019 might have had different outcomes even without the political shift. Furthermore, the content of the political complaints filed after 2019 may differ from earlier ones. Under the new political environment, self-censorship and the dissolution of civil society groups may have changed who complained and about what. They might be submitting only mild complaints or conversely, only complaints with strong evidences that Ombudsman cannot ignore, which could work in two opposite directions. Still, the difference-in-means is useful tool because it shows how much the handling of political complaints actually changed after 2019 and also compared to those of non-political complaints. 
-
 
 \newpage
 
