@@ -1,0 +1,592 @@
+---
+title: "PSIR Graduate Methods Problem Set 1"
+author: "Seongmin Kim, Hoik Jung, Jumyeong Park, Minje Park"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+header_includes:
+- \usepackage{amsmath}
+- \usepackage{amssymb}
+- \usepackage{amsthm}
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+# Instructions
+
+* All answers must be typed up and submitted electronically as a PDF file, either via LaTeX or R Markdown. Submit the corresponding .Rmd or .R file as well.
+* Most problem sets should be completed within the individual assigned groups. Collaboration is not allowed for the problem sets between set groups/individuals.
+* Substitute "author" with your own names for the submission.
+* Problem set 1 will be completed in groups of 4--5.
+
+\newpage
+
+# The Average Treatment Effect and the Independence Assumption: Applying it to Research
+
+This part should have every member's individual answers assembled here as subsections. I know you already submitted the abstract/intro, but let's do the following again to clarify the RQ and the estimation strategy:
+
+1. What is the *causal* research question that you want to tackle in the final paper? State the question clearly. This does not mean that you have a clean causal setup; even when checking for correlations, the underlying questions are typically causal.
+2. How would you operationalize and measure your outcome variable?
+3. How would you operationalize and measure your main explanatory variable?
+4. Consider the *average treatment effect (ATE)* under the potential outcomes framework, given binary treatment. If your explanatory variable is continuous or discrete, try creating a binary explanatory variable based on it, such as dichotomizing it. Consider the difference-in-means estimator (subscripts discarded for brevity):
+
+$$ATE = \mathop{\mathbb{E}}[Y \mid T=1] - \mathop{\mathbb{E}}[Y \mid T=0]$$
+
+In your research question, is this a valid estimator of the average treatment effect? That is to say, is the independence assumption $Y_i(1), Y_i(0) \perp T_i$ satisfied? At this point, do not consider controlling for other variables. We will return to that possibility later in the course.
+
+-------------------------------------------------------
+[Hoik Jung]
+
+#1. Causal research question
+Does owning stock market assets (individual stocks or mutual funds) causally shift Americans' economic and trade policy attitudes toward a more market-friendly, individualist position — or do stockholders simply happen to hold such views for other reasons?
+
+#2. Outcome variable
+Economic/trade policy attitude, operationalized two ways from ANES: (a) a 7-point free-trade-agreement favor/oppose scale (V162176x/V202361x/V242346x), rescaled to [0,1]; (b) a 7-point "government should guarantee jobs" economic-liberalism scale (V161189/V201255/V241252), where higher values indicate preference for individual responsibility over government intervention.
+
+#3. Main explanatory variable 
+A binary indicator for stock ownership, from the ANES item "Do you personally, or jointly with a spouse, have any money invested in the stock market right now — either in an individual stock or in a mutual fund?" ($T_i=1$ if yes, $0$ if no).
+
+#4. Is the difference-in-means a valid ATE estimator?
+No. $T_i$ is self-selected, not randomly assigned, so independence $Y_i(1), Y_i(0) \perp T_i$ almost certainly fails. Stockholders differ systematically from non-owners on income, education, and homeownership (I verified this directly with a balance table: standardized mean differences of 0.73–0.94 on income/education), and plausibly on unobserved traits like risk tolerance — all of which independently predict trade/economic attitudes. A naive difference-in-means would therefore conflate the true treatment effect with selection bias.
+ 
+-------------------------------------------------------
+[Seongmin Kim]
+
+#1. Causal research question
+Does the announcement of a large-scale manufacturing investment in an eastern German county change local political behavior? In particular, does it reduce electoral support for the far-right Alternative für Deutschland(AfD)?
+
+If economic grievance drives far-right support, then regions that received large investments, such as Tesla in Grünheide, CATL in Arnstadt or the semiconductor fabs in Dresden should show weaker surge of AfD. Yet the AfD has kept growing in these regions. Did it grew less than it would have without the investment?
+
+The primary aim of the research is to estimate the effect of large investment. A secondary aim is to probe the mechanisms behind it. The main cases are Tesla (Oder-Spree), CATL (Ilm-Kreis), Intel (Magdeburg/Börde) etc.
+
+#2. Outcome variable
+The main outcome is the AfD second-vote share (of valid votes) at the county (Kreis) level in federal elections from 2013 to 2025. I use the second vote because it measures support for the party rather than for individual candidates. The data come from the German Election Database (GERDA). Municipal results are aggregated to counties on harmonised 2021 boundaries, so the same units can be followed across elections despite the counties merging(Kreisreform).
+
+A secondary outcome is the AfD vote share in state (Landtag) elections. Because these elections are held on different dates in each state, treated and untreated counties are compared only within the same state. Comparing federal and state results may also suggest whether voters credit the state or the federal government for the investment.
+
+To probe mechanisms, I use state-level ESS data on government satisfaction (stfgov), trust in parliament and politicians (trstprl, trstplt) and views on immigration (imbgeco), all measured on 0–10 scales.
+
+#3. Main explanatory variable 
+The main explanatory variable is the announcement of a large-scale manufacturing investment in a county, coded as a binary treatment. A county is treated when a company officially announces a plant there with at least €1 billion in investment or at least 1,000 planned jobs. If a project crosses this threshold only through a later expansion, the expansion date counts. Dates come from company press releases and official government statements.
+
+Let $t$ index federal elections (2013, 2017, 2021, 2025), and let $G_i$ be the first federal election after the first qualifying announcement in county $i$. The treatment indicator is $T_{it} = \mathbb{1}\{t \ge G_i\}$. A county is treated from its first post-announcement election onwards and remains treated thereafter. Counties that never receive a qualifying investment have $T_{it} = 0$ in all elections. Counties that receive one later have $T_{it} = 0$ until $G_i$.
+
+#4. Is the difference-in-means a valid ATE estimator?
+No. The difference in means estimates the ATE only if treatment is independent of the potential outcomes, $\{Y_i(1), Y_i(0)\} \perp T_i$. That is unlikely here, because firms choose plant locations and state governments compete for them with subsidies.
+
+First, there is selection bias. Firms prefer counties with good transport links, available land and skilled workers. Such counties are usually less economically declining and may have lower AfD support even without the investment. Firms may also avoid places with a hostile political climate. A naive comparison would therefore attribute this pre-existing gap to the investment.
+
+Second, firms are likely to pick sites where the spillovers will be largest. The effect in treated counties may then differ from the average effect across all counties.
+
+Therefore, I do not target the ATE. Instead, I estimate the effect on treated counties (ATT) with a staggered difference-in-differences design, which requires only parallel trends.
+
+-------------------------------------------------------
+[Jumyeong Park]
+
+
+-------------------------------------------------------
+[Minje Park]
+
+#1.Causal research question
+Did Hong Kong's political shift during 2019 protests to the National Security Law (NSL) make the Hong Kong Ombudsman less likely to find against the government in politically sensitive complaints? There are two ways Ombudsman could approach these kind of issues either by declining to handle them or by not substantiating them. The main objective of this research is to see whether outcomes for political complaints were handled differently after 2019 than before and worsened more than those for non-political complaints over the same period. Such result would signal authoritarian change in the democratic institution's role in Hong Kong society. 
+
+
+#2.Outcome variable
+The outcome (Y) is whether a complaint ended in a finding against the government. Y = 1 if the Ombudsman substantiated the complaint, fully or partially. Y = 0 if it found the complaint unsubstantiated, or if it declined to handle it. The same rule applies to political and non-political complaints. Declined complaints are included because declining may itself be a way of responding to political complaints. Looking only at investigated cases would miss this subtle rejection tactic. The unit is the individual complaint. To look at this, case summaries in the Ombudsman’s annual reports will be used from 2009/10 to 2025/2026. Mass complaints are excluded for after 2019 the Ombudsman fully investigated none of them, whether political or not.
+
+
+#3.Main explanatory variable 
+Main explanatory variable T = 1 if a political complaint was concluded in 2019/20 or later and T = 0 if it was concluded before. A complaint is coded as political if it concerns protests, elections, press freedom, public broadcasting, politically sensitive teaching or library materials, or the police’s handling of political events.
+
+
+#4.Is the difference-in-means a valid ATE estimator?
+Difference-in-means is not a valid ATE estimator because independence is not satisfied. Even without treatment, it is unsure if Ombudsman would have continued to deal with complaints in the similar manner. After 2019, Hong Kong Ombudsman also experienced COVID-19, change in leadership, and global Ombudsman's trend toward mediation. Due to such reasons, political complaints before and after 2019 might have had different outcomes even without the political shift. Furthermore, the content of the political complaints filed after 2019 may differ from earlier ones. Under the new political environment, self-censorship and the dissolution of civil society groups may have changed who complained and about what. They might be submitting only mild complaints or conversely, only complaints with strong evidences that Ombudsman cannot ignore, which could work in two opposite directions. Still, the difference-in-means is useful tool because it shows how much the handling of political complaints actually changed after 2019 and also compared to those of non-political complaints. 
+
+
+\newpage
+
+# The Average Treatment Effect in a Randomized Experiment
+
+White evangelical Republicans often hold two identities that point in different directions on refugee policy. Republican leaders have generally favored restrictions, while Christian teachings can emphasize care for refugees and other vulnerable strangers. DeMora et al. (2024) ask whether a message framed around religious values can increase support for refugees among self-identified white evangelical Republicans.
+
+This exercise is based on: DeMora, Stephanie L., Jennifer L. Merolla, Brian Newman, and Elizabeth J. Zechmeister. 2024. "[Jesus Was a Refugee: Religious Values Framing Can Increase Support for Refugees Among White Evangelical Republicans.](https://doi.org/10.1007/s11109-024-09912-2)" *Political Behavior* 46: 2145--2168. The authors' replication materials are available from the [Harvard Dataverse](https://doi.org/10.7910/DVN/QYZQ4Y).
+
+Read the sections titled "An Experiment to Assess the Religious Values Frame" and "Results of the Religious Values Framing Experiment" carefully. The researchers randomly assigned respondents to a control condition, a religious-values message without a source cue, or the same message accompanied by an evangelical source cue. The control group received neither the message nor its two follow-up questions.
+
+The supplied file, `data/demora_2024.csv`, is a simplified teaching version of the authors' cleaned YouGov sample. Each row describes one respondent. Higher values on every outcome indicate more favorable attitudes toward refugees. Do not use `sample_weight` unless a question specifically asks you to do so.
+
+--------------------------------------------------------------------------------
+ Name                       Description
+ -------------------------- -----------------------------------------------------
+ `respondent_id`            Anonymous row identifier
+
+ `treatment`                Control, religious-values message, or religious-values message with a source cue
+
+ `refugee_thermometer`      Feeling toward refugees, from 0 to 100
+
+ `resettlement_support`     Support for refugee resettlement, from 0 to 1
+
+ `school_support`           Support for refugee children attending public schools, from 1 to 5
+
+ `benefits_support`         Support for refugees receiving unemployment benefits, from 1 to 5
+
+ `age`                      Respondent's age in 2020
+
+ `gender`                   Respondent's gender, recorded as `Male` or `Female`
+
+ `education`                Respondent's highest level of education
+
+ `ideology`                 Ideology from 1, very liberal, to 5, very conservative
+
+ `sample_weight`            YouGov weight for the target population
+--------------------------------------------------------------------------------
+
+Load the data before beginning the exercise. Beware of the relative paths; you may put the data where it suits you and edit the file path used for `read.csv`.
+
+```{r, message=FALSE, warning=FALSE}
+demora <- read.csv("data/demora_2024.csv")
+
+demora$treatment <- factor(
+  demora$treatment,
+  levels = c(
+    "Control",
+    "Religious values message",
+    "Religious values + source cue"
+  )
+)
+```
+
+## Question 1: Research Design
+
+1. State the paper's causal research question in your own words.
+2. What are the three experimental conditions? What features distinguish them?
+3. What is the unit of random assignment? What is the unit of observation in the supplied data?
+4. Focus first on the religious-values message without a source cue versus the control condition. Define $T_i$, $Y_i(1)$, $Y_i(0)$, and the average treatment effect when `refugee_thermometer` is the outcome.
+5. Why can we never directly observe $Y_i(1)-Y_i(0)$ for any respondent?
+
+--------------------------------------------------------------------------------
+
+#1.
+RQ: Can religious vlaues framing move partisans away from the party line on policy attitudes? 
+
+#2. 
+The experiment contains three randomly assigned conditions ; Two Treatment groups, and one control group. The Religious Values condition introduces a moral frame emphasizing core Christian teachings. The Religious values + Source cue condition contains the exact same treatment with Religious value group but adds an explicit elite attribution stating. While control group 
+receives no text or message, with respondents moving directly to post-treatment survey question to establish a baseline measure of unprompted political attitudes. 
+
+#3.
+Unit of Random Assignment : The individual survey respondent (participant). Each individual participant was randomly assigned to one of the three experimental conditions. 
+
+Unit of Observation: The individual respondent (individual level). Each observation/row in the dataset represents a single survey participant, containing their demographic traits, assigned treatment condition, identity strength scores, and post-treatment responses. 
+
+
+#4.
+Ti is a binary indicator variable representing whether the respondent is assigned to receive the generic religious value messages or not. Ti=1 if respondent I was assigned to the Religious Values condition. Ti=0 if respondent I was assigned to the control condition. 
+
+Yi(1) is the potential feeling thermometer score toward refugees that respondent I would express if exposed to the Religious Values Treatment (Ti=1)
+
+Yi(0) is the potential feeling thermometer score toward refugees that responded I would express if assigned to the control condition (Ti=0) 
+
+The Average Treatment Effect (ATE) is the expected population difference between the two potential outcomes across all individuals in the target population . 
+ATE = E[Yi(1)-Yi(0)] = E[Yi(1)] - E[Yi(0)]
+The Average Treatment Effect (ATE) measures the expected causal impact across the entire target population rather than just the treated group. Because random assignment makes treatment status statistically independent of potential outcomes, the observed difference between treatment and control group averages provides an unbiased estimate of the overall ATE.
+
+
+#5.
+We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned to only one treatment condition, so we can not observe the both potential outcomes of Yi(1) and Yi(0). We call this ‘the fundamental problem of causal inference’. Random assignment allows us to overcome this fundamental problem of causal inference at the group level by using control group to estimate the average counterfactual outcome for the treated group. 
+
+
+--------------------------------------------------------------------------------
+
+## Question 2: Exploring the Experiment
+
+1. How many observations and variables are in the supplied data?
+2. How many respondents are in each experimental condition?
+3. Which variables contain missing values? Show how you checked.
+4. Report the mean and standard deviation of age and the proportion of respondents recorded as female.
+5. Describe the distributions and scales of the four outcome variables. Explain why their numerical values should not be compared without attending to their scales.
+
+--------------------------------------------------------------------------------
+
+```{r}
+#1  
+ dim(demora) #dim
+ nrow(demora)   # observations
+ ncol(demora)   # variables
+ 
+#2. 
+ table(demora$treatment)
+ 
+#3. 
+ colSums(is.na(demora)) #refugee_theormometer: 25, ideology:7
+ 
+#4.
+#age 
+ mean(demora$age, na.rm = TRUE) #54.96481
+ sd(demora$age, na.rm = TRUE) #17.77131
+#female 
+ mean(demora$gender == "Female", na.rm = TRUE) #mean=0.527
+ prop.table(table(demora$gender)) #0.527
+ 
+ #5.
+ # Define outcome variables
+outcomes <- c(
+  "refugee_thermometer",
+  "resettlement_support",
+  "school_support",
+  "benefits_support"
+)
+
+# Summary statistics
+sapply(demora[outcomes], function(x) {
+  c(
+    Min  = min(x, na.rm = TRUE),
+    Max  = max(x, na.rm = TRUE),
+    Mean = mean(x, na.rm = TRUE),
+    SD   = sd(x, na.rm = TRUE)
+  )
+})
+
+lapply(demora[outcomes], table, useNA = "ifany")
+
+#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
+ 
+```
+
+--------------------------------------------------------------------------------
+
+## Question 3: Estimating Average Treatment Effects
+
+1. Calculate the unweighted mean of each outcome separately for the three experimental conditions.
+2. For each outcome, estimate the effect of the religious-values message relative to the control using a difference in means.
+3. For each outcome, estimate the effect of the religious-values message with a source cue relative to the control using a difference in means.
+4. Interpret every estimate in the units of its outcome. For example, distinguish points on the 0--100 feeling thermometer from changes on the 0--1 resettlement scale.
+5. Create one clearly labeled figure comparing mean `refugee_thermometer` scores across the three conditions. Preserve the experimental ordering shown in the variable table.
+6. Based on these estimates, does the source cue appear to strengthen the message? Explain what comparison answers this question.
+
+--------------------------------------------------------------------------------
+
+```{r}
+#1. 
+aggregate(
+  demora[outcomes],
+  by = list(treatment = demora$treatment),
+  FUN = mean,
+  na.rm = TRUE
+)
+
+library(dplyr)ㅇ  
+demora %>%
+  group_by(treatment) %>%
+  summarise(
+    across(
+      all_of(outcomes),
+      ~ mean(.x, na.rm = TRUE)
+    )
+  )
+
+#2. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+  mean(demora[demora$treatment == "Control", y],
+       na.rm = TRUE)
+})
+
+#3. 
+sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+#4. #explanation below. 
+# Religious-values message vs. Control
+message_effect <- sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values message", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+# Religious-values message + source cue vs. Control
+source_effect <- sapply(outcomes, function(y) {
+  mean(demora[demora$treatment == "Religious values + source cue", y],
+       na.rm = TRUE) -
+    mean(demora[demora$treatment == "Control", y],
+         na.rm = TRUE)
+})
+
+effects <- data.frame(
+  Outcome = outcomes,
+  Message_vs_Control = message_effect,
+  SourceCue_vs_Control = source_effect
+)
+
+effects
+
+
+#5. #explanation below 
+thermo_means <- demora %>%
+  group_by(treatment) %>%
+  summarise(
+    mean_thermometer = mean(refugee_thermometer, na.rm = TRUE),
+    sd_thermometer = sd(refugee_thermometer, na.rm = TRUE),
+    n = sum(!is.na(refugee_thermometer)),
+    se = sd_thermometer / sqrt(n),
+    lower = mean_thermometer - 1.96 * se,
+    upper = mean_thermometer + 1.96 * se
+  )
+
+ggplot(
+  thermo_means,
+  aes(x = treatment, y = mean_thermometer)
+) +
+  geom_errorbar(
+    aes(ymin = lower, ymax = upper),
+    width = 0.12
+  ) +
+  geom_point(size = 3) +
+  labs(
+    title = "Mean Refugee Thermometer Score by Experimental Condition",
+    x = "Experimental Condition",
+    y = "Mean Refugee Thermometer Score (0–100)"
+  ) +
+  ylim(0, 100) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 20, hjust = 1)
+  )
+```
+#4.
+Relative to the control, the religious-values message increased the refugee thermometer by 9.36 points on the 0–100 scale and resettlement support by 0.018 units on the 0–1 scale, while decreasing school support by 0.018 points and benefits support by 0.141 points on their 1–5 scales. With the source cue, the corresponding changes were +5.32 points, +0.019 units, +0.006 points, and −0.137 points, respectively.
+
+
+#6.
+No. Based on the point estimates, the source cue does not appear to strengthen the message. The relevant comparison is the message-plus-source-cue condition versus the message-only condition. The estimated effects relative to control are 5.32 and 9.36 points, respectively, so the direct difference is \(5.32-9.36=-4.04\) points on the 0–100 refugee thermometer scale.
+
+
+--------------------------------------------------------------------------------
+
+## Question 4: Randomization and Independence
+
+1. Compare age, gender, education, and ideology across the three conditions. Present a readable balance table. You will need to explain how you summarized categorical variables.
+2. Are the groups exactly identical on these observed pretreatment characteristics? Should random assignment make them exactly identical in this realized sample?
+3. What does random assignment imply about the relationship between treatment assignment and both observed and unobserved pretreatment characteristics across repeated assignments?
+4. Based on the research design, is $Y_i(1),Y_i(0) \perp T_i$ plausible for the religious-values-message-versus-control comparison? Explain why the design, rather than the observed balance table alone, is the basis for your answer.
+5. Suppose one balance difference is statistically significant at the 0.05 level after examining twenty pretreatment variables. Would this fact alone invalidate the experiment? Explain.
+
+--------------------------------------------------------------------------------
+```{r}
+## Put education levels in a meaningful order
+edu_levels <- c("No high school diploma", "High school graduate",
+                "Some college", "Two-year degree",
+                "Four-year degree", "Postgraduate degree")
+demora$education <- factor(demora$education, levels = edu_levels)
+
+## 4.1 Balance table
+balance <- rbind(
+  "Age (mean)"            = tapply(demora$age, demora$treatment, mean),
+  "Female (proportion)"   = tapply(demora$gender == "Female", demora$treatment, mean),
+  "Ideology (mean, 1-5)"  = tapply(demora$ideology, demora$treatment, mean, na.rm = TRUE),
+  prop.table(table(demora$education, demora$treatment), margin = 2)
+)
+round(balance, 3)
+
+## Tests of difference across the three conditions
+summary(aov(age ~ treatment, data = demora))
+chisq.test(table(demora$gender, demora$treatment))
+chisq.test(table(demora$education, demora$treatment))
+summary(aov(ideology ~ treatment, data = demora))
+```
+
+-----------------------
+Answer
+
+Answer #1. 
+Age and ideology are numeric so I reported the mean in each condition. Gender and education are categorical so mean was not used. For gender, instead of mean, I report the proportion of respondents recorded as female. In case of education, I report the share of each condition in each education level. The shares in each column add up to 1. The three groups look very similar. Mean age differs by about one year, the share of women is about 53 percent in every group, and mean ideology is about 4.35 in every group. Education shows somewhat larger gaps though. The control group has more postgraduates and fewer people with some college. 
+```{r}
+knitr::kable(balance, digits = 3,
+             caption = "Pretreatment characteristics by condition")
+```
+  
+  
+Answer #2. No. The groups are close but not exactly the same. Random assignment does not have to make them exactly identical in real life. 
+  
+Answer #3. Random assignment means that treatment is not related to any characteristic people had before the experiment. This holds for characteristics we measured like age and also for ones we did not measure like empathy or past contact with refugees. 
+  
+Answer #4. Yes. Respondents were randomly assigned to the message or the control. Whether someone read the message is not related with how warm they would feel toward refugees either way. The design is more important than the balance table because the balance table only covers four observed variables. It cannot show balance on things we did not measure. Independence also concerns potential outcomes which we can never fully observe. As a result, the random assignment was necessary.
+  
+Answer #5: No. This alone does not invalidate the experiment. A 0.05 significance level means a test will show a “significant” difference 5% of the time even when there is no real difference. If we check 20 variables we should expect about one of them to look significant purely by chance. It would become a real concern only if several variables were significantly different or if there was evidence that the randomization itself was done incorrectly. Under proper randomization, 0.05 significance level is acceptable. 
+
+
+--------------------------------------------------------------------------------
+
+## Question 5: Measurement, Assumptions, and Generalization
+
+1. The `resettlement_support` outcome combines support for resettlement in the respondent's local community and in the United States. Discuss one advantage and one disadvantage of combining the two items.
+2. The authors note that the treatment technically consists of a message plus two questions that ask respondents to reflect on it. What complication does this create when naming the causal treatment?
+3. About 77 percent of treated respondents reported having heard the message previously. Does prior exposure violate random assignment? How might it affect the treatment effect estimated in this experiment?
+4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. Give one plausible example of interference or treatment variation.
+5. The analytic sample consists of self-identified white evangelical Republicans who passed the authors' prespecified reading-speed screen. Identify two limits this places on external validity.
+6. The outcomes are survey responses measured shortly after treatment. What can and cannot be concluded about lasting changes in attitudes or political behavior?
+
+--------------------------------------------------------------------------------
+
+1.Discuss one advantage and one disadvantage of combining the two items.
+-장점 : 질문 두개의 크론바흐 알파값이 0.92로 실질적으로 동일한 태도를 측정하고 있기 때문에(p.2154) 둘을 결합하면 개별 문항이 갖는 측정 오차를 줄일 수 있다.
+- Advantage : Two questions' Cronbach's alpha is 0.92(p.2154), which means two questions measure the same attitudes. Therefore, combining two questions into one could reduce measurement noise.
+
+-단점: 응답자가 국가 차원의 재정착을 지지해도 지역 차원의 재정착을 지지하지 않을 수 있는 지점이 누락될 수 있다.
+- Disadvantage : Respondents supporting refugee resettlement in nationally might oppose it at the local level. If researchers combine them, they might miss this point.
+
+2. What complication does this create when naming the causal treatment?
+메세지 + 질문: 메세지의 결과라고만 볼 수 있는가? 질문에 의한 '반성적 성찰'의 효과가 있을 수 있다고 논문에서 명시되었다는 점을 고려한다면, 질문 자체가 메세지만 주었다. 이상의 독립적 효과를 준다고 말할 수 있을 것. 즉 '메세지 노출'에 따른 효과를 보기 위해서는 질문이 없는 경우 <- 들에 대한 결과를 함께 보아야 했을지도.
+The treatment combines the message with two reflection questions, so it is difficult to distinguish whether the observed effect is caused by the message itself, the reflection questions, or their combination. Therefore, the causal treatment should be understood as the entire treatment package, not simply the message.
+
+3.Does prior exposure violate random assignment?
+사전 노출 여부는 처치 이전 특성이다. 그러나 연구자는 사전노출여부가 아닌 응답자 전체를 처치군과 대조군으로 무작위 배정하였기 때문에(p.2153) 사전 노출 경험이 통제군과 처치군에 고르게 분포되어 있을 것이다. 따라서 이는 무작위 배정을 위반하지 않는다.
+No, prior exposure does not violate random assignment. Prior exposure is a pre-treatment characteristic. Because respondents as a whole were randomly assigned to either the treatment or control group(p.2153), not based on their prior exposure status, the distribution of prior exposure is expected to be balanced between both groups. Therefore, it does not violate random assignment.
+
+How might it affect the treatment effect estimated in this experiment?
+실험에 미치는 영향은, 77%의 사람들이 노출되어 포화효과가 발생하고(p.2153), 이에 따라 처치 효과가 잠정적으로 감소하거나 없을 수 있다.
+Because 77% of respondents reported prior exposure, a saturation effect occurs (p. 2153). Since most respondents were already exposed to the message at baseline, the marginal persuasive impact of an additional exposure is diminished. This likely causes the estimated treatment effect to be attenuated toward zero (downwardly biased) or potentially result in a null effect.
+ 
+
+4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. 
+이 연구의 SUTVA에서 Yougov(온라인 설문, p.2154)를 이용하여 설문을 진행하여 상호간섭이 없도록 설정하였다. speeder을 제외하고(p.2154), 처치군이 동일한 메시지를 제공하였다는 부분을 논문에서 명시하여  동일한 처치를 받았음을 보여준다 .(p.2153)
+SUTVA is no interference and no hidden variation of treatment. Researchers used Yougov survey(p.2154), showing no interference. Researchers eliminated speeders(p.2154), and described two treatments are identical except for the source cue in the paper(p.2153), showing no hidden variation of treatment. 
+
+Give one plausible example of interference or treatment variation.
+데이터를 모으는 기간에 같은 교회를 다니는 교인이 설문 내용을 논의할 경우  간섭 효과가 생길 수 있다. 
+One example of interference is when respondents who attended the same church discussed the survey, there might be a interference.
+
+5. Identify two limits this places on external validity.
+1. 백인 복음주의가 아닌 다른 인종, 종교적 배경을 가진 사람에게 결과를 확대할 수 없는 한계가 있다. 2. 실험에서는 speeder을 제외하였지만 실제 도덕적 메시지를 사람들이 읽을 때에는 speeder들도 존재하기 때문에 외적 타당도에 한계가 있다. 
+1. Demographic and political narrowness: The results cannot be generalized to people with different racial or religious backgrounds, because the sample was white evangelical Republicans. 2. Exclusion of Speeders: The test exclude speeders to ensure high attention, while people in real world read the moral message quickly.Therefore, the results cannot be generalized to typical situation.
+
+
+6. What can and cannot be concluded about lasting changes in attitudes or political behavior?
+메시지에 노출된 직후 단기적으로는 난민 재정착 태도에 긍정적인 영향을 미칠 수 있는 것으로 결론낼 수 있다. 그러나 이러한 변화가 얼마나 지속되고 실제 투표 행태에 영향을 미치는지는 결론낼 수 없다. 투표에 영향을 미치는 다른 외부 사건이 발생하면 도덕적 메시지보다 영향을 크게 미칠 수 있기 때문이다.
+It can be concluded that the message has a positive effect on support for refugee resettlement in the short term. 
+It cannot be concluded whether this shift affects political behavior. Because we cannot observe how long this support endures, especially when respondents are later exposed to other external political events.
+
+--------------------------------------------------------------------------------
+
+## Question 6: Reading the Published Results
+
+1. Compare your unweighted estimates with Table 2 of the paper. The authors use YouGov sample weights and regression, so your estimates need not be numerically identical. Explain what each approach targets.
+2. Which outcomes provide evidence that the religious-values message increased support for refugees? Which outcomes produce null results?
+3. Does the paper support the hypothesis that adding an evangelical source cue makes the religious-values message more effective? Cite the relevant comparison.
+4. Summarize the paper's theoretical claim and central empirical finding in no more than 150 words.
+5. Propose one follow-up experiment in a different population or political context. Clearly identify the treatment, outcome, target population, and the average treatment effect of interest.
+
+--------------------------------------------------------------------------------
+Answer
+
+Answer #1.
+
+| Condition |Feeling Thermometer (0-100) | Resettlement (0-1) | Schooling (1-5) | Benefits (1-5)|
+|---|---|---|---|---|
+| (Unweighted) Religious values message | 9.362 | 0.018 | -0.018 | -0.14 |
+| (Unweighted) Religious values + source cue | 5.323 | 0.019 | 0.006 | -0.13 |
+| (Table 2) Religious values message | 11.39 | 0.05 | -0.02 | -0.12 |
+| (Table 2) Religious values + source cue | 7.18 | 0.03 | 0.04 | -0.25 |
+
+Our unweighted mean difference estimates is the mean difference between groups of respondents, without considering the composition of the analytical sample. This means we gave each respondent equal weight. Said differently, the unweighted mean difference estimate targets the sample average treatment effect: the effect among the 682 respondents in the analytical sample.
+The weighted regression that authors used for Table 2 takes account of the difference in sample composition and adjusts if the panel is skewed towards certain group. This helps the authors to give an accurate estimate describing the average treatment effect of the population, for instance US white evangelical Republicans.
+Although the two estimates do not need to be exactly the same, a vast difference between them is worth looking into. The difference is more prominent if 1) the effects differ across groups that the weights adjust for, 2) the decision to respond is related to the outcome (ex. when deciding to respond to the questionnaire itself gives a bias), and 3) the weights are highly variable, making the weighted estimate less precise.
+
+Answer #2.
+The results in the paper suggest that religious-values message increases the feeling thermometer towards refugees in general and the support for refugee resettlement itself, while it does not positively affect the support for specific policies(ex. children of refugees studying in public schools / refugees receiving unemployment benefits), with no significant positive effect in either treatment. If anything, for the message+source cue treatment, there was a slight backlash on unemployment benefit provision for refugees.
+This could be understood as follows. While the religious value frame may evoke warmer feelings on refugees and support for resettlements, it does not extend to policy supports. 
+The authors mention that this might also be the case because the treatment does not mention government policies specifically, therefore if the religious value message mentioned certain programs on refugees in particular, the result may vary. Also, taking their political affiliation into account, the self-identified evangelical Republicans tend to be politically conservative and to favor small government. In this context, the support on refugees may be understood as support for a bigger government, which by itself the respondents would not support regardless of which group is better off by the policy. Instead, they may prefer to support refugees through non-governmental options like churches and non-profits, which may have been particularly salient in the condition with a religious source cue.
+
+Answer #3.
+The paper does not support the hypothesis (H2) that an evangelical source cue makes the religious values message more effective. The authors also mentioned that by comparing the two treatment conditions (RV vs. RV+SC), they did not find support from H2(p.2157).
+Following are the comparisons mentioned, from Table 2.
+Firstly, in the question on feeling thermometer, the point estimate shows that the message-only recipients felt warmer towards refugees than those who got it with the source cue.
+(compared with control group, +11.39 for RV(p<0.01) vs. +7.18 for RV+SC(p<0.01))
+Secondly, the mean of the support for refugee resettlement was slightly higher in message-only recipient group than in the message-source cue recipient group.
+(+0.05 for RV (p<0.10) vs. +0.03 for RV+SC (not significant))
+Lastly, on the question of unemployment benefits, the control group favored benefits more than message-with-source cue recipients by 3 percentage points, which may signify backlash.
+(12% vs. 9%; −0.25 for RV+SC, p<0.05)
+These three results show that at best the source cue did not strengthen the effect of religious value framing. 
+
+
+Answer #4.
+Theoretical claim: The paper claims that religious value framing can impact the political behavior of voters, even when it runs counter to their party’s position.
+Specifically, a refugee-friendly religious value framing would shift self-identified white evangelical Republicans to feel warmer about refugees and be more supportive of refugee resettlement, with strong evangelical identifiers shifting more and strong Republican identifiers resisting.
+Central empirical finding: The pre-registered survey experiment was conducted with 682 white evangelical Republicans. Participants were randomly given no text (control), a refugee-friendly religious value message and two reflective questions, or the same message with source cues. Those who received the message without a source cue felt about 11 points warmer about refugees (0–100 scale) and modestly more supportive of resettlement, but support for government benefits for refugees did not increase. Adding an evangelical source cue did not strengthen the effect. The effect was largest among strong evangelical identifiers but strong Republican identifiers also shifted in a pro-refugee direction..
+
+Answer #5.
+The same religious framing experiment could also be done for Korean evangelicals. Korean Evangelicals not only vary in their political affiliation but also in how important they believe religion is when making political decisions.
+
+One of the periods when religion impacted political behavior was right after the martial law declaration of December 2024, until the impeachment ruling of 2025. Some pastors supported the martial law declaration on religious grounds, created peer pressure within churches to be more supportive of the martial law declaration. For Evangelical Progressives, this creates the same kind of conflict between religious and partisan identities that the original study examined.
+
+The experiment measures whether a religious values frame that runs counter to their political position can change Korean Evangelical Progressives’ attitudes on the martial law declaration and the impeachment.
+
+The religious framing would be different, mostly an excerpt from a pastor’s sermon during the service. Since some churches upload their services online (e.g., YouTube), it is possible to get excerpts from services during the period mentioned. The excerpt would emphasize the religious grounds these pastors gave, such as protecting Christian values in society. Excerpts containing unverified factual claims (e.g., election fraud) would be excluded. The text would be identical in the two treatment conditions, and only whether the source cue is included would differ.
+
+Target Population: Korean Evangelical Progressives. These are respondents who self-identify as Protestant and as born-again or evangelical, and who support the Democratic Party of Korea or identify as progressive.
+
+
+Treatment:
+
+- Control: no text
+- Treatment 1: Religious message supporting the martial law declaration and criticizing the acceptance of the impeachment ruling, with no source
+Treatment 2: The same message as 2, with a source cue
+e.g., The following is from a sermon by the senior pastor (with the name) of a large evangelical church (with the name) in Korea”
+
+Outcome:
+
+Political assessment of the martial law declaration: “The martial law declaration was understandable” (0-10 scale)
+Feeling thermometer of the impeached president (Yoon Suk Yeol): feeling thermometer (0–100)
+Support for the impeachment: acceptance of the Constitutional Court’s ruling (0-10 scale)
+
+Strength of religious identity (how important religion is when making political decisions) and strength of partisan identity are measured pre-treatment as moderators.
+
+Average treatment effect of interest:
+
+ATE_1 = E[Y | Treatment 1] − E[Y | Control]
+ATE_2 = E[Y | Treatment 2] − E[Y | Control]
+Source cue effect = ATE_2 − ATE_1
+
+On martial law declaration/impeachment:
+
+Treatment 1 would be less understanding towards the martial law declaration and the political deeds of the impeached president compared to the control group.
+Treatment 1 would be more favorable on the impeachment compared to the control group.
+Treatment 2 would show similar results to Treatment 1, meaning the source cue effect would be close to zero.
+The effects would be larger for those with stronger religious identity and smaller for those with stronger partisan identity.
+
+One limitation is that the experiment would be fielded after the impeachment was concluded. 
+Many respondents may have already heard similar messages and have firm opinions, which could mute the treatment effects.
+
+```{r}
+## 6.1 Unweighted ATE
+
+outcomes <- c("refugee_thermometer", "resettlement_support", "school_support", "benefits_support")
+
+means <- sapply(outcomes, function(y)
+  tapply(demora[[y]], demora$treatment, mean, na.rm = TRUE))
+
+ATE <- sweep(means, 2, means["Control", ])
+ATE <- ATE[rownames(ATE) != "Control", ]
+
+round(ATE, 3)
+```
+
+--------------------------------------------------------------------------------
+
+\newpage
+
+# Digesting Cutting Edge Methods Papers into Key Takeaways (Building an Open-Source Reviewer Agent)
+
+See [https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib](https://github.com/sysilviakim/quant-social-science-skills/tree/main/contrib). We are going to build an open-source reviewer agent focusing on quantitative methods. 
+
+The TA has randomly assigned two papers to you. See `EXAMPLE-atsusaka_kim_2025.md` in the GitHub repository; your task is to carefully read the papers and create something equivalent for your assigned papers.
+
+For PS1, choose one of the two assigned papers. For that paper, submit the following two items:
+
+1. Show me that you actually did the reading. Print out the paper, take highlights and memos, and submit the outcome in person (I don't care if the memos and highlights are messy).
+2. Submit a `.md` file that summarizes the paper's main points and explains what the reviewer should check for methodological integrity.
