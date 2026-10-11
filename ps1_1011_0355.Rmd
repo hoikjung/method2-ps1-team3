@@ -70,7 +70,7 @@ Let $t$ index federal elections (2013, 2017, 2021, 2025), and let $G_i$ be the f
 No. The difference in means estimates the ATE only if treatment is independent of the potential outcomes, $\{Y_i(1), Y_i(0)\} \perp T_i$. That is unlikely here, because firms choose plant locations and state governments compete for them with subsidies.
 First, there is selection bias. Firms prefer counties with good transport links, available land and skilled workers. Such counties are usually less economically declining and may have lower AfD support even without the investment. Firms may also avoid places with a hostile political climate. A naive comparison would therefore attribute this pre-existing gap to the investment.
 Second, firms are likely to pick sites where the spillovers will be largest. The effect in treated counties may then differ from the average effect across all counties.
-It is rather better to compare with counties that are announced as a large-scale manufacturing site later on or with counties that were strongly considered as alternative sites.
+A more credible comparison is between counties where an investment was announced and counties that are announced as sites only later, or counties that were seriously considered as alternative sites. These counties also met the firms' location criteria, so they are likely to be similar to the treated counties, although the estimate then applies mainly to counties of this kind.
 
 -------------------------------------------------------
 [Jumyeong Park]
