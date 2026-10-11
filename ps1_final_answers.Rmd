@@ -83,7 +83,7 @@ The explanatory variable is operationalized as the 10-year age progression colle
 $T_i = 0$ (Baseline): Respondents belonging to Cohort surveyed in the baseline wave (e.g., the 2007 survey, when the cohort was in their 20s).
 $T_i = 1$ (10-Year Follow-up): Respondents belonging to Cohort surveyed 10 years later (e.g., the 2017 survey, when the same cohort reached their 30s).
 
-### 4.
+### 4. Is the difference-in-means a valid ATE estimator?
 No, the independence assumption is not satisfied. First, aging and the passage of time are non-manipulable observational status indicators, meaning there is no guarantee of baseline comparability. Second, repeated cross-sectional data samples entirely different respondents across survey. Even within a synthetic birth cohort, the respondents surveyed in T = 1(2017) are not the same individuals surveyed in T = 0 (2007).
 
 ## Minje Park
