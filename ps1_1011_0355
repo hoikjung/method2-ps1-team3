@@ -153,6 +153,7 @@ demora$treatment <- factor(
 
 --------------------------------------------------------------------------------
 
+#Answer 
 #1.
 RQ: Can religious vlaues framing move partisans away from the party line on policy attitudes? 
 
@@ -195,6 +196,7 @@ We cannot directly observe Yi(1) - Yi(0) because each respondent can be assigned
 --------------------------------------------------------------------------------
 
 ```{r}
+#Answer_code 
 #1  
  dim(demora) #dim
  nrow(demora)   # observations
@@ -253,6 +255,7 @@ lapply(demora[outcomes], table, useNA = "ifany")
 --------------------------------------------------------------------------------
 
 ```{r}
+#Answer_code
 #1. 
 aggregate(
   demora[outcomes],
