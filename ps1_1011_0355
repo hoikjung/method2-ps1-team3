@@ -290,7 +290,7 @@ sapply(outcomes, function(y) {
          na.rm = TRUE)
 })
 
-#4. #explanation below. 
+#4. #explanation below the code box 
 # Religious-values message vs. Control
 message_effect <- sapply(outcomes, function(y) {
   mean(demora[demora$treatment == "Religious values message", y],
@@ -316,7 +316,7 @@ effects <- data.frame(
 effects
 
 
-#5. #explanation below 
+#5. 
 thermo_means <- demora %>%
   group_by(treatment) %>%
   summarise(
@@ -347,6 +347,9 @@ ggplot(
   theme(
     axis.text.x = element_text(angle = 20, hjust = 1)
   )
+  
+#6.explanation below the code box
+
 ```
 #4.
 Relative to the control, the religious-values message increased the refugee thermometer by 9.36 points on the 0–100 scale and resettlement support by 0.018 units on the 0–1 scale, while decreasing school support by 0.018 points and benefits support by 0.141 points on their 1–5 scales. With the source cue, the corresponding changes were +5.32 points, +0.019 units, +0.006 points, and −0.137 points, respectively.
