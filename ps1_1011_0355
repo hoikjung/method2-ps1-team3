@@ -419,42 +419,27 @@ Answer #5: No. This alone does not invalidate the experiment. A 0.05 significanc
 6. The outcomes are survey responses measured shortly after treatment. What can and cannot be concluded about lasting changes in attitudes or political behavior?
 
 --------------------------------------------------------------------------------
-
-1.Discuss one advantage and one disadvantage of combining the two items.
--장점 : 질문 두개의 크론바흐 알파값이 0.92로 실질적으로 동일한 태도를 측정하고 있기 때문에(p.2154) 둘을 결합하면 개별 문항이 갖는 측정 오차를 줄일 수 있다.
+1.
 - Advantage : Two questions' Cronbach's alpha is 0.92(p.2154), which means two questions measure the same attitudes. Therefore, combining two questions into one could reduce measurement noise.
-
--단점: 응답자가 국가 차원의 재정착을 지지해도 지역 차원의 재정착을 지지하지 않을 수 있는 지점이 누락될 수 있다.
 - Disadvantage : Respondents supporting refugee resettlement in nationally might oppose it at the local level. If researchers combine them, they might miss this point.
 
-2. What complication does this create when naming the causal treatment?
-메세지 + 질문: 메세지의 결과라고만 볼 수 있는가? 질문에 의한 '반성적 성찰'의 효과가 있을 수 있다고 논문에서 명시되었다는 점을 고려한다면, 질문 자체가 메세지만 주었다. 이상의 독립적 효과를 준다고 말할 수 있을 것. 즉 '메세지 노출'에 따른 효과를 보기 위해서는 질문이 없는 경우 <- 들에 대한 결과를 함께 보아야 했을지도.
+2. 
 The treatment combines the message with two reflection questions, so it is difficult to distinguish whether the observed effect is caused by the message itself, the reflection questions, or their combination. Therefore, the causal treatment should be understood as the entire treatment package, not simply the message.
 
-3.Does prior exposure violate random assignment?
-사전 노출 여부는 처치 이전 특성이다. 그러나 연구자는 사전노출여부가 아닌 응답자 전체를 처치군과 대조군으로 무작위 배정하였기 때문에(p.2153) 사전 노출 경험이 통제군과 처치군에 고르게 분포되어 있을 것이다. 따라서 이는 무작위 배정을 위반하지 않는다.
+3.
 No, prior exposure does not violate random assignment. Prior exposure is a pre-treatment characteristic. Because respondents as a whole were randomly assigned to either the treatment or control group(p.2153), not based on their prior exposure status, the distribution of prior exposure is expected to be balanced between both groups. Therefore, it does not violate random assignment.
-
-How might it affect the treatment effect estimated in this experiment?
-실험에 미치는 영향은, 77%의 사람들이 노출되어 포화효과가 발생하고(p.2153), 이에 따라 처치 효과가 잠정적으로 감소하거나 없을 수 있다.
 Because 77% of respondents reported prior exposure, a saturation effect occurs (p. 2153). Since most respondents were already exposed to the message at baseline, the marginal persuasive impact of an additional exposure is diminished. This likely causes the estimated treatment effect to be attenuated toward zero (downwardly biased) or potentially result in a null effect.
  
 
-4. State the Stable Unit Treatment Value Assumption (SUTVA) in this study. 
-이 연구의 SUTVA에서 Yougov(온라인 설문, p.2154)를 이용하여 설문을 진행하여 상호간섭이 없도록 설정하였다. speeder을 제외하고(p.2154), 처치군이 동일한 메시지를 제공하였다는 부분을 논문에서 명시하여  동일한 처치를 받았음을 보여준다 .(p.2153)
+4. 
 SUTVA is no interference and no hidden variation of treatment. Researchers used Yougov survey(p.2154), showing no interference. Researchers eliminated speeders(p.2154), and described two treatments are identical except for the source cue in the paper(p.2153), showing no hidden variation of treatment. 
-
-Give one plausible example of interference or treatment variation.
-데이터를 모으는 기간에 같은 교회를 다니는 교인이 설문 내용을 논의할 경우  간섭 효과가 생길 수 있다. 
 One example of interference is when respondents who attended the same church discussed the survey, there might be a interference.
 
-5. Identify two limits this places on external validity.
-1. 백인 복음주의가 아닌 다른 인종, 종교적 배경을 가진 사람에게 결과를 확대할 수 없는 한계가 있다. 2. 실험에서는 speeder을 제외하였지만 실제 도덕적 메시지를 사람들이 읽을 때에는 speeder들도 존재하기 때문에 외적 타당도에 한계가 있다. 
-1. Demographic and political narrowness: The results cannot be generalized to people with different racial or religious backgrounds, because the sample was white evangelical Republicans. 2. Exclusion of Speeders: The test exclude speeders to ensure high attention, while people in real world read the moral message quickly.Therefore, the results cannot be generalized to typical situation.
+5. 
+1. Demographic and political narrowness: The results cannot be generalized to people with different racial or religious backgrounds, because the sample was white evangelical Republicans. 
+2. Excluding speeders: Speeders were excluded to enhance internal validity and isolate the pure treatment effect. However, this leaves a sample composed primarily of highly attentive respondents. Because the experiment was conducted on a specific subgroup with above-average concentration rather than the general electorate, the findings face limitations in external validity and cannot be easily generalized to individuals with lower attentiveness.
 
-
-6. What can and cannot be concluded about lasting changes in attitudes or political behavior?
-메시지에 노출된 직후 단기적으로는 난민 재정착 태도에 긍정적인 영향을 미칠 수 있는 것으로 결론낼 수 있다. 그러나 이러한 변화가 얼마나 지속되고 실제 투표 행태에 영향을 미치는지는 결론낼 수 없다. 투표에 영향을 미치는 다른 외부 사건이 발생하면 도덕적 메시지보다 영향을 크게 미칠 수 있기 때문이다.
+6. 
 It can be concluded that the message has a positive effect on support for refugee resettlement in the short term. 
 It cannot be concluded whether this shift affects political behavior. Because we cannot observe how long this support endures, especially when respondents are later exposed to other external political events.
 
