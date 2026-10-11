@@ -55,7 +55,7 @@ No. $T_i$ is self-selected, not randomly assigned, so independence $Y_i(1), Y_i(
 #1. Causal research question
 Does the announcement of a large-scale manufacturing investment in an eastern German county change local political behavior? In particular, does it reduce electoral support for the far-right Alternative für Deutschland(AfD)?
 If economic grievance drives far-right support, then regions that received large investments, such as Tesla in Grünheide, CATL in Arnstadt or the semiconductor fabs in Dresden should show weaker surge of AfD. Yet the AfD has kept growing in these regions. Did it grew less than it would have without the investment?
-The primary aim of the research is to estimate the effect of large investment. A secondary aim is to probe the mechanisms behind it. The main cases are Tesla (Oder-Spree), CATL (Ilm-Kreis), Intel (Magdeburg/Börde) etc.
+The primary aim of the research is to estimate the effect of large investment announcement. A secondary aim is to probe the mechanisms behind it. The main cases are Tesla (Oder-Spree), CATL (Ilm-Kreis), Intel (Magdeburg/Börde) etc.
 
 #2. Outcome variable
 The main outcome is the AfD second-vote share (of valid votes) at the county (Kreis) level in federal elections from 2013 to 2025. I use the second vote because it measures support for the party rather than for individual candidates. The data come from the German Election Database (GERDA). Municipal results are aggregated to counties on harmonised 2021 boundaries, so the same units can be followed across elections despite the counties merging(Kreisreform).
@@ -64,13 +64,13 @@ To probe mechanisms, I use state-level ESS data on government satisfaction (stfg
 
 #3. Main explanatory variable 
 The main explanatory variable is the announcement of a large-scale manufacturing investment in a county, coded as a binary treatment. A county is treated when a company officially announces a plant there with at least €1 billion in investment or at least 1,000 planned jobs. If a project crosses this threshold only through a later expansion, the expansion date counts. Dates come from company press releases and official government statements.
-Let $t$ index federal elections (2013, 2017, 2021, 2025), and let $G_i$ be the first federal election after the first qualifying announcement in county $i$. The treatment indicator is $T_{it} = \mathbb{1}\{t \ge G_i\}$. A county is treated from its first post-announcement election onwards and remains treated thereafter. Counties that never receive a qualifying investment have $T_{it} = 0$ in all elections. Counties that receive one later have $T_{it} = 0$ until $G_i$.
+Let $t$ index federal elections (2013, 2017, 2021, 2025). $T_{it} = 1$ if a qualifying investment was announced in county $i$ before election $t$, and $T_{it} = 0$ otherwise. Once treated, a county remains treated in all later elections. Counties that never receive a qualifying investment have $T_{it} = 0$ in all elections, and counties that receive one later have $T_{it} = 0$ until the first election after the announcement.
 
 #4. Is the difference-in-means a valid ATE estimator?
 No. The difference in means estimates the ATE only if treatment is independent of the potential outcomes, $\{Y_i(1), Y_i(0)\} \perp T_i$. That is unlikely here, because firms choose plant locations and state governments compete for them with subsidies.
 First, there is selection bias. Firms prefer counties with good transport links, available land and skilled workers. Such counties are usually less economically declining and may have lower AfD support even without the investment. Firms may also avoid places with a hostile political climate. A naive comparison would therefore attribute this pre-existing gap to the investment.
 Second, firms are likely to pick sites where the spillovers will be largest. The effect in treated counties may then differ from the average effect across all counties.
-A more credible comparison is between counties where an investment was announced and counties that are announced as sites only later, or counties that were seriously considered as alternative sites. These counties also met the firms' location criteria, so they are likely to be similar to the treated counties, although the estimate then applies mainly to counties of this kind.
+A more credible comparison is between counties where an investment was announced and counties that are announced as sites only later, or counties that were seriously considered as alternative sites. These counties also met the firms' location criteria, so they are likely to be similar to the treated counties, although the estimand then applies mainly to counties of this kind.
 
 -------------------------------------------------------
 [Jumyeong Park]
@@ -155,7 +155,7 @@ demora$treatment <- factor(
 --------------------------------------------------------------------------------
 
 #1.
-RQ: Can religious vlaues framing move partisans away from the party line on policy attitudes? 
+RQ: Can religious values framing move partisans away from the party line on policy attitudes? 
 
 #2. 
 The experiment contains three randomly assigned conditions ; Two Treatment groups, and one control group. The Religious Values condition introduces a moral frame emphasizing core Christian teachings. The Religious values + Source cue condition contains the exact same treatment with Religious value group but adds an explicit elite attribution stating. While control group 
@@ -236,7 +236,7 @@ sapply(demora[outcomes], function(x) {
 
 lapply(demora[outcomes], table, useNA = "ifany")
 
-#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
+# Their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
  
 ```
 
@@ -460,7 +460,7 @@ Answer
 
 Answer #1.
 
-| Condition |Feeling Thermometer (0-100) | Resettlement (0-1) | Schooling (1-5) | Benefits (1-5)|
+| Condition | Feeling Thermometer (0-100) | Resettlement (0-1) | Schooling (1-5) | Benefits (1-5)|
 |---|---|---|---|---|
 | (Unweighted) Religious values message | 9.362 | 0.018 | -0.018 | -0.14 |
 | (Unweighted) Religious values + source cue | 5.323 | 0.019 | 0.006 | -0.13 |
