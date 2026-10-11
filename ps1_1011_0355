@@ -237,7 +237,8 @@ sapply(demora[outcomes], function(x) {
 
 lapply(demora[outcomes], table, useNA = "ifany")
 
-#their raw numerical values should not be directly compared because the same numerical difference represents different amounts of change across these scales.
+#their raw numerical values should not be directly compared because
+the same numerical difference represents different amounts of change across these scales.
  
 ```
 
